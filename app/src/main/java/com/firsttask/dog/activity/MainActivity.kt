@@ -1,7 +1,8 @@
-package com.firsttask.dog
+package com.firsttask.dog.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.firsttask.dog.R
 
 class MainActivity : AppCompatActivity() {
 

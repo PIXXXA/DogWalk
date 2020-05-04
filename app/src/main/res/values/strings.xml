@@ -1,3 +1,8 @@
 <resources>
-    <string name="app_name">Dog</string>
+    <string name="app_name">Dog Walk</string>
+
+    <!-- Start Screen -->
+    <string name="start_screen_description">Свяжитесь с выгульщиком \n в один клик</string>
+    <string name="start_screen_login_button">Войти</string>
+    <string name="start_screen_registration_button">Зарегистрироваться</string>
 </resources>

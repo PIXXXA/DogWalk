@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--Labels-->
+    <dimen name="label_default_text_size">16sp</dimen>
+    <dimen name="label_small_text_size">14sp</dimen>
+    <dimen name="label_medium_text_size">18sp</dimen>
+    <dimen name="label_large_text_size">19sp</dimen>
+    <dimen name="label_extra_large_text_size">26sp</dimen>
+    <dimen name="label_error_text_size">12sp</dimen>
+
+    <!-- Start Screen -->
+    <dimen name="start_screen_margin">16dp</dimen>
+
+</resources>
