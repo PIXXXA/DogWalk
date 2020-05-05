@@ -1,22 +1,29 @@
 package com.firsttask.dog.fragments.startscreen
 
-import android.R.attr.fragment
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentManager
-import androidx.fragment.app.FragmentTransaction
-import androidx.lifecycle.ViewModelProviders
+import androidx.lifecycle.ViewModelProvider
+import com.firsttask.dog.Application
 import com.firsttask.dog.R
+import com.firsttask.dog.activity.MainActivity
 import com.firsttask.dog.fragments.login.FragmentLogin
+import com.firsttask.dog.fragments.registration.FragmentRegistration
 import kotlinx.android.synthetic.main.fragment_start_screen.*
-
+import javax.inject.Inject
 
 class FragmentStartScreen : Fragment() {
 
+    @Inject
+    lateinit var viewModelFactory: FragmentStartScreenFactory
     private lateinit var viewModel: FragmentStartScreenViewModel
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        Application.appComponent.inject(this)
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -25,22 +32,19 @@ class FragmentStartScreen : Fragment() {
         return inflater.inflate(R.layout.fragment_start_screen, container, false)
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProviders.of(this).get(FragmentStartScreenViewModel::class.java)
-        // TODO: Use the ViewModel
-    }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        startLogin
+        viewModel =
+            ViewModelProvider(this, viewModelFactory).get(FragmentStartScreenViewModel::class.java)
+        onButtonClick()
     }
 
-    var startLogin = loginButton.setOnClickListener(View.OnClickListener {
-        childFragmentManager.beginTransaction().add(FragmentLogin(), "").commit()
-    })
-
-    companion object {
-        fun newInstance() = FragmentStartScreen()
+    private fun onButtonClick(){
+        loginButton.setOnClickListener {
+            (activity as MainActivity).onScreenStart(FragmentLogin())
+        }
+        registrationButton.setOnClickListener {
+            (activity as MainActivity).onScreenStart(FragmentRegistration())
+        }
     }
 }

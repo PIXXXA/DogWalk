@@ -2,6 +2,7 @@ package com.firsttask.dog.activity
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
 import com.firsttask.dog.R
 import com.firsttask.dog.fragments.login.FragmentLogin
 import com.firsttask.dog.fragments.startscreen.FragmentStartScreen
@@ -12,11 +13,11 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        onScreenStart()
+        onScreenStart(FragmentStartScreen())
     }
 
-    private fun onScreenStart(){
+    fun onScreenStart(fragment : Fragment){
         supportFragmentManager.beginTransaction()
-            .add(R.id.fragmentContainer, FragmentStartScreen()).commit()
+            .replace(R.id.fragmentContainer, fragment).addToBackStack(null).commit()
     }
 }
