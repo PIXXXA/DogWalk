@@ -20,5 +20,6 @@
     <string name="registration_hint_mobile_number">Мобильный номер</string>
     <string name="registration_hint_home_address">Домашний адресс</string>
     <string name="registration_continue_button">Продолжить</string>
+    <string name="registration_error_message">Пожалуйста, заполните %s</string>
 
 </resources>

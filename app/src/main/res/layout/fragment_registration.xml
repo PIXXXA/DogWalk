@@ -1,149 +1,143 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".fragments.registration.FragmentRegistration">
+<layout>
 
-    <include
-        android:id="@+id/toolbar"
-        layout="@layout/fragment_toolbar" />
+    <data>
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/leftGuideline"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_begin="@dimen/registration_margin" />
+        <variable
+            name="viewModel"
+            type="com.firsttask.dog.fragments.registration.FragmentRegistrationViewModel" />
+    </data>
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/rightGuideline"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_end="@dimen/registration_margin" />
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".fragments.registration.FragmentRegistration">
 
-    <TextView
-        android:id="@+id/registrationTitle"
-        style="@style/RegistrationTitle"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/registration_margin"
-        android:text="@string/registration_title"
-        app:layout_constraintEnd_toStartOf="@+id/rightGuideline"
-        app:layout_constraintStart_toStartOf="@+id/leftGuideline"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/leftGuideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="@dimen/registration_margin" />
 
-    <EditText
-        android:id="@+id/registrationName"
-        style="@style/RegistrationEditText"
-        android:autofillHints="@string/registration_hint_name"
-        android:ems="15"
-        android:hint="@string/registration_hint_name"
-        android:inputType="textPersonName"
-        app:layout_constraintEnd_toStartOf="@+id/rightGuideline"
-        app:layout_constraintStart_toStartOf="@+id/leftGuideline"
-        app:layout_constraintTop_toBottomOf="@+id/registrationTitle" />
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/rightGuideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="@dimen/registration_margin" />
 
-    <EditText
-        android:id="@+id/registrationSurname"
-        style="@style/RegistrationEditText"
-        android:autofillHints="@string/registration_hint_surname"
-        android:ems="30"
-        android:hint="@string/registration_hint_surname"
-        android:inputType="textPersonName"
-        app:layout_constraintEnd_toStartOf="@+id/rightGuideline"
-        app:layout_constraintStart_toStartOf="@+id/leftGuideline"
-        app:layout_constraintTop_toBottomOf="@+id/registrationName" />
+        <EditText
+            android:id="@+id/registrationName"
+            style="@style/RegistrationEditText"
+            android:autofillHints="@string/registration_hint_name"
+            android:ems="15"
+            android:hint="@string/registration_hint_name"
+            android:inputType="textPersonName"
+            android:text="@={viewModel.name}"
+            app:layout_constraintEnd_toStartOf="@+id/rightGuideline"
+            app:layout_constraintStart_toStartOf="@+id/leftGuideline"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
-        android:id="@+id/registrationEmail"
-        style="@style/RegistrationEditText"
-        android:autofillHints="@string/registration_hint_email"
-        android:ems="30"
-        android:hint="@string/registration_hint_email"
-        android:inputType="textEmailAddress"
-        app:layout_constraintEnd_toStartOf="@+id/rightGuideline"
-        app:layout_constraintStart_toStartOf="@+id/leftGuideline"
-        app:layout_constraintTop_toBottomOf="@+id/registrationSurname" />
+        <EditText
+            android:id="@+id/registrationSurname"
+            style="@style/RegistrationEditText"
+            android:autofillHints="@string/registration_hint_surname"
+            android:ems="30"
+            android:hint="@string/registration_hint_surname"
+            android:inputType="textPersonName"
+            app:layout_constraintEnd_toStartOf="@+id/rightGuideline"
+            app:layout_constraintStart_toStartOf="@+id/leftGuideline"
+            app:layout_constraintTop_toBottomOf="@+id/registrationName" />
 
-    <EditText
-        android:id="@+id/registrationPassword"
-        style="@style/RegistrationEditText"
-        android:autofillHints="@string/registration_hint_password"
-        android:hint="@string/registration_hint_password"
-        android:inputType="textPassword"
-        app:layout_constraintEnd_toStartOf="@+id/rightGuideline"
-        app:layout_constraintStart_toStartOf="@+id/leftGuideline"
-        app:layout_constraintTop_toBottomOf="@+id/registrationEmail" />
+        <EditText
+            android:id="@+id/registrationEmail"
+            style="@style/RegistrationEditText"
+            android:autofillHints="@string/registration_hint_email"
+            android:ems="30"
+            android:hint="@string/registration_hint_email"
+            android:inputType="textEmailAddress"
+            app:layout_constraintEnd_toStartOf="@+id/rightGuideline"
+            app:layout_constraintStart_toStartOf="@+id/leftGuideline"
+            app:layout_constraintTop_toBottomOf="@+id/registrationSurname" />
 
-    <EditText
-        android:id="@+id/registrationMobileNumber"
-        style="@style/RegistrationEditText"
-        android:autofillHints="registration_hint_mobile_number"
-        android:ems="10"
-        android:hint="@string/registration_hint_mobile_number"
-        android:inputType="numberSigned"
-        app:layout_constraintEnd_toStartOf="@+id/rightGuideline"
-        app:layout_constraintStart_toStartOf="@+id/leftGuideline"
-        app:layout_constraintTop_toBottomOf="@+id/registrationPassword" />
+        <EditText
+            android:id="@+id/registrationPassword"
+            style="@style/RegistrationEditText"
+            android:autofillHints="@string/registration_hint_password"
+            android:hint="@string/registration_hint_password"
+            android:inputType="textPassword"
+            app:layout_constraintEnd_toStartOf="@+id/rightGuideline"
+            app:layout_constraintStart_toStartOf="@+id/leftGuideline"
+            app:layout_constraintTop_toBottomOf="@+id/registrationEmail" />
 
-    <EditText
-        android:id="@+id/registrationHomeAddress"
-        style="@style/RegistrationEditText"
-        android:autofillHints="registration_hint_home_address"
-        android:ems="10"
-        android:hint="@string/registration_hint_home_address"
-        android:inputType="textPersonName"
-        app:layout_constraintEnd_toStartOf="@+id/rightGuideline"
-        app:layout_constraintStart_toStartOf="@+id/leftGuideline"
-        app:layout_constraintTop_toBottomOf="@+id/registrationMobileNumber" />
+        <EditText
+            android:id="@+id/registrationMobileNumber"
+            style="@style/RegistrationEditText"
+            android:autofillHints="registration_hint_mobile_number"
+            android:ems="10"
+            android:hint="@string/registration_hint_mobile_number"
+            android:inputType="numberSigned"
+            app:layout_constraintEnd_toStartOf="@+id/rightGuideline"
+            app:layout_constraintStart_toStartOf="@+id/leftGuideline"
+            app:layout_constraintTop_toBottomOf="@+id/registrationPassword" />
 
-    <TextView
-        android:id="@+id/typeAccountTitle"
-        style="@style/RegistrationSubtitle"
-        android:layout_marginTop="@dimen/registration_margin"
-        android:text="@string/registration_who_am_i"
-        app:layout_constraintEnd_toEndOf="@+id/typeAccountButton"
-        app:layout_constraintStart_toStartOf="@+id/typeAccountButton"
-        app:layout_constraintTop_toBottomOf="@+id/registrationHomeAddress" />
+        <EditText
+            android:id="@+id/registrationHomeAddress"
+            style="@style/RegistrationEditText"
+            android:autofillHints="registration_hint_home_address"
+            android:ems="10"
+            android:hint="@string/registration_hint_home_address"
+            android:inputType="textPersonName"
+            app:layout_constraintEnd_toStartOf="@+id/rightGuideline"
+            app:layout_constraintStart_toStartOf="@+id/leftGuideline"
+            app:layout_constraintTop_toBottomOf="@+id/registrationMobileNumber" />
 
-    <ToggleButton
-        android:id="@+id/typeAccountButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/white_button_design"
-        android:drawableTop="@drawable/ic_pet_owner"
-        android:gravity="bottom|center"
-        android:padding="@dimen/registration_margin"
-        android:textOff="@string/registration_i_am_owner"
-        android:textOn="@string/registration_i_am_walker"
-        app:layout_constraintEnd_toStartOf="@+id/rightGuideline"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="@+id/leftGuideline"
-        app:layout_constraintTop_toBottomOf="@+id/typeAccountTitle" />
+        <TextView
+            android:id="@+id/typeAccountTitle"
+            style="@style/RegistrationSubtitle"
+            android:layout_marginTop="@dimen/registration_margin"
+            android:text="@string/registration_who_am_i"
+            app:layout_constraintEnd_toEndOf="@+id/typeAccountButton"
+            app:layout_constraintStart_toStartOf="@+id/typeAccountButton"
+            app:layout_constraintTop_toBottomOf="@+id/registrationHomeAddress" />
 
-    <TextView
-        android:id="@+id/textView4"
-        style="@style/RegistrationSubtitle"
-        android:text="@string/registration_click_to_change"
-        app:layout_constraintEnd_toStartOf="@+id/rightGuideline"
-        app:layout_constraintStart_toStartOf="@+id/leftGuideline"
-        app:layout_constraintTop_toBottomOf="@+id/typeAccountButton" />
+        <ToggleButton
+            android:id="@+id/typeAccountButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/white_button_design"
+            android:drawableTop="@drawable/ic_pet_owner"
+            android:gravity="bottom|center"
+            android:padding="@dimen/registration_margin"
+            android:textOff="@string/registration_i_am_owner"
+            android:textOn="@string/registration_i_am_walker"
+            app:layout_constraintEnd_toStartOf="@+id/rightGuideline"
+            app:layout_constraintStart_toStartOf="@+id/leftGuideline"
+            app:layout_constraintTop_toBottomOf="@+id/typeAccountTitle" />
 
-    <Button
-        android:id="@+id/registrationContinueButton"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:background="@drawable/blue_button_design"
-        android:text="@string/registration_continue_button"
-        android:textColor="@color/colorWhite"
-        android:textSize="@dimen/label_small_text_size"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/rightGuideline"
-        app:layout_constraintStart_toStartOf="@+id/leftGuideline"
-        app:layout_constraintTop_toBottomOf="@+id/textView4" />
+        <TextView
+            android:id="@+id/textView4"
+            style="@style/RegistrationSubtitle"
+            android:text="@string/registration_click_to_change"
+            app:layout_constraintEnd_toStartOf="@+id/rightGuideline"
+            app:layout_constraintStart_toStartOf="@+id/leftGuideline"
+            app:layout_constraintTop_toBottomOf="@+id/typeAccountButton" />
 
+        <Button
+            android:id="@+id/registrationContinueButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/blue_button_design"
+            android:text="@string/registration_continue_button"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/label_small_text_size"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/rightGuideline"
+            app:layout_constraintStart_toStartOf="@+id/leftGuideline"
+            app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

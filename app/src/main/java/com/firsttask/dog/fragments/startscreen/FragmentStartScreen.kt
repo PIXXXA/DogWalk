@@ -17,6 +17,7 @@ class FragmentStartScreen : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        (activity as MainActivity).hideToolbar()
         return inflater.inflate(R.layout.fragment_start_screen, container, false)
     }
 

@@ -8,6 +8,10 @@ class ResourceProvider(private val context: Context) {
         return context.getString(resId)
     }
 
+    fun getString(stringId: Int, string: String): String? {
+        return context.getString(stringId, string)
+    }
+
     fun getDrawable(id: Int): Drawable? {
         return context.getDrawable(id)
     }
