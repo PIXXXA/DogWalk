@@ -1,7 +1,7 @@
 package com.firsttask.dog.di
 
 import com.firsttask.dog.ResourceProvider
-import com.firsttask.dog.fragments.startscreen.FragmentStartScreenFactory
+import com.firsttask.dog.fragments.registration.FragmentRegistrationFactory
 import dagger.Module
 import dagger.Provides
 import javax.inject.Singleton
@@ -12,8 +12,8 @@ class ViewModelFactoryModule {
     @Singleton
     fun getStartScreenViewModelFactory(
         resourceProvider: ResourceProvider
-    ): FragmentStartScreenFactory {
-        return FragmentStartScreenFactory(
+    ): FragmentRegistrationFactory {
+        return FragmentRegistrationFactory(
             resourceProvider
         )
     }

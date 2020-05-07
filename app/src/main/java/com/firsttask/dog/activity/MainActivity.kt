@@ -13,10 +13,11 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        onScreenStart(FragmentStartScreen())
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.fragmentContainer, FragmentStartScreen()).commit()
     }
 
-    fun onScreenStart(fragment : Fragment){
+    fun onScreenStart(fragment: Fragment) {
         supportFragmentManager.beginTransaction()
             .replace(R.id.fragmentContainer, fragment).addToBackStack(null).commit()
     }

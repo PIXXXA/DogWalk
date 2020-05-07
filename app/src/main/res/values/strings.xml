@@ -1,8 +1,24 @@
 <resources>
-    <string name="app_name">Dog Walk</string>
+    <string name="app_name">DOG WALK</string>
+    <string name="toolbar_back_arrow">Back Arrow</string>
 
     <!-- Start Screen -->
     <string name="start_screen_description">Свяжитесь с выгульщиком \n в один клик</string>
     <string name="start_screen_login_button">Войти</string>
     <string name="start_screen_registration_button">Зарегистрироваться</string>
+
+    <!-- Registration Screen -->
+    <string name="registration_title">Новый пользователь</string>
+    <string name="registration_who_am_i">Кем я являюсь?</string>
+    <string name="registration_i_am_owner">Я хозяин животного</string>
+    <string name="registration_i_am_walker">Я выгульщик</string>
+    <string name="registration_click_to_change">Нажмите, чтобы изменить</string>
+    <string name="registration_hint_name">Имя</string>
+    <string name="registration_hint_surname">Фамилия</string>
+    <string name="registration_hint_email">Email</string>
+    <string name="registration_hint_password">Пароль</string>
+    <string name="registration_hint_mobile_number">Мобильный номер</string>
+    <string name="registration_hint_home_address">Домашний адресс</string>
+    <string name="registration_continue_button">Продолжить</string>
+
 </resources>

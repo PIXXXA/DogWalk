@@ -7,18 +7,22 @@
     tools:context=".fragments.startscreen.FragmentStartScreen">
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/centerGuideline"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.5" />
-
-    <androidx.constraintlayout.widget.Guideline
         android:id="@+id/bottomGuideline"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.7" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/app_name"
+        style="@style/StartScreenDescription.Title"
+        app:layout_constraintBottom_toTopOf="@+id/imageView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/imageView"
@@ -37,25 +41,33 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center"
+        android:layout_marginBottom="@dimen/start_screen_margin"
         android:text="@string/start_screen_description"
+        app:layout_constraintBottom_toTopOf="@+id/bottomGuideline"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/centerGuideline" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/loginButton"
-        android:theme="@style/RoundedCornerButton"
+        android:background="@drawable/blue_button_design"
+        android:textColor="@color/colorWhite"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/start_screen_margin"
         android:text="@string/start_screen_login_button"
+        android:textSize="@dimen/label_small_text_size"
         app:layout_constraintEnd_toEndOf="@+id/textView"
         app:layout_constraintStart_toStartOf="@+id/textView"
         app:layout_constraintTop_toBottomOf="@+id/bottomGuideline" />
 
     <Button
         android:id="@+id/registrationButton"
+        android:background="@drawable/white_button_design"
+        android:textColor="@color/colorBlue"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:textSize="@dimen/label_small_text_size"
+        android:layout_marginTop="@dimen/start_screen_margin"
         android:text="@string/start_screen_registration_button"
         app:layout_constraintEnd_toEndOf="@+id/loginButton"
         app:layout_constraintStart_toStartOf="@+id/loginButton"

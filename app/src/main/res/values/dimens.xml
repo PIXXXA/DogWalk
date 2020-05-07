@@ -6,6 +6,7 @@
     <dimen name="label_medium_text_size">18sp</dimen>
     <dimen name="label_large_text_size">19sp</dimen>
     <dimen name="label_extra_large_text_size">26sp</dimen>
+    <dimen name="label_super_extra_large_text_size">72sp</dimen>
     <dimen name="label_error_text_size">12sp</dimen>
 
     <!-- Start Screen -->
@@ -13,4 +14,5 @@
 
     <!-- Registration -->
     <dimen name="registration_margin">16dp</dimen>
+    <dimen name="registration_zero_weight">0dp</dimen>
 </resources>
