@@ -1,34 +1,88 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".fragments.login.FragmentLogin">
+<layout>
 
-    <com.google.android.material.textfield.TextInputLayout
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.firsttask.dog.fragments.login.LoginViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:layout_height="match_parent"
+        tools:context=".fragments.login.LoginFragment">
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:layout_width="match_parent"
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/loginButtonLeftGuideline"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:hint="hint" />
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="@dimen/login_button_guideline" />
 
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:layout_width="match_parent"
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/loginButtonRightGuideline"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:hint="hint" />
-    </com.google.android.material.textfield.TextInputLayout>
-</androidx.constraintlayout.widget.ConstraintLayout>
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="@dimen/login_button_guideline" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/centralGuideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.5" />
+
+        <TextView
+            android:id="@+id/startScreenTitle"
+            style="@style/StartScreenDescription.Title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/login_margin"
+            android:text="@string/app_name"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/loginEmail"
+            style="@style/EditTextHint"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:autofillHints="@string/edit_text_hint_name"
+            android:hint="@string/edit_text_hint_name"
+            android:inputType="textEmailAddress"
+            app:layout_constraintEnd_toStartOf="@+id/loginButtonRightGuideline"
+            app:layout_constraintStart_toStartOf="@+id/loginButtonLeftGuideline"
+            app:layout_constraintTop_toTopOf="@+id/centralGuideline" />
+
+        <EditText
+            android:id="@+id/loginPassword"
+            style="@style/EditTextHint"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:autofillHints="@string/edit_text_hint_password"
+            android:hint="@string/edit_text_hint_password"
+            android:inputType="textPassword"
+            app:layout_constraintEnd_toStartOf="@+id/loginButtonRightGuideline"
+            app:layout_constraintStart_toStartOf="@+id/loginButtonLeftGuideline"
+            app:layout_constraintTop_toBottomOf="@+id/loginEmail" />
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/blue_button_design"
+            android:text="@string/login_button_title"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/label_small_text_size"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/loginButtonRightGuideline"
+            app:layout_constraintStart_toStartOf="@+id/loginButtonLeftGuideline"
+            app:layout_constraintTop_toBottomOf="@+id/loginPassword" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

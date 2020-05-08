@@ -5,7 +5,7 @@
 
         <variable
             name="viewModel"
-            type="com.firsttask.dog.fragments.registration.FragmentRegistrationViewModel" />
+            type="com.firsttask.dog.fragments.registration.RegistrationViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -13,17 +13,17 @@
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".fragments.registration.FragmentRegistration">
+        tools:context=".fragments.registration.RegistrationFragment">
 
         <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/leftGuideline"
+            android:id="@+id/registrationLeftGuideline"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             app:layout_constraintGuide_begin="@dimen/registration_margin" />
 
         <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/rightGuideline"
+            android:id="@+id/registrationRightGuideline"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
@@ -31,68 +31,63 @@
 
         <EditText
             android:id="@+id/registrationName"
-            style="@style/RegistrationEditText"
-            android:autofillHints="@string/registration_hint_name"
-            android:ems="15"
-            android:hint="@string/registration_hint_name"
+            style="@style/EditTextHint"
+            android:autofillHints="@string/edit_text_hint_name"
+            android:hint="@string/edit_text_hint_name"
             android:inputType="textPersonName"
             android:text="@={viewModel.name}"
-            app:layout_constraintEnd_toStartOf="@+id/rightGuideline"
-            app:layout_constraintStart_toStartOf="@+id/leftGuideline"
+            app:layout_constraintEnd_toStartOf="@+id/registrationRightGuideline"
+            app:layout_constraintStart_toStartOf="@+id/registrationLeftGuideline"
             app:layout_constraintTop_toTopOf="parent" />
 
         <EditText
             android:id="@+id/registrationSurname"
-            style="@style/RegistrationEditText"
-            android:autofillHints="@string/registration_hint_surname"
-            android:ems="30"
-            android:hint="@string/registration_hint_surname"
+            style="@style/EditTextHint"
+            android:autofillHints="@string/edit_text_hint_surname"
+            android:hint="@string/edit_text_hint_surname"
             android:inputType="textPersonName"
-            app:layout_constraintEnd_toStartOf="@+id/rightGuideline"
-            app:layout_constraintStart_toStartOf="@+id/leftGuideline"
+            app:layout_constraintEnd_toStartOf="@+id/registrationRightGuideline"
+            app:layout_constraintStart_toStartOf="@+id/registrationLeftGuideline"
             app:layout_constraintTop_toBottomOf="@+id/registrationName" />
 
         <EditText
             android:id="@+id/registrationEmail"
-            style="@style/RegistrationEditText"
-            android:autofillHints="@string/registration_hint_email"
-            android:ems="30"
-            android:hint="@string/registration_hint_email"
+            style="@style/EditTextHint"
+            android:autofillHints="@string/edit_text_hint_email"
+            android:hint="@string/edit_text_hint_email"
             android:inputType="textEmailAddress"
-            app:layout_constraintEnd_toStartOf="@+id/rightGuideline"
-            app:layout_constraintStart_toStartOf="@+id/leftGuideline"
+            app:layout_constraintEnd_toStartOf="@+id/registrationRightGuideline"
+            app:layout_constraintStart_toStartOf="@+id/registrationLeftGuideline"
             app:layout_constraintTop_toBottomOf="@+id/registrationSurname" />
 
         <EditText
             android:id="@+id/registrationPassword"
-            style="@style/RegistrationEditText"
-            android:autofillHints="@string/registration_hint_password"
-            android:hint="@string/registration_hint_password"
+            style="@style/EditTextHint"
+            android:autofillHints="@string/edit_text_hint_password"
+            android:hint="@string/edit_text_hint_password"
             android:inputType="textPassword"
-            app:layout_constraintEnd_toStartOf="@+id/rightGuideline"
-            app:layout_constraintStart_toStartOf="@+id/leftGuideline"
+            app:layout_constraintEnd_toStartOf="@+id/registrationRightGuideline"
+            app:layout_constraintStart_toStartOf="@+id/registrationLeftGuideline"
             app:layout_constraintTop_toBottomOf="@+id/registrationEmail" />
 
         <EditText
             android:id="@+id/registrationMobileNumber"
-            style="@style/RegistrationEditText"
+            style="@style/EditTextHint"
             android:autofillHints="registration_hint_mobile_number"
-            android:ems="10"
-            android:hint="@string/registration_hint_mobile_number"
+            android:hint="@string/edit_text_hint_mobile_number"
             android:inputType="numberSigned"
-            app:layout_constraintEnd_toStartOf="@+id/rightGuideline"
-            app:layout_constraintStart_toStartOf="@+id/leftGuideline"
+            app:layout_constraintEnd_toStartOf="@+id/registrationRightGuideline"
+            app:layout_constraintStart_toStartOf="@+id/registrationLeftGuideline"
             app:layout_constraintTop_toBottomOf="@+id/registrationPassword" />
 
         <EditText
             android:id="@+id/registrationHomeAddress"
-            style="@style/RegistrationEditText"
+            style="@style/EditTextHint"
             android:autofillHints="registration_hint_home_address"
-            android:ems="10"
-            android:hint="@string/registration_hint_home_address"
+            android:hint="@string/edit_text_hint_home_address"
             android:inputType="textPersonName"
-            app:layout_constraintEnd_toStartOf="@+id/rightGuideline"
-            app:layout_constraintStart_toStartOf="@+id/leftGuideline"
+            app:layout_constraintEnd_toStartOf="@+id/registrationRightGuideline"
+            app:layout_constraintStart_toStartOf="@+id/registrationLeftGuideline"
             app:layout_constraintTop_toBottomOf="@+id/registrationMobileNumber" />
 
         <TextView
@@ -114,16 +109,16 @@
             android:padding="@dimen/registration_margin"
             android:textOff="@string/registration_i_am_owner"
             android:textOn="@string/registration_i_am_walker"
-            app:layout_constraintEnd_toStartOf="@+id/rightGuideline"
-            app:layout_constraintStart_toStartOf="@+id/leftGuideline"
+            app:layout_constraintEnd_toStartOf="@+id/registrationRightGuideline"
+            app:layout_constraintStart_toStartOf="@+id/registrationLeftGuideline"
             app:layout_constraintTop_toBottomOf="@+id/typeAccountTitle" />
 
         <TextView
-            android:id="@+id/textView4"
+            android:id="@+id/typeAccountDescription"
             style="@style/RegistrationSubtitle"
             android:text="@string/registration_click_to_change"
-            app:layout_constraintEnd_toStartOf="@+id/rightGuideline"
-            app:layout_constraintStart_toStartOf="@+id/leftGuideline"
+            app:layout_constraintEnd_toStartOf="@+id/registrationRightGuideline"
+            app:layout_constraintStart_toStartOf="@+id/registrationLeftGuideline"
             app:layout_constraintTop_toBottomOf="@+id/typeAccountButton" />
 
         <Button
@@ -135,9 +130,9 @@
             android:textColor="@color/colorWhite"
             android:textSize="@dimen/label_small_text_size"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/rightGuideline"
-            app:layout_constraintStart_toStartOf="@+id/leftGuideline"
-            app:layout_constraintTop_toBottomOf="@+id/textView4" />
+            app:layout_constraintEnd_toStartOf="@+id/registrationRightGuideline"
+            app:layout_constraintStart_toStartOf="@+id/registrationLeftGuideline"
+            app:layout_constraintTop_toBottomOf="@+id/typeAccountDescription" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

@@ -4,7 +4,21 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragments.startscreen.FragmentStartScreen">
+    tools:context=".fragments.startscreen.StartScreenFragment">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/startScreenLeftGuideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="@dimen/start_screen_button_guideline" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/startScreenRightGuideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_end="@dimen/start_screen_button_guideline" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/bottomGuideline"
@@ -14,62 +28,64 @@
         app:layout_constraintGuide_percent="0.7" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/startScreenTitle"
+        style="@style/StartScreenDescription.Title"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/start_screen_margin"
         android:text="@string/app_name"
-        style="@style/StartScreenDescription.Title"
-        app:layout_constraintBottom_toTopOf="@+id/imageView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/startScreenImageView"
         android:layout_width="200dp"
         android:layout_height="200dp"
         android:layout_marginBottom="@dimen/start_screen_margin"
         android:contentDescription="@string/start_screen_description"
         android:src="@drawable/ic_start_screen"
-        app:layout_constraintBottom_toTopOf="@+id/textView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintBottom_toTopOf="@+id/startScreenDescription"
+        app:layout_constraintEnd_toStartOf="@+id/startScreenRightGuideline"
+        app:layout_constraintStart_toStartOf="@+id/startScreenLeftGuideline"
+        app:layout_constraintTop_toBottomOf="@+id/startScreenTitle" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/startScreenDescription"
         style="@style/StartScreenDescription"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:gravity="center"
         android:layout_marginBottom="@dimen/start_screen_margin"
+        android:gravity="center"
         android:text="@string/start_screen_description"
         app:layout_constraintBottom_toTopOf="@+id/bottomGuideline"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintEnd_toStartOf="@+id/startScreenRightGuideline"
+        app:layout_constraintStart_toStartOf="@+id/startScreenLeftGuideline" />
 
     <Button
         android:id="@+id/loginButton"
-        android:background="@drawable/blue_button_design"
-        android:textColor="@color/colorWhite"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/start_screen_margin"
-        android:text="@string/start_screen_login_button"
+        android:background="@drawable/blue_button_design"
+        android:text="@string/login_button_title"
+        android:textColor="@color/colorWhite"
         android:textSize="@dimen/label_small_text_size"
-        app:layout_constraintEnd_toEndOf="@+id/textView"
-        app:layout_constraintStart_toStartOf="@+id/textView"
+        app:layout_constraintEnd_toStartOf="@+id/startScreenRightGuideline"
+        app:layout_constraintStart_toStartOf="@+id/startScreenLeftGuideline"
         app:layout_constraintTop_toBottomOf="@+id/bottomGuideline" />
 
     <Button
         android:id="@+id/registrationButton"
-        android:background="@drawable/white_button_design"
-        android:textColor="@color/colorBlue"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:textSize="@dimen/label_small_text_size"
         android:layout_marginTop="@dimen/start_screen_margin"
-        android:text="@string/start_screen_registration_button"
-        app:layout_constraintEnd_toEndOf="@+id/loginButton"
-        app:layout_constraintStart_toStartOf="@+id/loginButton"
+        android:background="@drawable/white_button_design"
+        android:text="@string/registration_button_title"
+        android:textColor="@color/colorBlue"
+        android:textSize="@dimen/label_small_text_size"
+        app:layout_constraintEnd_toStartOf="@+id/startScreenRightGuideline"
+        app:layout_constraintStart_toStartOf="@+id/startScreenLeftGuideline"
         app:layout_constraintTop_toBottomOf="@+id/loginButton" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

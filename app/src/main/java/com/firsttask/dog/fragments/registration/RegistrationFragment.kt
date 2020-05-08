@@ -2,32 +2,29 @@ package com.firsttask.dog.fragments.registration
 
 import android.os.Bundle
 import android.view.*
-import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.widget.Toolbar
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.firsttask.dog.Application
 import com.firsttask.dog.R
-import com.firsttask.dog.activity.MainActivity
+import com.firsttask.dog.activity.LoginActivity
 import com.firsttask.dog.databinding.FragmentRegistrationBinding
-import com.firsttask.dog.fragments.startscreen.FragmentStartScreen
+import com.firsttask.dog.fragments.startscreen.StartScreenFragment
 import kotlinx.android.synthetic.main.fragment_registration.*
 import javax.inject.Inject
 
 
-class FragmentRegistration : Fragment() {
+class RegistrationFragment : Fragment() {
 
     @Inject
-    lateinit var viewModelFactory: FragmentRegistrationFactory
-    private lateinit var viewModel: FragmentRegistrationViewModel
+    lateinit var viewModelFactory: RegistrationFactory
+    private lateinit var viewModel: RegistrationViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        (activity as MainActivity).showToolbar(R.string.registration_title)
         Application.appComponent.inject(this)
         viewModel =
-            ViewModelProvider(this, viewModelFactory).get(FragmentRegistrationViewModel::class.java)
+            ViewModelProvider(this, viewModelFactory).get(RegistrationViewModel::class.java)
     }
 
     override fun onCreateView(
@@ -41,11 +38,12 @@ class FragmentRegistration : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        (activity as LoginActivity).showToolbar(R.string.registration_title)
         viewModel.toggleButtonValidation(typeAccountButton)
         continueClick()
     }
 
-    fun continueClick() {
+    private fun continueClick() {
         registrationContinueButton.setOnClickListener {
             if (viewModel.validateEditText(
                     registrationName,
@@ -56,7 +54,7 @@ class FragmentRegistration : Fragment() {
                     registrationHomeAddress
                 )
             ) {
-                (activity as MainActivity).onScreenStart(FragmentStartScreen())
+                (activity as LoginActivity).onScreenStart(StartScreenFragment())
             }
         }
     }

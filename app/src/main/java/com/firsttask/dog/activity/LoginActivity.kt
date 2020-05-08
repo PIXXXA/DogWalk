@@ -5,19 +5,17 @@ import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.firsttask.dog.R
-import com.firsttask.dog.fragments.login.FragmentLogin
-import com.firsttask.dog.fragments.startscreen.FragmentStartScreen
-import kotlinx.android.synthetic.main.activity_main.*
+import com.firsttask.dog.fragments.startscreen.StartScreenFragment
 import kotlinx.android.synthetic.main.fragment_toolbar.*
 
-class MainActivity : AppCompatActivity() {
+class LoginActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         addToolbar()
         supportFragmentManager.beginTransaction()
-            .replace(R.id.fragmentContainer, FragmentStartScreen()).commit()
+            .replace(R.id.fragmentContainer, StartScreenFragment()).commit()
     }
 
     fun onScreenStart(fragment: Fragment) {
@@ -39,11 +37,6 @@ class MainActivity : AppCompatActivity() {
         supportActionBar?.show()
         supportActionBar?.title = getString(stringId)
     }
-
-    fun setToolbarTitle() {
-
-    }
-
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if (item.itemId == android.R.id.home) {
             onBackPressed()
