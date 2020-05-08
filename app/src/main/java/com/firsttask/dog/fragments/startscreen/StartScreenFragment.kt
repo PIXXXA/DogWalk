@@ -6,18 +6,18 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.firsttask.dog.R
-import com.firsttask.dog.activity.MainActivity
-import com.firsttask.dog.fragments.login.FragmentLogin
-import com.firsttask.dog.fragments.registration.FragmentRegistration
+import com.firsttask.dog.activity.LoginActivity
+import com.firsttask.dog.fragments.login.LoginFragment
+import com.firsttask.dog.fragments.registration.RegistrationFragment
 import kotlinx.android.synthetic.main.fragment_start_screen.*
 
-class FragmentStartScreen : Fragment() {
+class StartScreenFragment : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        (activity as MainActivity).hideToolbar()
+        (activity as LoginActivity).hideToolbar()
         return inflater.inflate(R.layout.fragment_start_screen, container, false)
     }
 
@@ -28,10 +28,10 @@ class FragmentStartScreen : Fragment() {
 
     private fun onButtonClick() {
         loginButton.setOnClickListener {
-            (activity as MainActivity).onScreenStart(FragmentLogin())
+            (activity as LoginActivity).onScreenStart(LoginFragment())
         }
         registrationButton.setOnClickListener {
-            (activity as MainActivity).onScreenStart(FragmentRegistration())
+            (activity as LoginActivity).onScreenStart(RegistrationFragment())
         }
     }
 }

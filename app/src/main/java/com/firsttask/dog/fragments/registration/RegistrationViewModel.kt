@@ -1,10 +1,7 @@
 package com.firsttask.dog.fragments.registration
 
-import android.text.Editable
-import android.text.TextWatcher
 import android.widget.EditText
 import android.widget.ToggleButton
-import androidx.core.widget.doAfterTextChanged
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.firsttask.dog.R
@@ -15,7 +12,7 @@ import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
 
-class FragmentRegistrationViewModel(
+class RegistrationViewModel(
     private val resourceProvider: ResourceProvider,
     private val appDatabase: AppDatabase
 ) : ViewModel() {
@@ -57,59 +54,33 @@ class FragmentRegistrationViewModel(
         passwordEditText: EditText,
         mobileNumberEditText: EditText,
         homeAddressEditText: EditText
-    ) : Boolean {
-        when {
-             nameEditText.text.toString().isEmpty() -> {
-                nameEditText.error = resourceProvider.getString(
-                    R.string.registration_error_message,
-                    nameEditText.hint.toString()
-                )
-                return false
-            }
-            surnameEditText.text.toString().isEmpty() -> {
-                nameEditText.error = resourceProvider.getString(
-                    R.string.registration_error_message,
-                    nameEditText.hint.toString()
-                )
-                return false
-            }
-            emailEditText.text.toString().isEmpty() -> {
-                nameEditText.error = resourceProvider.getString(
-                    R.string.registration_error_message,
-                    nameEditText.hint.toString()
-                )
-                return false
-            }
-            passwordEditText.text.toString().isEmpty() -> {
-                nameEditText.error = resourceProvider.getString(
-                    R.string.registration_error_message,
-                    nameEditText.hint.toString()
-                )
-                return false
-            }
-            mobileNumberEditText.text.toString().isEmpty() -> {
-                nameEditText.error = resourceProvider.getString(
-                    R.string.registration_error_message,
-                    nameEditText.hint.toString()
-                )
-                return false
-            }
-            homeAddressEditText.text.toString().isEmpty() -> {
-                nameEditText.error = resourceProvider.getString(
-                    R.string.registration_error_message,
-                    nameEditText.hint.toString()
-                )
-                return false
-            }
-            else -> {
-                addUserToDatabase()
-                return true
-            }
+    ): Boolean {
+        return if (nameEditText.text.toString().isNotEmpty() && surnameEditText.text.toString()
+                .isNotEmpty() && emailEditText.text.toString()
+                .isNotEmpty() && passwordEditText.text.toString()
+                .isNotEmpty() && mobileNumberEditText.text.toString()
+                .isNotEmpty() && homeAddressEditText.text.toString().isNotEmpty()
+        ) {
+            addUserToDatabase()
+            true
+        } else {
+            validateCases(nameEditText)
+            validateCases(surnameEditText)
+            validateCases(emailEditText)
+            validateCases(passwordEditText)
+            validateCases(mobileNumberEditText)
+            validateCases(homeAddressEditText)
+            false
         }
     }
 
-    fun validateCases(){
-
+    private fun validateCases(editText: EditText) {
+        if (editText.text.toString().isEmpty()) {
+            editText.error = resourceProvider.getString(
+                R.string.registration_error_message,
+                editText.hint.toString()
+            )
+        }
     }
 
     private fun addUserToDatabase() {

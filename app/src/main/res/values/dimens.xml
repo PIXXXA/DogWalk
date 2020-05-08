@@ -11,8 +11,14 @@
 
     <!-- Start Screen -->
     <dimen name="start_screen_margin">16dp</dimen>
+    <dimen name="start_screen_button_guideline">40dp</dimen>
 
     <!-- Registration -->
     <dimen name="registration_margin">16dp</dimen>
     <dimen name="registration_zero_weight">0dp</dimen>
+    <dimen name="registration_button_guideline">40dp</dimen>
+
+    <!-- Login Screen -->
+    <dimen name="login_margin">16dp</dimen>
+    <dimen name="login_button_guideline">40dp</dimen>
 </resources>
