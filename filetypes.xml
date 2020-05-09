@@ -1,9 +1,0 @@
-<application>
-  <component name="FileTypeManager" version="17">
-    <extensionMap>
-      <mapping pattern="DogWalkDB" type="PLAIN_TEXT" />
-      <mapping pattern="DogWalkDB-shm" type="SQL" />
-      <mapping pattern="DogWalkDB-wal" type="SQLAndroid file" />
-    </extensionMap>
-  </component>
-</application>

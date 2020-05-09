@@ -54,4 +54,11 @@
         <item name="android:textSize">@dimen/label_small_text_size</item>
     </style>
 
+    <!-- All Walkers Fragment -->
+    <style name="ButtonTitle">
+        <item name="android:textSize">@dimen/label_error_text_size</item>
+        <item name="android:textColor">@color/colorBlack</item>
+        <item name="android:gravity">center</item>
+    </style>
+
 </resources>

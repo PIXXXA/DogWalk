@@ -21,4 +21,10 @@
     <!-- Login Screen -->
     <dimen name="login_margin">16dp</dimen>
     <dimen name="login_button_guideline">40dp</dimen>
+
+    <!-- All Walkers Fragment -->
+    <dimen name="all_walkers_button_width">65dp</dimen>
+    <dimen name="all_walkers_button_height">40dp</dimen>
+    <dimen name="all_walkers_margin">16dp</dimen>
+
 </resources>

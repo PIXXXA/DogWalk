@@ -26,4 +26,14 @@
     <!-- Login Screen -->
     <string name="login_title">Логин</string>
 
+    <!-- Walker Activity -->
+    <string name="navigation_bar_walker">Все выгульщики</string>
+    <string name="navigation_bar_my_profile">Мой профиль</string>
+
+    <!-- All Walkers Fragment -->
+    <string name="all_walker_search_button">Поиск</string>
+    <string name="all_walker_filter_button">Фильтр</string>
+    <string name="all_walker_edit_text_hint">Введите для поиска</string>
+    <string name="all_walker_experience">Опыт : %s</string>
+
 </resources>

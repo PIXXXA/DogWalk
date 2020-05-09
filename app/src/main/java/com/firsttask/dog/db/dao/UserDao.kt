@@ -3,6 +3,7 @@ package com.firsttask.dog.db.dao
 import androidx.room.*
 import com.firsttask.dog.db.entity.User
 
+
 @Dao
 interface UserDao {
     @Insert
@@ -17,6 +18,9 @@ interface UserDao {
     @Query("Select * From User")
     fun getAll(): List<User>
 
-//    @Query("Select * from User where name=:searchString or surname=:searchString")
-//    fun searchType(searchString: String)
+    @Query("Select * from User where email=:argEmail and password=:argPassword")
+    fun getLoginValidation(argEmail: String, argPassword: String): User
+
+    @Query("SELECT * FROM User WHERE User.name LIKE :username")
+    fun getAccount(username: String): User
 }
