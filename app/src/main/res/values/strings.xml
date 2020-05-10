@@ -36,4 +36,9 @@
     <string name="all_walker_edit_text_hint">Введите для поиска</string>
     <string name="all_walker_experience">Опыт : %s</string>
 
+    <!-- Profile Fragment -->
+    <string name="profile">Профиль</string>
+    <string name="profile_click_to_edit">Редактировать профиль ></string>
+    <string name="profile_all_dogs">Собаки</string>
+
 </resources>

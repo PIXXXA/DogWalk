@@ -31,7 +31,7 @@
 
         <EditText
             android:id="@+id/registrationName"
-            style="@style/EditTextHint"
+            style="@style/EditTextHint.Text"
             android:autofillHints="@string/edit_text_hint_name"
             android:hint="@string/edit_text_hint_name"
             android:inputType="textPersonName"
@@ -42,7 +42,7 @@
 
         <EditText
             android:id="@+id/registrationSurname"
-            style="@style/EditTextHint"
+            style="@style/EditTextHint.Text"
             android:autofillHints="@string/edit_text_hint_surname"
             android:hint="@string/edit_text_hint_surname"
             android:inputType="textPersonName"
@@ -52,7 +52,7 @@
 
         <EditText
             android:id="@+id/registrationEmail"
-            style="@style/EditTextHint"
+            style="@style/EditTextHint.Text"
             android:autofillHints="@string/edit_text_hint_email"
             android:hint="@string/edit_text_hint_email"
             android:inputType="textEmailAddress"
@@ -62,7 +62,7 @@
 
         <EditText
             android:id="@+id/registrationPassword"
-            style="@style/EditTextHint"
+            style="@style/EditTextHint.Text"
             android:autofillHints="@string/edit_text_hint_password"
             android:hint="@string/edit_text_hint_password"
             android:inputType="textPassword"
@@ -72,7 +72,7 @@
 
         <EditText
             android:id="@+id/registrationMobileNumber"
-            style="@style/EditTextHint"
+            style="@style/EditTextHint.Text"
             android:autofillHints="registration_hint_mobile_number"
             android:hint="@string/edit_text_hint_mobile_number"
             android:inputType="numberSigned"
@@ -82,7 +82,7 @@
 
         <EditText
             android:id="@+id/registrationHomeAddress"
-            style="@style/EditTextHint"
+            style="@style/EditTextHint.Text"
             android:autofillHints="registration_hint_home_address"
             android:hint="@string/edit_text_hint_home_address"
             android:inputType="textPersonName"

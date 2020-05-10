@@ -25,6 +25,14 @@
     <!-- All Walkers Fragment -->
     <dimen name="all_walkers_button_width">65dp</dimen>
     <dimen name="all_walkers_button_height">40dp</dimen>
+    <dimen name="walkers_icon_size">40dp</dimen>
     <dimen name="all_walkers_margin">16dp</dimen>
+    <dimen name="all_walkers_recycler_view_margin">8dp</dimen>
+
+    <!-- Profile Fragment -->
+    <dimen name="profile_margin">16dp</dimen>
+    <dimen name="profile_icon_size">40dp</dimen>
+    <dimen name="profile_card_view_margin">8dp</dimen>
+    <dimen name="profile_divider">2dp</dimen>
 
 </resources>

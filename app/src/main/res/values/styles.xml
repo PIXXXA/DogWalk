@@ -17,6 +17,9 @@
         <item name="android:textColor">@color/colorBlack</item>
         <item name="android:layout_width">0dp</item>
         <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="EditTextHint.Text">
         <item name="android:layout_marginTop">@dimen/registration_margin</item>
     </style>
 
@@ -58,6 +61,41 @@
     <style name="ButtonTitle">
         <item name="android:textSize">@dimen/label_error_text_size</item>
         <item name="android:textColor">@color/colorBlack</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="WalkersRecyclerViewSubtitle">
+        <item name="android:textColor">@color/colorBlack</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/label_small_text_size</item>
+    </style>
+
+    <style name="WalkersRecyclerViewSubtitle.Title">
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <!-- Profile Fragment -->
+    <style name="ProfileSubtitle">
+        <item name="android:textColor">@color/colorBlack</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/label_small_text_size</item>
+    </style>
+
+    <style name="ProfileSubtitle.Title">
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="ProfileSubtitle.DogsTitle">
+        <item name="android:textStyle">italic</item>
+        <item name="android:textSize">@dimen/label_medium_text_size</item>
+    </style>
+
+    <style name="ProfileRecyclerViewTitle">
+        <item name="android:textSize">@dimen/label_medium_text_size</item>
+        <item name="android:shadowColor">@color/colorPrimaryDark</item>
+        <item name="android:fontFamily">@font/catwalk</item>
         <item name="android:gravity">center</item>
     </style>
 

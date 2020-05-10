@@ -1,56 +1,69 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/all_walkers_margin"
+    app:cardCornerRadius="@dimen/all_walkers_margin">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:padding="@dimen/all_walkers_recycler_view_margin">
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/leftGuideline"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            app:layout_constraintGuide_begin="@dimen/all_walkers_margin" />
+            app:layout_constraintGuide_begin="@dimen/all_walkers_recycler_view_margin" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/rightGuideline"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            app:layout_constraintGuide_end="@dimen/all_walkers_margin" />
+            app:layout_constraintGuide_end="@dimen/all_walkers_recycler_view_margin" />
+
+        <ImageView
+            android:id="@+id/walkerIcon"
+            android:layout_width="@dimen/walkers_icon_size"
+            android:layout_height="@dimen/walkers_icon_size"
+            android:background="@color/colorBlue"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_my_profile"
+            android:contentDescription="@string/navigation_bar_walker" />
 
         <TextView
             android:id="@+id/walkerName"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text=""
-            android:layout_marginTop="@dimen/all_walkers_margin"
+            style="@style/WalkersRecyclerViewSubtitle.Title"
+            android:layout_marginStart="@dimen/all_walkers_margin"
             app:layout_constraintEnd_toStartOf="@+id/rightGuideline"
-            app:layout_constraintStart_toStartOf="@+id/leftGuideline"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintStart_toEndOf="@+id/walkerIcon"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Alexander Ushakov" />
 
         <TextView
             android:id="@+id/walkerExperience"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/all_walkers_margin"
-            android:text=""
+            style="@style/WalkersRecyclerViewSubtitle"
+            android:layout_marginStart="@dimen/all_walkers_margin"
+            android:layout_marginTop="@dimen/all_walkers_recycler_view_margin"
             app:layout_constraintEnd_toStartOf="@+id/rightGuideline"
-            app:layout_constraintStart_toStartOf="@+id/leftGuideline"
-            app:layout_constraintTop_toBottomOf="@+id/walkerName" />
+            app:layout_constraintStart_toEndOf="@+id/walkerIcon"
+            app:layout_constraintTop_toBottomOf="@+id/walkerName"
+            tools:text="Experience: 10 year" />
 
         <TextView
             android:id="@+id/walkerDescription"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/all_walkers_margin"
-            android:text=""
+            style="@style/WalkersRecyclerViewSubtitle"
+            android:layout_marginStart="@dimen/all_walkers_margin"
+            android:layout_marginTop="@dimen/all_walkers_recycler_view_margin"
             app:layout_constraintEnd_toStartOf="@+id/rightGuideline"
-            app:layout_constraintStart_toStartOf="@+id/leftGuideline"
-            app:layout_constraintTop_toBottomOf="@+id/walkerExperience" />
+            app:layout_constraintStart_toEndOf="@+id/walkerIcon"
+            app:layout_constraintTop_toBottomOf="@+id/walkerExperience"
+            tools:text="About Me can tell so natch information" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>

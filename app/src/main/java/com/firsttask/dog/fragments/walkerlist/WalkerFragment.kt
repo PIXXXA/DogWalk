@@ -11,11 +11,12 @@ import com.firsttask.dog.R
 
 class WalkerFragment : Fragment() {
 
-    companion object {
-        fun newInstance() = WalkerFragment()
-    }
-
     private lateinit var viewModel: WalkerViewModel
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        viewModel = ViewModelProviders.of(this).get(WalkerViewModel::class.java)
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -30,4 +31,7 @@ class WalkerFragment : Fragment() {
         // TODO: Use the ViewModel
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+    }
 }

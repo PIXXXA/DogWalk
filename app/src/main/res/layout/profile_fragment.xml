@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragments.profile.ProfileFragment">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/profileLeftGuideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="@dimen/profile_margin" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/profileRightGuideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_end="@dimen/profile_margin" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/editProfileCardView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/profile_margin"
+        app:cardCornerRadius="@dimen/profile_margin"
+        app:layout_constraintEnd_toStartOf="@+id/profileRightGuideline"
+        app:layout_constraintStart_toStartOf="@+id/profileLeftGuideline"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="8dp">
+
+            <ImageView
+                android:id="@+id/profileIcon"
+                android:layout_width="@dimen/profile_icon_size"
+                android:layout_height="@dimen/profile_icon_size"
+                android:background="@color/colorBlue"
+                android:contentDescription="@string/profile"
+                android:src="@drawable/ic_my_profile"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/profileName"
+                style="@style/ProfileSubtitle.Title"
+                android:layout_marginStart="@dimen/profile_margin"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/profileIcon"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Alexander Ushakov" />
+
+            <TextView
+                android:id="@+id/clickToEdit"
+                style="@style/ProfileSubtitle"
+                android:layout_marginStart="@dimen/profile_margin"
+                android:layout_marginTop="@dimen/profile_card_view_margin"
+                android:text="@string/profile_click_to_edit"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/profileIcon"
+                app:layout_constraintTop_toBottomOf="@+id/profileName" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/allDogs"
+        style="@style/ProfileSubtitle.DogsTitle"
+        android:layout_marginTop="@dimen/profile_margin"
+        android:text="@string/profile_all_dogs"
+        app:layout_constraintEnd_toStartOf="@+id/profileRightGuideline"
+        app:layout_constraintStart_toStartOf="@+id/profileLeftGuideline"
+        app:layout_constraintTop_toBottomOf="@id/editProfileCardView" />
+
+    <view
+        android:layout_width="0dp"
+        android:layout_height="@dimen/profile_divider"
+        android:background="@color/colorBlack"
+        app:layout_constraintEnd_toEndOf="@id/profileRightGuideline"
+        app:layout_constraintStart_toStartOf="@+id/profileLeftGuideline"
+        app:layout_constraintTop_toBottomOf="@id/allDogs" />
+
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/profile_margin"
+        android:layout_marginBottom="@dimen/profile_margin"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/profileRightGuideline"
+        app:layout_constraintStart_toStartOf="@+id/profileLeftGuideline"
+        app:layout_constraintTop_toBottomOf="@id/allDogs">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+        </LinearLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

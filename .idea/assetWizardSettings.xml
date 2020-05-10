@@ -178,9 +178,10 @@
                         </option>
                         <option name="values">
                           <map>
+                            <entry key="assetSourceType" value="FILE" />
                             <entry key="color" value="ffffff" />
-                            <entry key="outputName" value="ic_filter_button" />
-                            <entry key="sourceFile" value="G:\Download\walking-the-dog.svg" />
+                            <entry key="outputName" value="ic_dog" />
+                            <entry key="sourceFile" value="G:\Download\dog.svg" />
                           </map>
                         </option>
                       </PersistentState>
