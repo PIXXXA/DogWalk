@@ -18,7 +18,7 @@ class WalkerViewModel(
 
     fun getRecyclerViewData() {
         GlobalScope.launch {
-            exampleItems.value = appDatabase.userDao().getAll() as ArrayList
+            exampleItems.value = appDatabase.userDao().getAllWalkers() as ArrayList
         }
     }
 }
