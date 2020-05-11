@@ -37,6 +37,7 @@ class LoginActivity : AppCompatActivity() {
         supportActionBar?.show()
         supportActionBar?.title = getString(stringId)
     }
+
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if (item.itemId == android.R.id.home) {
             onBackPressed()
