@@ -85,9 +85,9 @@ class RegistrationViewModel(
 
     private fun addUserToDatabase() {
         GlobalScope.launch {
-            mobileNumber.value?.toLong()?.let {
+            appDatabase.userDao().insert(
                 User(
-                    userId = it,
+                    userId = null,
                     name = name.value,
                     surname = surname.value,
                     email = email.value,
@@ -95,11 +95,7 @@ class RegistrationViewModel(
                     mobileNumber = mobileNumber.value,
                     homeAddress = homeAddress.value
                 )
-            }?.let {
-                appDatabase.userDao().insert(
-                    it
-                )
-            }
+            )
         }
     }
 }

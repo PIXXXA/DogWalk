@@ -4,6 +4,7 @@ import com.firsttask.dog.ResourceProvider
 import com.firsttask.dog.db.database.AppDatabase
 import com.firsttask.dog.fragments.login.LoginViewModelFactory
 import com.firsttask.dog.fragments.registration.RegistrationFactory
+import com.firsttask.dog.fragments.walkerslist.WalkerViewModelFactory
 import dagger.Module
 import dagger.Provides
 import javax.inject.Singleton
@@ -30,6 +31,18 @@ class ViewModelFactoryModule {
         appDatabase: AppDatabase
     ): LoginViewModelFactory {
         return LoginViewModelFactory(
+            resourceProvider,
+            appDatabase
+        )
+    }
+
+    @Provides
+    @Singleton
+    fun getWalkersViewModelFactory(
+        resourceProvider: ResourceProvider,
+        appDatabase: AppDatabase
+    ): WalkerViewModelFactory {
+        return WalkerViewModelFactory(
             resourceProvider,
             appDatabase
         )

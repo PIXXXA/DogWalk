@@ -46,6 +46,7 @@
             android:autofillHints="@string/edit_text_hint_surname"
             android:hint="@string/edit_text_hint_surname"
             android:inputType="textPersonName"
+            android:text="@={viewModel.surname}"
             app:layout_constraintEnd_toStartOf="@+id/registrationRightGuideline"
             app:layout_constraintStart_toStartOf="@+id/registrationLeftGuideline"
             app:layout_constraintTop_toBottomOf="@+id/registrationName" />
@@ -56,6 +57,7 @@
             android:autofillHints="@string/edit_text_hint_email"
             android:hint="@string/edit_text_hint_email"
             android:inputType="textEmailAddress"
+            android:text="@={viewModel.email}"
             app:layout_constraintEnd_toStartOf="@+id/registrationRightGuideline"
             app:layout_constraintStart_toStartOf="@+id/registrationLeftGuideline"
             app:layout_constraintTop_toBottomOf="@+id/registrationSurname" />
@@ -66,6 +68,7 @@
             android:autofillHints="@string/edit_text_hint_password"
             android:hint="@string/edit_text_hint_password"
             android:inputType="textPassword"
+            android:text="@={viewModel.password}"
             app:layout_constraintEnd_toStartOf="@+id/registrationRightGuideline"
             app:layout_constraintStart_toStartOf="@+id/registrationLeftGuideline"
             app:layout_constraintTop_toBottomOf="@+id/registrationEmail" />
@@ -76,6 +79,7 @@
             android:autofillHints="registration_hint_mobile_number"
             android:hint="@string/edit_text_hint_mobile_number"
             android:inputType="numberSigned"
+            android:text="@={viewModel.mobileNumber}"
             app:layout_constraintEnd_toStartOf="@+id/registrationRightGuideline"
             app:layout_constraintStart_toStartOf="@+id/registrationLeftGuideline"
             app:layout_constraintTop_toBottomOf="@+id/registrationPassword" />
@@ -86,6 +90,7 @@
             android:autofillHints="registration_hint_home_address"
             android:hint="@string/edit_text_hint_home_address"
             android:inputType="textPersonName"
+            android:text="@={viewModel.homeAddress}"
             app:layout_constraintEnd_toStartOf="@+id/registrationRightGuideline"
             app:layout_constraintStart_toStartOf="@+id/registrationLeftGuideline"
             app:layout_constraintTop_toBottomOf="@+id/registrationMobileNumber" />

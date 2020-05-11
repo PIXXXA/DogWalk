@@ -16,15 +16,12 @@ class LoginViewModel(
     var loginEmail = MutableLiveData<String>()
     var loginPassword = MutableLiveData<String>()
 
-//    fun databaseValidation(user: User) {
-//        GlobalScope.launch {
-//            user = appDatabase.userDao()
-//                .getAccount(loginEmail.value.toString())
-//        }
-//    }
-
-//    fun isValidAccount(username: String, password: String): Boolean {
-//        val userAccount = userAccountDao.getAccount(username)
-//        return userAccount.password == password
-//    }
+    fun databaseValidation(loginCallback: LoginCallback) {
+        GlobalScope.launch {
+            var user : User? = null
+            user = appDatabase.userDao()
+                .getLoginValidation(loginEmail.value.toString(), loginPassword.value.toString())
+            loginCallback.setData(user)
+        }
+    }
 }

@@ -8,11 +8,11 @@ import androidx.lifecycle.ViewModelProvider
 import com.firsttask.dog.Application
 import com.firsttask.dog.R
 import com.firsttask.dog.activity.LoginActivity
+import com.firsttask.dog.databinding.FragmentLoginBinding
 import com.firsttask.dog.databinding.FragmentRegistrationBinding
 import com.firsttask.dog.fragments.startscreen.StartScreenFragment
 import kotlinx.android.synthetic.main.fragment_registration.*
 import javax.inject.Inject
-
 
 class RegistrationFragment : Fragment() {
 
@@ -31,9 +31,13 @@ class RegistrationFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val binding: FragmentRegistrationBinding =
-            DataBindingUtil.inflate(inflater, R.layout.fragment_registration, container, false)
-        return binding.root
+        return DataBindingUtil.inflate<FragmentRegistrationBinding>(
+            inflater, R.layout.fragment_registration, container, false
+        ).run {
+            lifecycleOwner = this@RegistrationFragment
+            viewModel = this@RegistrationFragment.viewModel
+            root
+        }
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

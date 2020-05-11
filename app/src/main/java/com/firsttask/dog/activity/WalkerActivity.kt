@@ -1,11 +1,14 @@
 package com.firsttask.dog.activity
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.firsttask.dog.R
-import com.firsttask.dog.fragments.walkerlist.WalkerFragment
+import com.firsttask.dog.fragments.profile.ProfileFragment
+import com.firsttask.dog.fragments.walkerslist.WalkerFragment
+import com.google.android.material.bottomnavigation.BottomNavigationView
+import kotlinx.android.synthetic.main.activity_walker.*
 import kotlinx.android.synthetic.main.fragment_toolbar.*
 
 class WalkerActivity : AppCompatActivity() {
@@ -14,13 +17,14 @@ class WalkerActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_walker)
         addToolbar()
+        walkerBottomNavigationView.setOnNavigationItemSelectedListener(onNavigationItemSelected)
         supportFragmentManager.beginTransaction()
-            .replace(R.id.loginFragmentContainer, WalkerFragment()).commit()
+            .replace(R.id.walkerFragmentContainer, WalkerFragment()).commit()
     }
 
     fun onScreenStart(fragment: Fragment) {
         supportFragmentManager.beginTransaction()
-            .replace(R.id.loginFragmentContainer, fragment).addToBackStack(null).commit()
+            .replace(R.id.walkerFragmentContainer, fragment).addToBackStack(null).commit()
     }
 
     private fun addToolbar() {
@@ -44,5 +48,19 @@ class WalkerActivity : AppCompatActivity() {
             return true
         }
         return super.onOptionsItemSelected(item)
+    }
+
+    private val onNavigationItemSelected = BottomNavigationView.OnNavigationItemSelectedListener {
+        when (it.itemId) {
+            R.id.allWalker -> {
+                onScreenStart(WalkerFragment())
+                return@OnNavigationItemSelectedListener true
+            }
+            R.id.myProfile -> {
+                onScreenStart(ProfileFragment())
+                return@OnNavigationItemSelectedListener true
+            }
+        }
+        return@OnNavigationItemSelectedListener false
     }
 }

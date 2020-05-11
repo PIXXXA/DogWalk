@@ -41,4 +41,15 @@
     <string name="profile_click_to_edit">Редактировать профиль ></string>
     <string name="profile_all_dogs">Собаки</string>
 
+    <!-- Search Fragment -->
+    <string name="search_toolbar_title">Результаты поиска</string>
+    
+    <!-- Filter Fragment -->
+    <string name="filter_toolbar_title">Фильтр</string>
+    <string name="coast_title">Цена</string>
+    <string name="dog_size_title">Размер собаки</string>
+    <string name="small_size">Маленькая</string>
+    <string name="average_size">Средняя</string>
+    <string name="biggest_size">Большая</string>
+
 </resources>

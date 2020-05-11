@@ -10,7 +10,7 @@ import androidx.room.TypeConverter
 @Entity
 class User(
     @PrimaryKey(autoGenerate = true)
-    var userId: Long,
+    var userId: Long?,
 
     var name: String?,
 

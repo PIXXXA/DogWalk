@@ -5,7 +5,7 @@ import androidx.room.RoomDatabase
 import com.firsttask.dog.db.dao.UserDao
 import com.firsttask.dog.db.entity.User
 
-@Database(entities = [User::class], version = 2)
+@Database(entities = [User::class], version = 3)
 abstract class AppDatabase : RoomDatabase() {
     abstract fun userDao(): UserDao
 }

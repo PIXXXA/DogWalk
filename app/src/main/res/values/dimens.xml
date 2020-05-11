@@ -35,4 +35,10 @@
     <dimen name="profile_card_view_margin">8dp</dimen>
     <dimen name="profile_divider">2dp</dimen>
 
+    <!-- Search Fragment -->
+    <dimen name="search_margin">16dp</dimen>
+
+    <!-- Filter Fragment -->
+    <dimen name="filter_margin">16dp</dimen>
+    <dimen name="filter_small_margin">8dp</dimen>
 </resources>
