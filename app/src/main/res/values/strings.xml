@@ -21,7 +21,7 @@
     <string name="registration_i_am_walker">Я выгульщик</string>
     <string name="registration_click_to_change">Нажмите, чтобы изменить</string>
     <string name="registration_continue_button">Продолжить</string>
-    <string name="registration_error_message">Пожалуйста, заполните %s</string>
+    <string name="registration_error_message">Пожалуйста, заполните поле %s</string>
 
     <!-- Login Screen -->
     <string name="login_title">Логин</string>

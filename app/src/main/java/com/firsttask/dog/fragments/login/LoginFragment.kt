@@ -52,12 +52,14 @@ class LoginFragment : Fragment(), LoginCallback {
 
     private fun onButtonClick(user: User?) {
         if (user == null) {
-            Toast.makeText(context, "Unregistered user, or incorrect data", Toast.LENGTH_SHORT)
-                .show()
+            requireActivity().runOnUiThread {
+                Toast.makeText(context, "Unregistered user, or incorrect data", Toast.LENGTH_SHORT)
+                    .show()
+            }
         } else {
-            startActivity(
-                Intent(activity, WalkerActivity::class.java)
-            )
+            val intent = Intent(activity, WalkerActivity::class.java)
+//            intent.flags = Intent.FLAG_ACTIVITY_NO_HISTORY
+            startActivity(intent)
         }
     }
 

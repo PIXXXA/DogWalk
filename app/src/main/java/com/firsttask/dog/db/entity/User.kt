@@ -1,11 +1,7 @@
 package com.firsttask.dog.db.entity
 
-import androidx.annotation.IntegerRes
-import androidx.annotation.Nullable
 import androidx.room.Entity
-import androidx.room.Ignore
 import androidx.room.PrimaryKey
-import androidx.room.TypeConverter
 
 @Entity
 class User(
@@ -24,7 +20,5 @@ class User(
 
     var homeAddress: String?,
 
-    var experience: String? = "",
-
-    var description: String? = ""
+    var accountType: Boolean? = null
 )

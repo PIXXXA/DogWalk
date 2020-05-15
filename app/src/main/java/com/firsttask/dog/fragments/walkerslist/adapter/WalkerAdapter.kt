@@ -31,11 +31,9 @@ class WalkerAdapter(
     class MyViewHolder constructor(view: View) : RecyclerView.ViewHolder(view) {
         fun binding(user: User) {
             itemView.walkerName.text = user.name.plus(" ").plus(user.surname)
-            itemView.walkerExperience.text = itemView.context.getString(
-                R.string.all_walker_experience,
-                user.experience.toString()
-            )
-            itemView.walkerDescription.text = user.description
+            itemView.walkerExperience.text =
+                itemView.context.getString(R.string.all_walker_experience)
+//            itemView.walkerDescription.text = user.description
         }
     }
 }

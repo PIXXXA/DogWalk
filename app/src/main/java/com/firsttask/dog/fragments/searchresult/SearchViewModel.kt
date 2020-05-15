@@ -16,7 +16,7 @@ class SearchViewModel(
 
     fun getRecyclerViewData() {
         GlobalScope.launch {
-            exampleItems.value = appDatabase.userDao().getSearch() as ArrayList
+//            exampleItems.value = appDatabase.userDao().getSearch() as ArrayList
         }
     }
 }

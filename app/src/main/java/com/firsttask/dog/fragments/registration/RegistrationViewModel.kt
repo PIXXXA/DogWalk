@@ -23,6 +23,7 @@ class RegistrationViewModel(
     var password = MutableLiveData<String>()
     var mobileNumber = MutableLiveData<String>()
     var homeAddress = MutableLiveData<String>()
+    private var accountType: Boolean? = null
 
     fun toggleButtonValidation(toggleButton: ToggleButton) {
         toggleButton.setOnCheckedChangeListener { _, isChecked ->
@@ -34,6 +35,7 @@ class RegistrationViewModel(
                         null,
                         null
                     )
+                    accountType = false
                 }
                 false -> {
                     toggleButton.setCompoundDrawablesWithIntrinsicBounds(
@@ -42,6 +44,7 @@ class RegistrationViewModel(
                         null,
                         null
                     )
+                    accountType = true
                 }
             }
         }
@@ -93,7 +96,8 @@ class RegistrationViewModel(
                     email = email.value,
                     password = password.value,
                     mobileNumber = mobileNumber.value,
-                    homeAddress = homeAddress.value
+                    homeAddress = homeAddress.value,
+                    accountType = accountType
                 )
             )
         }
