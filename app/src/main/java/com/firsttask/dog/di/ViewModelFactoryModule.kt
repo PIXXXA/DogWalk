@@ -2,6 +2,7 @@ package com.firsttask.dog.di
 
 import com.firsttask.dog.ResourceProvider
 import com.firsttask.dog.db.database.AppDatabase
+import com.firsttask.dog.fragments.editprofile.EditProfileFactory
 import com.firsttask.dog.fragments.login.LoginViewModelFactory
 import com.firsttask.dog.fragments.registration.RegistrationFactory
 import com.firsttask.dog.fragments.searchresult.SearchViewModelFactory
@@ -56,6 +57,18 @@ class ViewModelFactoryModule {
         appDatabase: AppDatabase
     ): SearchViewModelFactory {
         return SearchViewModelFactory(
+            resourceProvider,
+            appDatabase
+        )
+    }
+
+    @Provides
+    @Singleton
+    fun getEditProfileViewModelFactory(
+        resourceProvider: ResourceProvider,
+        appDatabase: AppDatabase
+    ): EditProfileFactory {
+        return EditProfileFactory(
             resourceProvider,
             appDatabase
         )

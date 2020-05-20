@@ -168,7 +168,7 @@
                                 <PersistentState>
                                   <option name="values">
                                     <map>
-                                      <entry key="url" value="jar:file:/P:/Android%20Studio/plugins/android/lib/android.jar!/images/material_design_icons/content/ic_filter_list_black_24dp.xml" />
+                                      <entry key="url" value="jar:file:/snap/android-studio/88/android-studio/plugins/android/lib/android.jar!/images/material_design_icons/content/ic_add_circle_black_24dp.xml" />
                                     </map>
                                   </option>
                                 </PersistentState>
@@ -178,10 +178,9 @@
                         </option>
                         <option name="values">
                           <map>
-                            <entry key="assetSourceType" value="FILE" />
                             <entry key="color" value="ffffff" />
-                            <entry key="outputName" value="ic_dog" />
-                            <entry key="sourceFile" value="G:\Download\dog.svg" />
+                            <entry key="outputName" value="ic_new_order" />
+                            <entry key="sourceFile" value="$PROJECT_DIR$/../G:\Download\dog.svg" />
                           </map>
                         </option>
                       </PersistentState>

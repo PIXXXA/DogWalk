@@ -27,10 +27,11 @@
     <string name="login_title">Логин</string>
 
     <!-- Walker Activity -->
-    <string name="navigation_bar_walker">Все выгульщики</string>
+    <string name="navigation_bar_walker">Все объявления</string>
     <string name="navigation_bar_my_profile">Мой профиль</string>
+    <string name="navigation_bar_new_order">Объявление</string>
 
-    <!-- All Walkers Fragment -->
+    <!-- All Walker Fragment -->
     <string name="all_walker_search_button">Поиск</string>
     <string name="all_walker_filter_button">Фильтр</string>
     <string name="all_walker_edit_text_hint">Введите для поиска</string>
@@ -51,5 +52,13 @@
     <string name="small_size">Маленькая</string>
     <string name="average_size">Средняя</string>
     <string name="biggest_size">Большая</string>
+
+    <!-- Edit Profile -->
+    <string name="edit_profile_title">Редактирование профиля</string>
+    <string name="save_button">Сохранить</string>
+    <string name="edit_profile_who_am_i">Кем я являюсь?</string>
+    <string name="edit_profile_i_am_owner">Я хозяин животного</string>
+    <string name="edit_profile_i_am_walker">Я выгульщик</string>
+    <string name="edit_profile_click_to_change">Нажмите, чтобы изменить</string>
 
 </resources>

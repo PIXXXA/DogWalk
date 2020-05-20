@@ -1,7 +1,8 @@
 package com.firsttask.dog.di
 
-import com.firsttask.dog.db.dao.UserDao
+import com.firsttask.dog.db.dao.*
 import com.firsttask.dog.db.database.AppDatabase
+import com.firsttask.dog.fragments.editprofile.EditProfileFragment
 import com.firsttask.dog.fragments.login.LoginFragment
 import com.firsttask.dog.fragments.registration.RegistrationFragment
 import com.firsttask.dog.fragments.searchresult.SearchFragment
@@ -16,7 +17,12 @@ interface AppComponent {
     fun inject(loginFragment: LoginFragment)
     fun inject(walkersFragment: WalkerFragment)
     fun inject(searchFragment: SearchFragment)
+    fun inject(editProfileFragment: EditProfileFragment)
 
     var userDao: UserDao
+    var walkerDao: WalkerDao
+    var orderDao: OrderDao
+    var ownerDao: OwnerDao
+    var petDao: PetDao
     var appDatabase: AppDatabase
 }

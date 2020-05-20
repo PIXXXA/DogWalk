@@ -14,7 +14,7 @@ import com.firsttask.dog.Application
 import com.firsttask.dog.R
 import com.firsttask.dog.activity.WalkerActivity
 import com.firsttask.dog.databinding.FragmentWalkerBinding
-import com.firsttask.dog.db.entity.User
+import com.firsttask.dog.db.entity.Walker
 import com.firsttask.dog.fragments.filter.FilterFragment
 import com.firsttask.dog.fragments.searchresult.SearchFragment
 import com.firsttask.dog.fragments.walkerslist.adapter.WalkerAdapter
@@ -53,7 +53,7 @@ class WalkerFragment : Fragment() {
         viewModel.exampleItems.observe(viewLifecycleOwner, Observer { createRecyclerView(it) })
     }
 
-    private fun createRecyclerView(arrayList: ArrayList<User>) {
+    private fun createRecyclerView(arrayList: ArrayList<Walker>) {
         viewModel.getRecyclerViewData()
         val layoutManager: RecyclerView.LayoutManager
         search_recycler_view.setHasFixedSize(true)

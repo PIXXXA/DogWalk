@@ -8,7 +8,6 @@ import androidx.lifecycle.ViewModelProvider
 import com.firsttask.dog.Application
 import com.firsttask.dog.R
 import com.firsttask.dog.activity.LoginActivity
-import com.firsttask.dog.databinding.FragmentLoginBinding
 import com.firsttask.dog.databinding.FragmentRegistrationBinding
 import com.firsttask.dog.fragments.startscreen.StartScreenFragment
 import kotlinx.android.synthetic.main.fragment_registration.*

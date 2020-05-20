@@ -2,10 +2,23 @@ package com.firsttask.dog.db.database
 
 import androidx.room.Database
 import androidx.room.RoomDatabase
-import com.firsttask.dog.db.dao.UserDao
-import com.firsttask.dog.db.entity.User
+import com.firsttask.dog.db.dao.*
+import com.firsttask.dog.db.entity.*
 
-@Database(entities = [User::class], version = 3)
+@Database(
+    entities = [Order::class, Owner::class, Pet::class, User::class, Walker::class],
+    version = 4
+)
 abstract class AppDatabase : RoomDatabase() {
+
     abstract fun userDao(): UserDao
+
+    abstract fun walkersDao(): WalkerDao
+
+    abstract fun orderDao(): OrderDao
+
+    abstract fun petDao(): PetDao
+
+    abstract fun ownerDao(): OwnerDao
+
 }

@@ -22,7 +22,7 @@
     <dimen name="login_margin">16dp</dimen>
     <dimen name="login_button_guideline">40dp</dimen>
 
-    <!-- All Walkers Fragment -->
+    <!-- All Walker Fragment -->
     <dimen name="all_walkers_button_width">65dp</dimen>
     <dimen name="all_walkers_button_height">40dp</dimen>
     <dimen name="walkers_icon_size">40dp</dimen>
@@ -41,4 +41,8 @@
     <!-- Filter Fragment -->
     <dimen name="filter_margin">16dp</dimen>
     <dimen name="filter_small_margin">8dp</dimen>
+
+    <!-- Edit Profile Fragment -->
+    <dimen name="edit_profile_margin">16dp</dimen>
+
 </resources>
