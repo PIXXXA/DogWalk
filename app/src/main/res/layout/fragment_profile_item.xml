@@ -20,7 +20,7 @@
             app:layout_constraintGuide_end="@dimen/all_walkers_recycler_view_margin" />
 
         <ImageView
-            android:id="@+id/walkerIcon"
+            android:id="@+id/petIcon"
             android:layout_width="@dimen/walkers_icon_size"
             android:layout_height="@dimen/walkers_icon_size"
             android:background="@drawable/circle_image_view"
@@ -31,13 +31,13 @@
             app:srcCompat="@drawable/ic_dog" />
 
         <TextView
-            android:id="@+id/walkerName"
+            android:id="@+id/petName"
             style="@style/ProfileRecyclerViewTitle"
             android:layout_marginStart="@dimen/all_walkers_margin"
             tools:text="Alexander"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/rightGuideline"
-            app:layout_constraintStart_toEndOf="@+id/walkerIcon"
+            app:layout_constraintStart_toEndOf="@+id/petIcon"
             app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

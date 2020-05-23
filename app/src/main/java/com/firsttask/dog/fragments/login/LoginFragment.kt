@@ -1,6 +1,8 @@
 package com.firsttask.dog.fragments.login
 
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -9,8 +11,7 @@ import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import com.firsttask.dog.Application
-import com.firsttask.dog.R
+import com.firsttask.dog.*
 import com.firsttask.dog.activity.LoginActivity
 import com.firsttask.dog.activity.WalkerActivity
 import com.firsttask.dog.databinding.FragmentLoginBinding
@@ -57,9 +58,20 @@ class LoginFragment : Fragment(), LoginCallback {
                     .show()
             }
         } else {
+            val sharedPreference: SharedPreferences =
+                requireContext().getSharedPreferences("PREFERENCE_NAME", Context.MODE_PRIVATE)
+            val editor = sharedPreference.edit()
+            editor.putString(USER_PASSWORD, viewModel.loginPassword.value)
+            editor.putString(USER_EMAIL, viewModel.loginEmail.value)
+            editor.putString(MOBILE_NUMBER, viewModel.mobileNumber)
+            editor.putString(MOBILE_NUMBER, viewModel.mobileNumber)
+            editor.putString(MOBILE_NUMBER, viewModel.mobileNumber)
+            editor.putString(MOBILE_NUMBER, viewModel.mobileNumber)
+            viewModel.accountType?.let { editor.putBoolean(ACCOUNT_TYPE, it) }
+            editor.commit()
             val intent = Intent(activity, WalkerActivity::class.java)
-//            intent.flags = Intent.FLAG_ACTIVITY_NO_HISTORY
             startActivity(intent)
+            activity?.finish()
         }
     }
 

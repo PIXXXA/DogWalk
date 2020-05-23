@@ -11,24 +11,24 @@ class User(
     @ColumnInfo(name = "userId", index = true)
     var userId: Long?,
 
-    @ColumnInfo(name = "name")
+    @ColumnInfo(name = "userName")
     var name: String?,
 
-    @ColumnInfo(name = "surname")
+    @ColumnInfo(name = "userSurname")
     var surname: String?,
 
-    @ColumnInfo(name = "email")
+    @ColumnInfo(name = "userEmail")
     var email: String?,
 
-    @ColumnInfo(name = "password")
+    @ColumnInfo(name = "userPassword")
     var password: String?,
 
-    @ColumnInfo(name = "mobileNumber")
+    @ColumnInfo(name = "userMobileNumber")
     var mobileNumber: String?,
 
-    @ColumnInfo(name = "homeAddress")
+    @ColumnInfo(name = "userHomeAddress")
     var homeAddress: String?,
 
-    @ColumnInfo(name = "accountType")
+    @ColumnInfo(name = "userAccountType")
     var accountType: Boolean? = null
 )

@@ -19,7 +19,7 @@ class WalkerActivity : AppCompatActivity() {
         addToolbar()
         walkerBottomNavigationView.setOnNavigationItemSelectedListener(onNavigationItemSelected)
         supportFragmentManager.beginTransaction()
-            .replace(R.id.walkerFragmentContainer, WalkerFragment()).commit()
+            .replace(R.id.walkerFragmentContainer, ProfileFragment()).commit()
     }
 
     fun onScreenStart(fragment: Fragment) {

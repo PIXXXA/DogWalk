@@ -15,13 +15,22 @@ class LoginViewModel(
 
     var loginEmail = MutableLiveData<String>()
     var loginPassword = MutableLiveData<String>()
+    var accountType: Boolean? = false
+    var mobileNumber: String? = null
+    var name: String? = null
+    var surname: String? = null
+    var homeAddress: String? = null
 
     fun databaseValidation(loginCallback: LoginCallback) {
         GlobalScope.launch {
-            var user : User? = null
-            user = appDatabase.userDao()
+            val user: User? = appDatabase.userDao()
                 .getLoginValidation(loginEmail.value.toString(), loginPassword.value.toString())
             loginCallback.setData(user)
+            accountType = user?.accountType
+            mobileNumber = user?.mobileNumber
+            name = user?.name
+            surname = user?.surname
+            homeAddress = user?.homeAddress
         }
     }
 }

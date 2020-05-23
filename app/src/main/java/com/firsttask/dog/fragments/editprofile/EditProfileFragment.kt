@@ -49,19 +49,19 @@ class EditProfileFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        (activity as LoginActivity).showToolbar(R.string.edit_profile_title)
+        (activity as WalkerActivity).showToolbar(R.string.edit_profile_title)
         continueClick()
     }
 
     private fun continueClick() {
         editProfileSaveButton.setOnClickListener {
             if (viewModel.validateEditText(
-                    registrationName,
-                    registrationSurname,
-                    registrationEmail,
-                    registrationPassword,
-                    registrationMobileNumber,
-                    registrationHomeAddress
+                    editProfileName,
+                    editProfileSurname,
+                    editProfileEmail,
+                    editProfilePassword,
+                    editProfileMobileNumber,
+                    editProfileHomeAddress
                 )
             ) {
                 (activity as WalkerActivity).onScreenStart(ProfileFragment())

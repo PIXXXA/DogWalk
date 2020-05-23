@@ -1,20 +1,19 @@
 package com.firsttask.dog.db.dao
 
 import androidx.room.*
-import com.firsttask.dog.db.entity.Walker
+import com.firsttask.dog.db.entity.Pet
 
 @Dao
 interface PetDao {
     @Insert
-    fun insert(walker: Walker)
+    fun insert(pet: Pet)
 
     @Update
-    fun update(walker: Walker)
+    fun update(pet: Pet)
 
     @Delete
-    fun delete(walker: Walker)
-//
-//    @Query("Select name,surname,description,experience from Walker join User on User.userId=userId where description!=null or experience!=null")
-//    fun getAllWalkers(): Walker
+    fun delete(pet: Pet)
 
+    @Query("Select * from Pet join Owner on ownerFK=ownerId where ownerMobileNumber=:argMobileNumber")
+    fun getAllPet(argMobileNumber : String?): Pet
 }

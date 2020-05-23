@@ -11,15 +11,12 @@ data class Owner(
     @ColumnInfo(name = "ownerId" ,index = true)
     var ownerId: Long?,
 
-    var description: String?,
+    @ColumnInfo(name = "ownerName")
+    var name: String?,
 
-    @ForeignKey(
-        entity = User::class,
-        parentColumns = ["ownerId"],
-        childColumns = ["userId"],
-        onDelete = ForeignKey.CASCADE,
-        onUpdate = ForeignKey.CASCADE
-    )
-    @ColumnInfo(name = "userId", index = true)
-    var userId: Long?
+    @ColumnInfo(name = "ownerSurname")
+    var surname: String?,
+
+    @ColumnInfo(name = "ownerMobileNumber")
+    var mobileNumber: String?
 )

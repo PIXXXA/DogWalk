@@ -8,22 +8,21 @@ import androidx.room.PrimaryKey
 @Entity
 data class Walker(
     @PrimaryKey(autoGenerate = true)
-    @ColumnInfo(name = "walkersId", index = true)
+    @ColumnInfo(name = "walkerId", index = true)
     var walkersId: Long?,
 
-    @ColumnInfo(name = "walkersDescription")
+    @ColumnInfo(name = "walkerName")
+    var name: String?,
+
+    @ColumnInfo(name = "walkerSurname")
+    var surname: String?,
+
+    @ColumnInfo(name = "walkerMobileNumber")
+    var mobileNumber: String?,
+
+    @ColumnInfo(name = "walkerDescription")
     var description: String?,
 
-    @ColumnInfo(name = "walkersExperience")
-    var experience: String?,
-
-    @ForeignKey(
-        entity = User::class,
-        parentColumns = ["walkerId"],
-        childColumns = ["userId"],
-        onDelete = ForeignKey.CASCADE,
-        onUpdate = ForeignKey.CASCADE
-    )
-    @ColumnInfo(name = "userId", index = true)
-    var userId: Long?
+    @ColumnInfo(name = "walkerExperience")
+    var experience: String?
 )

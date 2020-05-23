@@ -45,4 +45,7 @@
     <!-- Edit Profile Fragment -->
     <dimen name="edit_profile_margin">16dp</dimen>
 
+    <!-- New Pet Fragment -->
+    <dimen name="new_pet_margin">16dp</dimen>
+
 </resources>

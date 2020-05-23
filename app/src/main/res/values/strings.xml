@@ -39,12 +39,13 @@
 
     <!-- Profile Fragment -->
     <string name="profile">Профиль</string>
+    <string name="profile_add_pet">Добавить новое животное</string>
     <string name="profile_click_to_edit">Редактировать профиль ></string>
     <string name="profile_all_dogs">Собаки</string>
 
     <!-- Search Fragment -->
     <string name="search_toolbar_title">Результаты поиска</string>
-    
+
     <!-- Filter Fragment -->
     <string name="filter_toolbar_title">Фильтр</string>
     <string name="coast_title">Цена</string>
@@ -60,5 +61,15 @@
     <string name="edit_profile_i_am_owner">Я хозяин животного</string>
     <string name="edit_profile_i_am_walker">Я выгульщик</string>
     <string name="edit_profile_click_to_change">Нажмите, чтобы изменить</string>
+
+    <!-- New Pet Fragment -->
+    <string name="new_pet_title">Добавление нового питомца</string>
+    <string name="new_pet_name">Имя</string>
+    <string name="new_pet_age">Возраст</string>
+    <string name="new_pet_size">Размер вашего питомца</string>
+    <string name="new_pet_size_little">Маленькая</string>
+    <string name="new_pet_size_middle">Средняя</string>
+    <string name="new_pet_size_big">Большая</string>
+    <string name="new_pet_description">Описание</string>
 
 </resources>

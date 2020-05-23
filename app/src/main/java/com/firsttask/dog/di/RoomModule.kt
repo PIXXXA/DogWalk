@@ -50,4 +50,10 @@ class RoomModule(context: Context) {
     fun getPetDao(appDatabase: AppDatabase): PetDao {
         return appDatabase.petDao()
     }
+
+    @Provides
+    @Singleton
+    fun getAnnouncementDao(appDatabase: AppDatabase): AnnouncementDao {
+        return appDatabase.announcementDao()
+    }
 }

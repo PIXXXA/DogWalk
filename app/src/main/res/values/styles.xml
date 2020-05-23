@@ -115,4 +115,13 @@
         <item name="android:textSize">@dimen/label_small_text_size</item>
     </style>
 
+    <!-- New Pet Fragment -->
+    <style name="NewPetSubtitle">
+        <item name="android:textColor">@color/colorBlack</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">left</item>
+        <item name="android:textSize">@dimen/label_medium_text_size</item>
+    </style>
+
 </resources>

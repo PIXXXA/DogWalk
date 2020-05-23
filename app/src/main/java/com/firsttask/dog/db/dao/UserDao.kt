@@ -14,7 +14,6 @@ interface UserDao {
     @Delete
     fun delete(user: User)
 
-    @Query("Select * from User where email=:argEmail and password=:argPassword")
+    @Query("Select * from User where userEmail=:argEmail and userPassword=:argPassword")
     fun getLoginValidation(argEmail: String, argPassword: String): User
-
 }

@@ -50,18 +50,18 @@ class WalkerFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         onItemClick()
         (activity as WalkerActivity).hideToolbar()
-        viewModel.exampleItems.observe(viewLifecycleOwner, Observer { createRecyclerView(it) })
+//        viewModel.exampleItems.observe(viewLifecycleOwner, Observer { createRecyclerView(it) })
     }
 
-    private fun createRecyclerView(arrayList: ArrayList<Walker>) {
-        viewModel.getRecyclerViewData()
-        val layoutManager: RecyclerView.LayoutManager
-        search_recycler_view.setHasFixedSize(true)
-        layoutManager = LinearLayoutManager(activity)
-        val adapt = WalkerAdapter(arrayList)
-        search_recycler_view.adapter = adapt
-        search_recycler_view.layoutManager = layoutManager
-    }
+//    private fun createRecyclerView(arrayList: ArrayList<WalkerModel>) {
+//        viewModel.getRecyclerViewData()
+//        val layoutManager: RecyclerView.LayoutManager
+//        search_recycler_view.setHasFixedSize(true)
+//        layoutManager = LinearLayoutManager(activity)
+//        val adapt = WalkerAdapter(arrayList)
+//        search_recycler_view.adapter = adapt
+//        search_recycler_view.layoutManager = layoutManager
+//    }
 
     private fun onItemClick() {
         filterButton.setOnClickListener {

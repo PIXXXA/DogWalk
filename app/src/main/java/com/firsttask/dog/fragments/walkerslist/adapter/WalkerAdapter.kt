@@ -11,15 +11,15 @@ import kotlinx.android.synthetic.main.fragment_walker_item.view.*
 class WalkerAdapter(
     private val recyclerViewItem: ArrayList<Walker>
 ) :
-    RecyclerView.Adapter<WalkerAdapter.MyViewHolder>() {
+    RecyclerView.Adapter<WalkerAdapter.WalkerViewHolder>() {
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): WalkerViewHolder {
         val v = LayoutInflater.from(parent.context)
             .inflate(R.layout.fragment_walker_item, parent, false)
-        return MyViewHolder(v)
+        return WalkerViewHolder(v)
     }
 
-    override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: WalkerViewHolder, position: Int) {
         val recyclerViewEntity = recyclerViewItem[position]
         holder.binding(recyclerViewEntity)
     }
@@ -28,12 +28,15 @@ class WalkerAdapter(
         return recyclerViewItem.size
     }
 
-    class MyViewHolder constructor(view: View) : RecyclerView.ViewHolder(view) {
-        fun binding(walker: Walker) {
-//            itemView.walkerName.text = walker..plus(" ").plus(user.surname)
+    class WalkerViewHolder constructor(view: View) : RecyclerView.ViewHolder(view) {
+        fun binding(walkerModel: Walker) {
+            itemView.walkerName.text = walkerModel.name.plus(" ").plus(walkerModel.surname)
             itemView.walkerExperience.text =
-                itemView.context.getString(R.string.all_walker_experience)
-//            itemView.walkerDescription.text = user.description
+                itemView.context.getString(
+                    R.string.all_walker_experience,
+                    walkerModel.experience
+                )
+            itemView.walkerDescription.text = walkerModel.description
         }
     }
 }

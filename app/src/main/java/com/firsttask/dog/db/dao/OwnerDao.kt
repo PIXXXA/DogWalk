@@ -1,20 +1,22 @@
 package com.firsttask.dog.db.dao
 
-import androidx.room.*
-import com.firsttask.dog.db.entity.Walker
+import androidx.room.Dao
+import androidx.room.Delete
+import androidx.room.Insert
+import androidx.room.Update
+import com.firsttask.dog.db.entity.Owner
 
 @Dao
 interface OwnerDao {
     @Insert
-    fun insert(walker: Walker)
+    fun insert(owner: Owner)
 
     @Update
-    fun update(walker: Walker)
+    fun update(owner: Owner)
 
     @Delete
-    fun delete(walker: Walker)
+    fun delete(owner: Owner)
 
 //    @Query("Select name,surname,description,experience from Walker join User on User.userId=userId where description!=null or experience!=null")
 //    fun getOwner(): Walker
-
 }
