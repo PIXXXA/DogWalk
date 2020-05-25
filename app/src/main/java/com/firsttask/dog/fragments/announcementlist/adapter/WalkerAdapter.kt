@@ -1,4 +1,4 @@
-package com.firsttask.dog.fragments.walkerslist.adapter
+package com.firsttask.dog.fragments.announcementlist.adapter
 
 import android.view.LayoutInflater
 import android.view.View

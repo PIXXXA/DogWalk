@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.firsttask.dog.Application
 import com.firsttask.dog.MOBILE_NUMBER
 import com.firsttask.dog.R
+import com.firsttask.dog.USER_NAME
 import com.firsttask.dog.activity.WalkerActivity
 import com.firsttask.dog.databinding.FragmentProfileBinding
 import com.firsttask.dog.db.entity.Pet
@@ -54,6 +55,7 @@ class ProfileFragment : Fragment() {
         val sharedPreference: SharedPreferences =
             requireContext().getSharedPreferences("PREFERENCE_NAME", Context.MODE_PRIVATE)
         viewModel.userMobileNumber = sharedPreference.getString(MOBILE_NUMBER, null)
+        viewModel.userName.value = sharedPreference.getString(USER_NAME, null)
         (activity as WalkerActivity).hideToolbar()
         onEditProfileClick()
         onAddNewPet()

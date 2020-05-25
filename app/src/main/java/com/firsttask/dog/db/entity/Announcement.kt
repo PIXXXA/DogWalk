@@ -29,12 +29,12 @@ data class Announcement(
     var orderFK: Long?,
 
     @ForeignKey(
-        entity = Pet::class,
+        entity = Walker::class,
         parentColumns = ["announcementId"],
-        childColumns = ["petFK"],
+        childColumns = ["walkerFK"],
         onDelete = ForeignKey.CASCADE,
         onUpdate = ForeignKey.CASCADE
     )
-    @ColumnInfo(name = "petFK", index = true)
-    var petFK: Long?
+    @ColumnInfo(name = "walkerFK", index = true)
+    var walkerFK: Long?
 )

@@ -1,10 +1,10 @@
 package com.firsttask.dog
 
 import android.app.Application
-import com.firsttask.dog.di.AppComponent
+import com.firsttask.dog.di.component.AppComponent
 import com.firsttask.dog.di.AppModule
-import com.firsttask.dog.di.DaggerAppComponent
 import com.firsttask.dog.di.RoomModule
+import com.firsttask.dog.di.component.DaggerAppComponent
 
 class Application : Application() {
     override fun onCreate() {

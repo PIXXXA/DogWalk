@@ -15,7 +15,7 @@ data class Pet(
     var name: String?,
 
     @ColumnInfo(name = "petAge")
-    var age: Int?,
+    var age: String?,
 
     @ColumnInfo(name = "petDescription")
     var description: String?,

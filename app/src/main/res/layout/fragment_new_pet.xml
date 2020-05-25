@@ -117,14 +117,12 @@
             android:layout_marginTop="@dimen/new_pet_margin"
             android:layout_marginBottom="@dimen/new_pet_margin"
             android:autofillHints="@string/new_pet_description"
-            android:ems="10"
             android:gravity="left|start"
             android:hint="@string/new_pet_description"
             android:inputType="textPersonName"
             android:text="@={viewModel.petDescription}"
             app:layout_constraintBottom_toTopOf="@+id/bottomGuideline"
             app:layout_constraintEnd_toStartOf="@+id/petRightGuideline"
-            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/petLeftGuideline"
             app:layout_constraintTop_toBottomOf="@+id/petSizeRadioGroup" />
 
@@ -132,7 +130,6 @@
             android:id="@+id/saveNewPetButton"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/new_pet_margin"
             android:background="@drawable/white_button_design"
             android:text="@string/profile_add_pet"
             android:textColor="@color/colorBlue"

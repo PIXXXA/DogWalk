@@ -22,12 +22,12 @@
     <dimen name="login_margin">16dp</dimen>
     <dimen name="login_button_guideline">40dp</dimen>
 
-    <!-- All Walker Fragment -->
-    <dimen name="all_walkers_button_width">65dp</dimen>
-    <dimen name="all_walkers_button_height">40dp</dimen>
-    <dimen name="walkers_icon_size">40dp</dimen>
-    <dimen name="all_walkers_margin">16dp</dimen>
-    <dimen name="all_walkers_recycler_view_margin">8dp</dimen>
+    <!-- Announcement Fragment -->
+    <dimen name="announcement_button_width">65dp</dimen>
+    <dimen name="announcement_button_height">40dp</dimen>
+    <dimen name="announcement_icon_size">40dp</dimen>
+    <dimen name="announcement_margin">16dp</dimen>
+    <dimen name="announcement_recycler_view_margin">8dp</dimen>
 
     <!-- Profile Fragment -->
     <dimen name="profile_margin">16dp</dimen>
@@ -47,5 +47,11 @@
 
     <!-- New Pet Fragment -->
     <dimen name="new_pet_margin">16dp</dimen>
+
+    <!-- Edit Pet Fragment -->
+    <dimen name="edit_pet_margin">16dp</dimen>
+
+    <!-- Order Fragment -->
+    <dimen name="order_margin">16dp</dimen>
 
 </resources>

@@ -19,12 +19,12 @@ data class Order(
     var date: String?,
 
     @ForeignKey(
-        entity = Walker::class,
+        entity = Pet::class,
         parentColumns = ["orderId"],
-        childColumns = ["walkerFK"],
+        childColumns = ["petFK"],
         onDelete = ForeignKey.CASCADE,
         onUpdate = ForeignKey.CASCADE
     )
-    @ColumnInfo(name = "walkerFK", index = true)
-    var walkerFK: Long?
+    @ColumnInfo(name = "petFK", index = true)
+    var petFK: Long?
 )

@@ -6,7 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".fragments.filter.FilterFragment">
 
-
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/leftGuideline"
         android:layout_width="wrap_content"

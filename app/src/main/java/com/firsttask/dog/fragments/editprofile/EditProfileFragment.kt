@@ -1,25 +1,19 @@
 package com.firsttask.dog.fragments.editprofile
 
-import androidx.lifecycle.ViewModelProviders
+import android.content.Context
+import android.content.SharedPreferences
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import com.firsttask.dog.Application
-
-import com.firsttask.dog.R
-import com.firsttask.dog.activity.LoginActivity
+import com.firsttask.dog.*
 import com.firsttask.dog.activity.WalkerActivity
 import com.firsttask.dog.databinding.FragmentEditProfileBinding
-import com.firsttask.dog.databinding.FragmentRegistrationBinding
 import com.firsttask.dog.fragments.profile.ProfileFragment
-import com.firsttask.dog.fragments.registration.RegistrationFactory
-import com.firsttask.dog.fragments.registration.RegistrationViewModel
 import kotlinx.android.synthetic.main.fragment_edit_profile.*
-import kotlinx.android.synthetic.main.fragment_registration.*
 import javax.inject.Inject
 
 class EditProfileFragment : Fragment() {
@@ -51,6 +45,18 @@ class EditProfileFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         (activity as WalkerActivity).showToolbar(R.string.edit_profile_title)
         continueClick()
+        setStartFields()
+    }
+
+    private fun setStartFields() {
+        val sharedPreference: SharedPreferences =
+            requireContext().getSharedPreferences("PREFERENCE_NAME", Context.MODE_PRIVATE)
+        viewModel.name.value = sharedPreference.getString(USER_NAME, null)
+        viewModel.surname.value = sharedPreference.getString(USER_SURNAME, null)
+        viewModel.email.value = sharedPreference.getString(USER_EMAIL, null)
+        viewModel.password.value = sharedPreference.getString(USER_PASSWORD, null)
+        viewModel.mobileNumber.value = sharedPreference.getString(MOBILE_NUMBER, null)
+        viewModel.homeAddress.value = sharedPreference.getString(USER_ADDRESS, null)
     }
 
     private fun continueClick() {

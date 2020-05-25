@@ -16,7 +16,4 @@ interface OwnerDao {
 
     @Delete
     fun delete(owner: Owner)
-
-//    @Query("Select name,surname,description,experience from Walker join User on User.userId=userId where description!=null or experience!=null")
-//    fun getOwner(): Walker
 }

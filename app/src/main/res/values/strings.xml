@@ -55,6 +55,7 @@
     <string name="biggest_size">Большая</string>
 
     <!-- Edit Profile -->
+    <string name="profile_error_message">Пожалуйста, заполните поле %s</string>
     <string name="edit_profile_title">Редактирование профиля</string>
     <string name="save_button">Сохранить</string>
     <string name="edit_profile_who_am_i">Кем я являюсь?</string>
@@ -71,5 +72,23 @@
     <string name="new_pet_size_middle">Средняя</string>
     <string name="new_pet_size_big">Большая</string>
     <string name="new_pet_description">Описание</string>
+
+    <!-- Edit Pet Fragment -->
+    <string name="pet_error_message">Пожалуйста, заполните поле %s</string>
+    <string name="edit_pet_title">Редактирование питомца</string>
+    <string name="edit_pet_order">Создать обьявление</string>
+    <string name="edit_pet_subtitle">Завершить редактирование питомца</string>
+    <string name="edit_pet_name">Имя</string>
+    <string name="edit_pet_age">Возраст</string>
+    <string name="edit_pet_size">Размер вашего питомца</string>
+    <string name="edit_pet_size_little">Маленькая</string>
+    <string name="edit_pet_size_middle">Средняя</string>
+    <string name="edit_pet_size_big">Большая</string>
+    <string name="edit_pet_description">Описание</string>
+
+    <!-- Order Fragment -->
+    <string name="order_save_button">Создать обьявление</string>
+    <string name="order_date_hint">Выберите дату</string>
+    <string name="order_time_hint">Выберите время</string>
 
 </resources>

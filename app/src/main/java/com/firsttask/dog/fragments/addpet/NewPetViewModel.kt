@@ -16,7 +16,7 @@ class NewPetViewModel(
 ) : ViewModel() {
 
     var petName = MutableLiveData<String>()
-    var petAge = MutableLiveData<Int>()
+    var petAge = MutableLiveData<String>()
     var petDescription = MutableLiveData<String>()
     var petSize = MutableLiveData<String>()
 

@@ -11,7 +11,6 @@ import com.firsttask.dog.Application
 import com.firsttask.dog.R
 import com.firsttask.dog.activity.WalkerActivity
 import com.firsttask.dog.databinding.FragmentNewPetBinding
-import com.firsttask.dog.fragments.login.LoginViewModelFactory
 import com.firsttask.dog.fragments.profile.ProfileFragment
 import kotlinx.android.synthetic.main.fragment_new_pet.*
 import javax.inject.Inject
@@ -19,13 +18,13 @@ import javax.inject.Inject
 class NewPetFragment : Fragment() {
 
     @Inject
-    lateinit var viewModelViewModelFactory: LoginViewModelFactory
+    lateinit var viewModelFactory: NewPetViewModelFactory
     private lateinit var viewModel: NewPetViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         Application.appComponent.inject(this)
-        viewModel = ViewModelProvider(this, viewModelViewModelFactory).get(NewPetViewModel::class.java)
+        viewModel = ViewModelProvider(this, viewModelFactory).get(NewPetViewModel::class.java)
     }
 
     override fun onCreateView(

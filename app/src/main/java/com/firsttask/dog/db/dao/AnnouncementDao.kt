@@ -16,7 +16,4 @@ interface AnnouncementDao {
 
     @Delete
     fun delete(announcement: Announcement)
-
-//    @Query("Select * from `Order` join Pet on petId=Pet.petId join Owner on Owner.ownerId=ownerId ")
-//    fun getAllOrder(): Order
 }

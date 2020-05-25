@@ -5,7 +5,6 @@ import androidx.lifecycle.ViewModel
 import com.firsttask.dog.ResourceProvider
 import com.firsttask.dog.db.database.AppDatabase
 import com.firsttask.dog.db.entity.Pet
-import com.firsttask.dog.db.entity.Walker
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
@@ -15,7 +14,8 @@ class ProfileViewModel(
 ) : ViewModel() {
 
     val petItems = MutableLiveData<ArrayList<Pet>>()
-    var userMobileNumber : String ?=null
+    var userMobileNumber: String? = null
+    var userName = MutableLiveData<String>()
 
     fun getRecyclerViewData() {
         GlobalScope.launch {

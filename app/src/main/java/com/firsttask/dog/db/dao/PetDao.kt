@@ -14,6 +14,6 @@ interface PetDao {
     @Delete
     fun delete(pet: Pet)
 
-    @Query("Select * from Pet join Owner on ownerFK=ownerId where ownerMobileNumber=:argMobileNumber")
+    @Query("Select petName,petDescription,petId,petAge,petSize,ownerFK from Pet join Owner on ownerFK=ownerId where ownerMobileNumber=:argMobileNumber")
     fun getAllPet(argMobileNumber : String?): Pet
 }

@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.firsttask.dog.fragments.editpet.EditPetViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".fragments.editpet.EditPetFragment">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/editPetLeftGuideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="@dimen/new_pet_margin" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/editPetRightGuideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="@dimen/new_pet_margin" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/editPetTopGuideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.1" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/editPetBottomGuideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.7" />
+
+        <EditText
+            android:id="@+id/editPetName"
+            style="@style/EditTextHint"
+            android:ems="10"
+            android:hint="@string/edit_pet_name"
+            android:inputType="textPersonName"
+            android:text="@={viewModel.editPetName}"
+            app:layout_constraintEnd_toStartOf="@+id/editPetRightGuideline"
+            app:layout_constraintStart_toStartOf="@+id/editPetLeftGuideline"
+            app:layout_constraintTop_toTopOf="@+id/editPetTopGuideline" />
+
+        <EditText
+            android:id="@+id/editPetAge"
+            style="@style/EditTextHint"
+            android:layout_marginTop="@dimen/edit_pet_margin"
+            android:ems="10"
+            android:hint="@string/edit_pet_age"
+            android:inputType="number"
+            android:text="@={viewModel.editPetAge}"
+            app:layout_constraintEnd_toStartOf="@+id/editPetRightGuideline"
+            app:layout_constraintStart_toStartOf="@+id/editPetLeftGuideline"
+            app:layout_constraintTop_toBottomOf="@+id/editPetName" />
+
+        <EditText
+            android:id="@+id/editPetDescription"
+            style="@style/EditTextHint"
+            android:layout_height="0dp"
+            android:layout_marginTop="@dimen/edit_pet_margin"
+            android:layout_marginBottom="@dimen/edit_pet_margin"
+            android:ems="10"
+            android:gravity="left|start"
+            android:hint="@string/edit_pet_description"
+            android:inputType="textLongMessage"
+            android:text="@={viewModel.editPetDescription}"
+            app:layout_constraintBottom_toTopOf="@+id/editPetSizeTitle"
+            app:layout_constraintEnd_toStartOf="@+id/editPetRightGuideline"
+            app:layout_constraintStart_toStartOf="@+id/editPetLeftGuideline"
+            app:layout_constraintTop_toBottomOf="@+id/editPetAge" />
+
+        <TextView
+            android:id="@+id/editPetSizeTitle"
+            style="@style/EditPetSubtitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/new_pet_size"
+            app:layout_constraintBottom_toTopOf="@+id/editPetSizeRadioGroup"
+            app:layout_constraintEnd_toStartOf="@+id/editPetRightGuideline"
+            app:layout_constraintStart_toStartOf="@+id/editPetLeftGuideline" />
+
+        <RadioGroup
+            android:id="@+id/editPetSizeRadioGroup"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toTopOf="@+id/editPetBottomGuideline"
+            app:layout_constraintEnd_toStartOf="@+id/editPetRightGuideline"
+            app:layout_constraintStart_toStartOf="@+id/editPetLeftGuideline">
+
+            <RadioButton
+                android:id="@+id/sizeLittle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/new_pet_size_little" />
+
+            <RadioButton
+                android:id="@+id/sizeMiddle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/new_pet_margin"
+                android:text="@string/new_pet_size_middle" />
+
+            <RadioButton
+                android:id="@+id/sizeBig"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/new_pet_margin"
+                android:text="@string/new_pet_size_big" />
+        </RadioGroup>
+
+        <Button
+            android:id="@+id/editPetSaveButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/white_button_design"
+            android:text="@string/edit_pet_subtitle"
+            android:textColor="@color/colorBlue"
+            android:textSize="@dimen/label_small_text_size"
+            app:layout_constraintBottom_toTopOf="@id/addOrder"
+            app:layout_constraintEnd_toStartOf="@+id/editPetRightGuideline"
+            app:layout_constraintStart_toStartOf="@+id/editPetLeftGuideline"
+            app:layout_constraintTop_toTopOf="@+id/editPetBottomGuideline" />
+
+        <Button
+            android:id="@+id/addOrder"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/edit_pet_margin"
+            android:background="@drawable/blue_button_design"
+            android:text="@string/edit_pet_order"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/label_small_text_size"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/editPetRightGuideline"
+            app:layout_constraintStart_toStartOf="@+id/editPetLeftGuideline"
+            app:layout_constraintTop_toBottomOf="@+id/editPetSaveButton" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

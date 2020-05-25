@@ -4,25 +4,25 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="@dimen/all_walkers_margin"
-    app:cardCornerRadius="@dimen/all_walkers_margin">
+    android:layout_margin="@dimen/announcement_margin"
+    app:cardCornerRadius="@dimen/announcement_margin">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="@dimen/all_walkers_recycler_view_margin">
+        android:padding="@dimen/announcement_recycler_view_margin">
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/rightGuideline"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            app:layout_constraintGuide_end="@dimen/all_walkers_recycler_view_margin" />
+            app:layout_constraintGuide_end="@dimen/announcement_recycler_view_margin" />
 
         <ImageView
             android:id="@+id/petIcon"
-            android:layout_width="@dimen/walkers_icon_size"
-            android:layout_height="@dimen/walkers_icon_size"
+            android:layout_width="@dimen/announcement_icon_size"
+            android:layout_height="@dimen/announcement_icon_size"
             android:background="@drawable/circle_image_view"
             android:contentDescription="@string/navigation_bar_walker"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -33,7 +33,7 @@
         <TextView
             android:id="@+id/petName"
             style="@style/ProfileRecyclerViewTitle"
-            android:layout_marginStart="@dimen/all_walkers_margin"
+            android:layout_marginStart="@dimen/announcement_margin"
             tools:text="Alexander"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/rightGuideline"

@@ -14,6 +14,7 @@ class EditProfileViewModel(
     private val resourceProvider: ResourceProvider,
     private val appDatabase: AppDatabase
 ) : ViewModel() {
+
     var name = MutableLiveData<String>()
     var surname = MutableLiveData<String>()
     var email = MutableLiveData<String>()
@@ -51,7 +52,7 @@ class EditProfileViewModel(
     private fun validateCases(editText: EditText) {
         if (editText.text.toString().isEmpty()) {
             editText.error = resourceProvider.getString(
-                R.string.registration_error_message,
+                R.string.profile_error_message,
                 editText.hint.toString()
             )
         }

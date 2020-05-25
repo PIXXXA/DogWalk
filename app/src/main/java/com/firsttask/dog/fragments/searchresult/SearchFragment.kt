@@ -12,10 +12,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.firsttask.dog.Application
 import com.firsttask.dog.R
 import com.firsttask.dog.activity.WalkerActivity
-import com.firsttask.dog.db.entity.User
 import com.firsttask.dog.db.entity.Walker
-import com.firsttask.dog.fragments.walkerslist.WalkerViewModelFactory
-import com.firsttask.dog.fragments.walkerslist.adapter.WalkerAdapter
+import com.firsttask.dog.fragments.announcementlist.adapter.WalkerAdapter
 import kotlinx.android.synthetic.main.fragment_walker.*
 import javax.inject.Inject
 

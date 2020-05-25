@@ -22,14 +22,14 @@ import javax.inject.Inject
 class LoginFragment : Fragment(), LoginCallback {
 
     @Inject
-    lateinit var viewModelViewModelFactory: LoginViewModelFactory
+    lateinit var viewModelFactory: LoginViewModelFactory
     private lateinit var viewModel: LoginViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         Application.appComponent.inject(this)
         viewModel =
-            ViewModelProvider(this, viewModelViewModelFactory).get(LoginViewModel::class.java)
+            ViewModelProvider(this, viewModelFactory).get(LoginViewModel::class.java)
     }
 
     override fun onCreateView(
@@ -64,9 +64,9 @@ class LoginFragment : Fragment(), LoginCallback {
             editor.putString(USER_PASSWORD, viewModel.loginPassword.value)
             editor.putString(USER_EMAIL, viewModel.loginEmail.value)
             editor.putString(MOBILE_NUMBER, viewModel.mobileNumber)
-            editor.putString(MOBILE_NUMBER, viewModel.mobileNumber)
-            editor.putString(MOBILE_NUMBER, viewModel.mobileNumber)
-            editor.putString(MOBILE_NUMBER, viewModel.mobileNumber)
+            editor.putString(USER_ADDRESS, viewModel.homeAddress)
+            editor.putString(USER_SURNAME, viewModel.surname)
+            editor.putString(USER_NAME, viewModel.name)
             viewModel.accountType?.let { editor.putBoolean(ACCOUNT_TYPE, it) }
             editor.commit()
             val intent = Intent(activity, WalkerActivity::class.java)

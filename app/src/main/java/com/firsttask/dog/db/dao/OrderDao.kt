@@ -1,10 +1,8 @@
 package com.firsttask.dog.db.dao
 
-import androidx.room.Dao
-import androidx.room.Delete
-import androidx.room.Insert
-import androidx.room.Update
+import androidx.room.*
 import com.firsttask.dog.db.entity.Order
+import com.firsttask.dog.db.entity.model.OrderModel
 
 @Dao
 interface OrderDao {
@@ -16,8 +14,7 @@ interface OrderDao {
 
     @Delete
     fun delete(order: Order)
-
-//    @Query("Select * from `Order` join Pet on petId=Pet.petId join Owner on Owner.ownerId=ownerId ")
-//    fun getAllOrder(): Order
-
+//
+//    @Query("Select * from `Order` join Pet on petFK=petId join Owner on ownerFK=ownerId where walkerDescription!=null or walkerExperience!=null")
+//    fun getWalker(): OrderModel
 }

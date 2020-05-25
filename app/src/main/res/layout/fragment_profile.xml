@@ -63,7 +63,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@id/profileIcon"
                     app:layout_constraintTop_toTopOf="parent"
-                    tools:text="Alexander Ushakov" />
+                    android:text="@={viewModel.userName}" />
 
                 <TextView
                     android:id="@+id/clickToEdit"
