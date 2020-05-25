@@ -8,6 +8,7 @@ const val USER_EMAIL = "Email"
 const val ACCOUNT_TYPE = "Type"
 const val MOBILE_NUMBER = "MobileNumber"
 const val USER_NAME = "Name"
+const val USER_ID = "Id"
 const val USER_SURNAME = "Surname"
 const val USER_ADDRESS = "Address"
 

@@ -43,6 +43,7 @@ class NewPetFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         (activity as WalkerActivity).showToolbar(R.string.new_pet_title)
+        onClickRadioButton()
         continueClick()
     }
 
@@ -74,7 +75,6 @@ class NewPetFragment : Fragment() {
                     newPetDescription
                 )
             ) {
-                onClickRadioButton()
                 viewModel.addNewPetToDatabase()
                 (activity as WalkerActivity).onScreenStart(ProfileFragment())
             }

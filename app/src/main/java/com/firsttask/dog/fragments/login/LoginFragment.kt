@@ -67,6 +67,7 @@ class LoginFragment : Fragment(), LoginCallback {
             editor.putString(USER_ADDRESS, viewModel.homeAddress)
             editor.putString(USER_SURNAME, viewModel.surname)
             editor.putString(USER_NAME, viewModel.name)
+            viewModel.userId?.let { editor.putLong(USER_ID, it) }
             viewModel.accountType?.let { editor.putBoolean(ACCOUNT_TYPE, it) }
             editor.commit()
             val intent = Intent(activity, WalkerActivity::class.java)

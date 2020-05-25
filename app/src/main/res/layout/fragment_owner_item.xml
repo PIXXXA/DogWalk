@@ -20,7 +20,7 @@
             app:layout_constraintGuide_end="@dimen/announcement_recycler_view_margin" />
 
         <ImageView
-            android:id="@+id/walkerIcon"
+            android:id="@+id/ownerIcon"
             android:layout_width="@dimen/announcement_icon_size"
             android:layout_height="@dimen/announcement_icon_size"
             android:background="@color/colorBlue"
@@ -30,7 +30,7 @@
             android:contentDescription="@string/navigation_bar_walker" />
 
         <TextView
-            android:id="@+id/walkerName"
+            android:id="@+id/ownerName"
             style="@style/WalkersRecyclerViewSubtitle.Title"
             android:layout_marginStart="@dimen/announcement_margin"
             app:layout_constraintEnd_toStartOf="@+id/rightGuideline"
@@ -39,7 +39,7 @@
             tools:text="Alexander Ushakov" />
 
         <TextView
-            android:id="@+id/walkerExperience"
+            android:id="@+id/ownerExperience"
             style="@style/WalkersRecyclerViewSubtitle"
             android:layout_marginStart="@dimen/announcement_margin"
             android:layout_marginTop="@dimen/announcement_recycler_view_margin"
@@ -49,7 +49,7 @@
             tools:text="Experience: 10 year" />
 
         <TextView
-            android:id="@+id/walkerDescription"
+            android:id="@+id/ownerDescription"
             style="@style/WalkersRecyclerViewSubtitle"
             android:layout_marginStart="@dimen/announcement_margin"
             android:layout_marginTop="@dimen/announcement_recycler_view_margin"

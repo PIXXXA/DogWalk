@@ -12,10 +12,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.firsttask.dog.Application
-import com.firsttask.dog.MOBILE_NUMBER
-import com.firsttask.dog.R
-import com.firsttask.dog.USER_NAME
+import com.firsttask.dog.*
 import com.firsttask.dog.activity.WalkerActivity
 import com.firsttask.dog.databinding.FragmentProfileBinding
 import com.firsttask.dog.db.entity.Pet
@@ -56,14 +53,15 @@ class ProfileFragment : Fragment() {
             requireContext().getSharedPreferences("PREFERENCE_NAME", Context.MODE_PRIVATE)
         viewModel.userMobileNumber = sharedPreference.getString(MOBILE_NUMBER, null)
         viewModel.userName.value = sharedPreference.getString(USER_NAME, null)
+        viewModel.userId = sharedPreference.getLong(USER_ID, 0)
         (activity as WalkerActivity).hideToolbar()
         onEditProfileClick()
         onAddNewPet()
+        viewModel.getRecyclerViewData()
         viewModel.petItems.observe(viewLifecycleOwner, Observer { createRecyclerView(it) })
     }
 
     private fun createRecyclerView(arrayList: ArrayList<Pet>) {
-        viewModel.getRecyclerViewData()
         val layoutManager: RecyclerView.LayoutManager
         recyclerView.setHasFixedSize(true)
         layoutManager = LinearLayoutManager(activity)
@@ -83,5 +81,4 @@ class ProfileFragment : Fragment() {
             (activity as WalkerActivity).onScreenStart(NewPetFragment())
         }
     }
-
 }

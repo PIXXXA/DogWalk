@@ -1,5 +1,6 @@
 package com.firsttask.dog.db.dao
 
+import android.database.Cursor
 import androidx.room.*
 import com.firsttask.dog.db.entity.Pet
 
@@ -14,6 +15,6 @@ interface PetDao {
     @Delete
     fun delete(pet: Pet)
 
-    @Query("Select petName,petDescription,petId,petAge,petSize,ownerFK from Pet join Owner on ownerFK=ownerId where ownerMobileNumber=:argMobileNumber")
-    fun getAllPet(argMobileNumber : String?): Pet
+    @Query("Select * from Pet where ownerFK=:argOwnerFK")
+    fun getAllPet(argOwnerFK : Long?): Cursor
 }

@@ -10,7 +10,6 @@ import com.firsttask.dog.db.entity.Pet
 import com.firsttask.dog.fragments.editpet.EditPetFragment
 import kotlinx.android.synthetic.main.fragment_profile_item.view.*
 
-
 class PetAdapter(
     private val recyclerViewItem: ArrayList<Pet>
 ) : RecyclerView.Adapter<PetAdapter.PetViewHolder>() {

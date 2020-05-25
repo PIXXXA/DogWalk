@@ -42,10 +42,10 @@ class EditProfileFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        setStartFields()
         super.onViewCreated(view, savedInstanceState)
         (activity as WalkerActivity).showToolbar(R.string.edit_profile_title)
         continueClick()
-        setStartFields()
     }
 
     private fun setStartFields() {

@@ -16,10 +16,12 @@ class ProfileViewModel(
     val petItems = MutableLiveData<ArrayList<Pet>>()
     var userMobileNumber: String? = null
     var userName = MutableLiveData<String>()
+    var userId: Long? = null
 
     fun getRecyclerViewData() {
         GlobalScope.launch {
-            petItems.value = appDatabase.petDao().getAllPet(userMobileNumber) as ArrayList<Pet>
+            var cursor =
+                appDatabase.petDao().getAllPet(userId)
         }
     }
 }
