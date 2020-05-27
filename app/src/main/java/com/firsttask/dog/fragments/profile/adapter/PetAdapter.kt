@@ -1,17 +1,22 @@
 package com.firsttask.dog.fragments.profile.adapter
 
+import android.R
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.firsttask.dog.*
+import com.firsttask.dog.PET_AGE
+import com.firsttask.dog.PET_DESCRIPTION
+import com.firsttask.dog.PET_NAME
+import com.firsttask.dog.PET_SIZE
+import com.firsttask.dog.activity.WalkerActivity
 import com.firsttask.dog.db.entity.Pet
 import com.firsttask.dog.fragments.editpet.EditPetFragment
 import kotlinx.android.synthetic.main.fragment_profile_item.view.*
 
 class PetAdapter(
-    private val recyclerViewItem: ArrayList<Pet>
+    private val recyclerViewItem: List<Pet>
 ) : RecyclerView.Adapter<PetAdapter.PetViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PetViewHolder {
@@ -41,8 +46,9 @@ class PetAdapter(
                 bundle.putString(PET_SIZE, petModel.size)
                 bundle.putString(PET_AGE, petModel.age)
                 editPetFragment.arguments = bundle
+                val startActivity = editPetFragment.activity as WalkerActivity
+                startActivity.onScreenStart(editPetFragment)
             }
-
         }
     }
 }

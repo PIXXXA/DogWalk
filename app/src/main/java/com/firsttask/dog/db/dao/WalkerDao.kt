@@ -15,5 +15,5 @@ interface WalkerDao {
     fun delete(walker: Walker)
 
     @Query("Select * from Walker where walkerDescription!=null or walkerExperience!=null")
-    fun getWalker(): Walker
+    fun getWalker(): List<Walker>
 }

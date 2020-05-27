@@ -5,8 +5,8 @@ import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.firsttask.dog.R
-import com.firsttask.dog.fragments.profile.ProfileFragment
 import com.firsttask.dog.fragments.announcementlist.AnnouncementFragment
+import com.firsttask.dog.fragments.profile.ProfileFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.android.synthetic.main.activity_walker.*
 import kotlinx.android.synthetic.main.fragment_toolbar.*
@@ -17,6 +17,7 @@ class WalkerActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_walker)
         addToolbar()
+        walkerBottomNavigationView.menu.findItem(R.id.myProfile).isChecked = true
         walkerBottomNavigationView.setOnNavigationItemSelectedListener(onNavigationItemSelected)
         supportFragmentManager.beginTransaction()
             .replace(R.id.walkerFragmentContainer, ProfileFragment()).commit()

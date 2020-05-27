@@ -1,5 +1,7 @@
 package com.firsttask.dog.fragments.addpet
 
+import android.content.Context
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -8,6 +10,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.firsttask.dog.Application
+import com.firsttask.dog.OWNER_ID
 import com.firsttask.dog.R
 import com.firsttask.dog.activity.WalkerActivity
 import com.firsttask.dog.databinding.FragmentNewPetBinding
@@ -43,6 +46,9 @@ class NewPetFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         (activity as WalkerActivity).showToolbar(R.string.new_pet_title)
+        val sharedPreference: SharedPreferences =
+            requireContext().getSharedPreferences("PREFERENCE_NAME", Context.MODE_PRIVATE)
+        viewModel.ownerFK = sharedPreference.getLong(OWNER_ID, 0)
         onClickRadioButton()
         continueClick()
     }

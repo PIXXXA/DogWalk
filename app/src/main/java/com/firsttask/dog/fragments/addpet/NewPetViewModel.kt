@@ -19,6 +19,7 @@ class NewPetViewModel(
     var petAge = MutableLiveData<String>()
     var petDescription = MutableLiveData<String>()
     var petSize = MutableLiveData<String>()
+    var ownerFK: Long? = 0
 
     fun validateEditText(
         nameEditText: EditText,
@@ -52,7 +53,7 @@ class NewPetViewModel(
             appDatabase.petDao().insert(
                 Pet(
                     petId = null,
-                    ownerFK = null,
+                    ownerFK = ownerFK,
                     name = petName.value,
                     age = petAge.value,
                     description = petDescription.value,

@@ -8,12 +8,6 @@
         android:title="@string/navigation_bar_walker" />
 
     <item
-        android:id="@+id/newOrder"
-        android:enabled="true"
-        android:icon="@drawable/ic_new_order"
-        android:title="@string/navigation_bar_new_order" />
-
-    <item
         android:id="@+id/myProfile"
         android:enabled="true"
         android:icon="@drawable/ic_my_profile"

@@ -93,10 +93,10 @@
     </style>
 
     <style name="ProfileRecyclerViewTitle">
-        <item name="android:textSize">@dimen/label_medium_text_size</item>
+        <item name="android:textSize">@dimen/label_extra_large_text_size</item>
         <item name="android:shadowColor">@color/colorPrimaryDark</item>
         <item name="android:fontFamily">@font/catwalk</item>
-        <item name="android:gravity">center</item>
+        <item name="android:gravity">left</item>
     </style>
 
     <!-- Filter Fragment -->

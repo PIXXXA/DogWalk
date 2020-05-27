@@ -13,15 +13,27 @@ class ProfileViewModel(
     private val appDatabase: AppDatabase
 ) : ViewModel() {
 
-    val petItems = MutableLiveData<ArrayList<Pet>>()
+    var petItems = MutableLiveData<List<Pet>>()
     var userMobileNumber: String? = null
     var userName = MutableLiveData<String>()
-    var userId: Long? = null
+    var userSurname = MutableLiveData<String>()
+    var ownerName = MutableLiveData<String>()
+    var ownerId: Long? = null
+
+    fun getCurrentOwner() {
+        GlobalScope.launch {
+            val currentOwner = appDatabase.ownerDao()
+                .getCurrentOwner(userName.value, userSurname.value, userMobileNumber)
+            ownerName.postValue(currentOwner.name?.plus(" ").plus(currentOwner.surname))
+            ownerId = currentOwner.ownerId
+        }
+    }
 
     fun getRecyclerViewData() {
         GlobalScope.launch {
-            var cursor =
-                appDatabase.petDao().getAllPet(userId)
+            petItems.postValue(
+                appDatabase.petDao().getAllPet(ownerId)
+            )
         }
     }
 }

@@ -131,7 +131,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:background="@drawable/white_button_design"
-            android:text="@string/profile_add_pet"
+            android:text="@string/new_pet_button"
             android:textColor="@color/colorBlue"
             android:textSize="@dimen/label_small_text_size"
             app:layout_constraintBottom_toBottomOf="parent"

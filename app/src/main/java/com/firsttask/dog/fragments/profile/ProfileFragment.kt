@@ -27,6 +27,7 @@ class ProfileFragment : Fragment() {
     @Inject
     lateinit var viewModelFactory: ProfileViewModelFactory
     private lateinit var viewModel: ProfileViewModel
+    private lateinit var sharedPreference: SharedPreferences
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -49,11 +50,12 @@ class ProfileFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val sharedPreference: SharedPreferences =
+        sharedPreference =
             requireContext().getSharedPreferences("PREFERENCE_NAME", Context.MODE_PRIVATE)
         viewModel.userMobileNumber = sharedPreference.getString(MOBILE_NUMBER, null)
         viewModel.userName.value = sharedPreference.getString(USER_NAME, null)
-        viewModel.userId = sharedPreference.getLong(USER_ID, 0)
+        viewModel.userSurname.value = sharedPreference.getString(USER_SURNAME, null)
+        viewModel.getCurrentOwner()
         (activity as WalkerActivity).hideToolbar()
         onEditProfileClick()
         onAddNewPet()
@@ -61,7 +63,7 @@ class ProfileFragment : Fragment() {
         viewModel.petItems.observe(viewLifecycleOwner, Observer { createRecyclerView(it) })
     }
 
-    private fun createRecyclerView(arrayList: ArrayList<Pet>) {
+    private fun createRecyclerView(arrayList: List<Pet>) {
         val layoutManager: RecyclerView.LayoutManager
         recyclerView.setHasFixedSize(true)
         layoutManager = LinearLayoutManager(activity)
@@ -76,7 +78,10 @@ class ProfileFragment : Fragment() {
         }
     }
 
-    private fun onAddNewPet(){
+    private fun onAddNewPet() {
+        val editor = sharedPreference.edit()
+        viewModel.ownerId?.let { editor.putLong(OWNER_ID, it) }
+        editor.commit()
         addNewPetButton.setOnClickListener {
             (activity as WalkerActivity).onScreenStart(NewPetFragment())
         }

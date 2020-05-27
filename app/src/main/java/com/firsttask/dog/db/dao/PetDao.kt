@@ -1,6 +1,7 @@
 package com.firsttask.dog.db.dao
 
 import android.database.Cursor
+import androidx.lifecycle.MutableLiveData
 import androidx.room.*
 import com.firsttask.dog.db.entity.Pet
 
@@ -16,5 +17,5 @@ interface PetDao {
     fun delete(pet: Pet)
 
     @Query("Select * from Pet where ownerFK=:argOwnerFK")
-    fun getAllPet(argOwnerFK : Long?): Cursor
+    fun getAllPet(argOwnerFK : Long?): List<Pet>
 }

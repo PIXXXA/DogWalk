@@ -2,9 +2,9 @@ package com.firsttask.dog.db.entity.model
 
 data class OrderModel(
 
-    var time: String?,
+    var orderTime: String?,
 
-    var date: String?,
+    var orderDate: String?,
 
     var petName: String?,
 

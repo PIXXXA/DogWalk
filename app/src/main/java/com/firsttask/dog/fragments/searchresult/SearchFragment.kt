@@ -14,7 +14,7 @@ import com.firsttask.dog.R
 import com.firsttask.dog.activity.WalkerActivity
 import com.firsttask.dog.db.entity.Walker
 import com.firsttask.dog.fragments.announcementlist.adapter.WalkerAdapter
-import kotlinx.android.synthetic.main.fragment_walker.*
+import kotlinx.android.synthetic.main.fragment_announcement.*
 import javax.inject.Inject
 
 class SearchFragment : Fragment() {

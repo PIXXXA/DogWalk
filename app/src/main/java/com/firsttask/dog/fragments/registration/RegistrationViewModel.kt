@@ -7,7 +7,9 @@ import androidx.lifecycle.ViewModel
 import com.firsttask.dog.R
 import com.firsttask.dog.ResourceProvider
 import com.firsttask.dog.db.database.AppDatabase
+import com.firsttask.dog.db.entity.Owner
 import com.firsttask.dog.db.entity.User
+import com.firsttask.dog.db.entity.Walker
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
@@ -23,7 +25,7 @@ class RegistrationViewModel(
     var password = MutableLiveData<String>()
     var mobileNumber = MutableLiveData<String>()
     var homeAddress = MutableLiveData<String>()
-    private var accountType: Boolean? = null
+    private var accountType: Boolean? = true
 
     fun toggleButtonValidation(toggleButton: ToggleButton) {
         toggleButton.setOnCheckedChangeListener { _, isChecked ->
@@ -100,6 +102,35 @@ class RegistrationViewModel(
                     accountType = accountType
                 )
             )
+            filterAddedUsers()
+        }
+    }
+
+    private fun filterAddedUsers() {
+        if (accountType!!) {
+            GlobalScope.launch {
+                appDatabase.ownerDao().insert(
+                    Owner(
+                        ownerId = null,
+                        name = name.value,
+                        surname = surname.value,
+                        mobileNumber = mobileNumber.value
+                    )
+                )
+            }
+        } else {
+            GlobalScope.launch {
+                appDatabase.walkersDao().insert(
+                    Walker(
+                        walkersId = null,
+                        name = name.value,
+                        surname = surname.value,
+                        mobileNumber = mobileNumber.value,
+                        description = null,
+                        experience = null
+                    )
+                )
+            }
         }
     }
 }

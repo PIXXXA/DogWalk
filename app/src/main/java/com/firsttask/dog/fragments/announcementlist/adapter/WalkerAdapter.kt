@@ -9,7 +9,7 @@ import com.firsttask.dog.db.entity.Walker
 import kotlinx.android.synthetic.main.fragment_walker_item.view.*
 
 class WalkerAdapter(
-    private val recyclerViewItem: ArrayList<Walker>
+    private val recyclerViewItem: List<Walker>?
 ) :
     RecyclerView.Adapter<WalkerAdapter.WalkerViewHolder>() {
 
@@ -20,12 +20,12 @@ class WalkerAdapter(
     }
 
     override fun onBindViewHolder(holder: WalkerViewHolder, position: Int) {
-        val recyclerViewEntity = recyclerViewItem[position]
-        holder.binding(recyclerViewEntity)
+        val recyclerViewEntity = recyclerViewItem?.get(position)
+        recyclerViewEntity?.let { holder.binding(it) }
     }
 
     override fun getItemCount(): Int {
-        return recyclerViewItem.size
+        return recyclerViewItem?.size!!
     }
 
     class WalkerViewHolder constructor(view: View) : RecyclerView.ViewHolder(view) {

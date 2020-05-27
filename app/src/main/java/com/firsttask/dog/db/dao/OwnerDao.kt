@@ -1,9 +1,6 @@
 package com.firsttask.dog.db.dao
 
-import androidx.room.Dao
-import androidx.room.Delete
-import androidx.room.Insert
-import androidx.room.Update
+import androidx.room.*
 import com.firsttask.dog.db.entity.Owner
 
 @Dao
@@ -16,4 +13,7 @@ interface OwnerDao {
 
     @Delete
     fun delete(owner: Owner)
+
+    @Query("Select * from Owner where ownerName=:argName and ownerSurname=:argSurname and ownerMobileNumber=:argMobileNumber")
+    fun getCurrentOwner(argName: String?, argSurname: String?, argMobileNumber: String?): Owner
 }

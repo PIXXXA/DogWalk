@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="@dimen/announcement_margin"
-    app:cardCornerRadius="@dimen/announcement_margin">
+    app:cardCornerRadius="@dimen/announcement_margin"
+    android:layout_marginTop="@dimen/announcement_margin">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -33,6 +33,8 @@
         <TextView
             android:id="@+id/petName"
             style="@style/ProfileRecyclerViewTitle"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
             android:layout_marginStart="@dimen/announcement_margin"
             tools:text="Alexander"
             app:layout_constraintBottom_toBottomOf="parent"

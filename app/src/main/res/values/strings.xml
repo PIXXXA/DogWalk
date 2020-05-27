@@ -65,6 +65,7 @@
 
     <!-- New Pet Fragment -->
     <string name="new_pet_title">Добавление нового питомца</string>
+    <string name="new_pet_button">Добавить</string>
     <string name="new_pet_name">Имя</string>
     <string name="new_pet_age">Возраст</string>
     <string name="new_pet_size">Размер вашего питомца</string>
