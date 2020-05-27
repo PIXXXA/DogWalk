@@ -9,7 +9,7 @@ import com.firsttask.dog.db.entity.model.OrderModel
 import kotlinx.android.synthetic.main.fragment_owner_item.view.*
 
 class OwnerAdapter(
-    private val recyclerViewItem: List<OrderModel>?
+    private val recyclerViewItem: List<OrderModel>
 ) :
     RecyclerView.Adapter<OwnerAdapter.OrderViewHolder>() {
 
@@ -20,12 +20,12 @@ class OwnerAdapter(
     }
 
     override fun onBindViewHolder(holder: OrderViewHolder, position: Int) {
-        val recyclerViewEntity = recyclerViewItem?.get(position)
-        recyclerViewEntity?.let { holder.binding(it) }
+        val recyclerViewEntity = recyclerViewItem.get(position)
+        recyclerViewEntity.let { holder.binding(it) }
     }
 
     override fun getItemCount(): Int {
-        return recyclerViewItem?.size!!
+        return recyclerViewItem.size
     }
 
     class OrderViewHolder constructor(view: View) : RecyclerView.ViewHolder(view) {

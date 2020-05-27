@@ -1,5 +1,6 @@
 package com.firsttask.dog.fragments.editpet
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -40,6 +41,7 @@ class EditPetFragment : Fragment() {
                 this@EditPetFragment.viewModel.editPetName.value = it?.getString(PET_NAME)
                 this@EditPetFragment.viewModel.editPetSize.value = it?.getString(PET_SIZE)
                 this@EditPetFragment.viewModel.editPetAge.value = it?.getString(PET_AGE)
+                this@EditPetFragment.viewModel.editPetId = it?.getLong(PET_ID)
                 this@EditPetFragment.viewModel.editPetDescription.value = it?.getString(
                     PET_DESCRIPTION
                 )
@@ -51,8 +53,27 @@ class EditPetFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         (activity as WalkerActivity).showToolbar(R.string.edit_pet_title)
+        filterPetSize()
+        onClickRadioButton()
         onSaveEditClick()
         onNewOrderClick()
+        val sharedPreference =
+            requireContext().getSharedPreferences("PREFERENCE_NAME", Context.MODE_PRIVATE)
+        viewModel.editOwnerId = sharedPreference.getLong(OWNER_ID, 0)
+    }
+
+    private fun filterPetSize() {
+        when (viewModel.editPetSize.value) {
+            "Little" -> {
+                sizeLittle.isChecked = true
+            }
+            "Middle" -> {
+                sizeMiddle.isChecked = true
+            }
+            else -> {
+                sizeBig.isChecked = true
+            }
+        }
     }
 
     private fun onClickRadioButton() {
@@ -67,19 +88,6 @@ class EditPetFragment : Fragment() {
                 R.id.sizeBig -> {
                     viewModel.editPetSize.value = "Big"
                 }
-                else -> {
-                    when (viewModel.editPetSize.value) {
-                        "Little" -> {
-                            sizeLittle.isChecked = true
-                        }
-                        "Middle" -> {
-                            sizeMiddle.isChecked = true
-                        }
-                        else -> {
-                            sizeBig.isChecked = true
-                        }
-                    }
-                }
             }
         }
     }
@@ -88,12 +96,13 @@ class EditPetFragment : Fragment() {
         addOrder.setOnClickListener {
             val fragmentB = OrderFragment()
             val bundle = Bundle()
-            bundle.putString(PET_NAME, viewModel.editPetName.value)
-            bundle.putString(PET_DESCRIPTION, viewModel.editPetDescription.value)
-            bundle.putString(PET_SIZE, viewModel.editPetSize.value)
-            bundle.putString(PET_AGE, viewModel.editPetAge.value)
+//            bundle.putString(PET_NAME, viewModel.editPetName.value)
+//            bundle.putString(PET_DESCRIPTION, viewModel.editPetDescription.value)
+//            bundle.putString(PET_SIZE, viewModel.editPetSize.value)
+//            bundle.putString(PET_AGE, viewModel.editPetAge.value)
+            viewModel.editPetId?.let { it1 -> bundle.putLong(SECOND_PET_ID, it1) }
             fragmentB.arguments = bundle
-            (activity as WalkerActivity).onScreenStart(OrderFragment())
+            (activity as WalkerActivity).onScreenStart(fragmentB)
         }
     }
 
@@ -105,7 +114,6 @@ class EditPetFragment : Fragment() {
                     editPetDescription
                 )
             ) {
-                onClickRadioButton()
                 viewModel.addEditedPetToDatabase()
                 (activity as WalkerActivity).onScreenStart(ProfileFragment())
             }

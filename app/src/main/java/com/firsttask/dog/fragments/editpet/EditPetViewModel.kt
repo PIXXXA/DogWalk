@@ -17,6 +17,8 @@ class EditPetViewModel(
 
     var editPetName = MutableLiveData<String>()
     var editPetAge = MutableLiveData<String>()
+    var editPetId : Long? = null
+    var editOwnerId : Long? = null
     var editPetDescription = MutableLiveData<String>()
     var editPetSize = MutableLiveData<String>()
 
@@ -55,8 +57,8 @@ class EditPetViewModel(
                     age = editPetAge.value,
                     description = editPetDescription.value,
                     size = editPetSize.value,
-                    ownerFK = null,
-                    petId = null
+                    ownerFK = editOwnerId,
+                    petId = editPetId
                 )
             )
         }

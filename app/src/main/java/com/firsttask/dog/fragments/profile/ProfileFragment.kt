@@ -3,6 +3,7 @@ package com.firsttask.dog.fragments.profile
 import android.content.Context
 import android.content.SharedPreferences
 import android.os.Bundle
+import android.os.Handler
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -28,6 +29,7 @@ class ProfileFragment : Fragment() {
     lateinit var viewModelFactory: ProfileViewModelFactory
     private lateinit var viewModel: ProfileViewModel
     private lateinit var sharedPreference: SharedPreferences
+    var accountType: Boolean = true
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -50,27 +52,55 @@ class ProfileFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        (activity as WalkerActivity).hideToolbar()
+        getSharedPreference()
+        onEditProfileClick()
+        filterAccountType()
+    }
+
+    private fun putOwnerSharedPref() {
+        viewModel.name.observe(viewLifecycleOwner, Observer {
+            val editor = sharedPreference.edit()
+            viewModel.id?.let { editor.putLong(OWNER_ID, it) }
+            editor.commit()
+        })
+        viewModel.getCurrentOwner()
+    }
+
+    private fun getSharedPreference(){
         sharedPreference =
             requireContext().getSharedPreferences("PREFERENCE_NAME", Context.MODE_PRIVATE)
         viewModel.userMobileNumber = sharedPreference.getString(MOBILE_NUMBER, null)
         viewModel.userName.value = sharedPreference.getString(USER_NAME, null)
         viewModel.userSurname.value = sharedPreference.getString(USER_SURNAME, null)
-        viewModel.getCurrentOwner()
-        (activity as WalkerActivity).hideToolbar()
-        onEditProfileClick()
-        onAddNewPet()
+        accountType = sharedPreference.getBoolean(ACCOUNT_TYPE, true)
+    }
 
-        viewModel.getRecyclerViewData()
-        viewModel.petItems.observe(viewLifecycleOwner, Observer { createRecyclerView(it) })
+    private fun filterAccountType(){
+        if (accountType) {
+            profileRecyclerView.visibility = View.VISIBLE
+            walkerInfo.visibility = View.GONE
+            putOwnerSharedPref()
+            onAddNewPet()
+            viewModel.petItems.observe(viewLifecycleOwner, Observer { createRecyclerView(it) })
+            viewModel.getRecyclerViewData()
+        } else {
+            viewModel.getCurrentWalker()
+            profileRecyclerView.visibility = View.GONE
+            addNewPetButton.visibility = View.GONE
+            allDogs.setText(R.string.profile_description)
+        }
     }
 
     private fun createRecyclerView(arrayList: List<Pet>) {
-        val layoutManager: RecyclerView.LayoutManager
-        recyclerView.setHasFixedSize(true)
-        layoutManager = LinearLayoutManager(activity)
-        val adapt = PetAdapter(arrayList)
-        recyclerView.adapter = adapt
-        recyclerView.layoutManager = layoutManager
+        Handler().postDelayed({
+            val layoutManager: RecyclerView.LayoutManager
+            profileRecyclerView.setHasFixedSize(true)
+            layoutManager = LinearLayoutManager(activity)
+            val adapt = PetAdapter(arrayList, activity as WalkerActivity)
+            profileRecyclerView.adapter = adapt
+            profileRecyclerView.layoutManager = layoutManager
+        }, 500)
     }
 
     private fun onEditProfileClick() {
@@ -79,10 +109,13 @@ class ProfileFragment : Fragment() {
         }
     }
 
+    fun addNewOrderButton(){
+        addNewOrder.setOnClickListener{
+            viewModel.updateWalkerTables()
+        }
+    }
+
     private fun onAddNewPet() {
-        val editor = sharedPreference.edit()
-        viewModel.ownerId?.let { editor.putLong(OWNER_ID, it) }
-        editor.commit()
         addNewPetButton.setOnClickListener {
             (activity as WalkerActivity).onScreenStart(NewPetFragment())
         }

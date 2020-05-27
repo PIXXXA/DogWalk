@@ -60,10 +60,10 @@
                     android:id="@+id/profileName"
                     style="@style/ProfileSubtitle.Title"
                     android:layout_marginStart="@dimen/profile_margin"
+                    android:text="@={viewModel.name}"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@id/profileIcon"
-                    app:layout_constraintTop_toTopOf="parent"
-                    android:text="@={viewModel.ownerName}" />
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
                     android:id="@+id/clickToEdit"
@@ -88,6 +88,7 @@
             app:layout_constraintTop_toBottomOf="@id/editProfileCardView" />
 
         <View
+            android:id="@+id/view"
             android:layout_width="0dp"
             android:layout_height="@dimen/profile_divider"
             android:background="@color/colorBlack"
@@ -95,38 +96,87 @@
             app:layout_constraintStart_toStartOf="@+id/profileLeftGuideline"
             app:layout_constraintTop_toBottomOf="@id/allDogs" />
 
-        <ScrollView
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/profileRecyclerView"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginBottom="@dimen/profile_margin"
+            android:visibility="gone"
             app:layout_constraintBottom_toTopOf="@id/addNewPetButton"
             app:layout_constraintEnd_toStartOf="@+id/profileRightGuideline"
             app:layout_constraintStart_toStartOf="@+id/profileLeftGuideline"
-            app:layout_constraintTop_toBottomOf="@id/allDogs">
+            app:layout_constraintTop_toBottomOf="@id/allDogs" />
 
-            <LinearLayout
+        <androidx.cardview.widget.CardView
+            android:id="@+id/walkerInfo"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="@dimen/order_margin"
+            app:layout_constraintBottom_toTopOf="@+id/addNewPetButton"
+            app:layout_constraintEnd_toStartOf="@+id/profileRightGuideline"
+            app:layout_constraintStart_toStartOf="@+id/profileLeftGuideline"
+            app:layout_constraintTop_toBottomOf="@+id/allDogs">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:layout_height="match_parent"
+                android:padding="@dimen/order_margin">
 
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/recyclerView"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent" />
-            </LinearLayout>
-        </ScrollView>
+                <EditText
+                    android:id="@+id/profileExperience"
+                    style="@style/EditTextHint"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/profile_experience"
+                    android:inputType="textPersonName"
+                    android:text="@={viewModel.walkerExperience}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <EditText
+                    android:id="@+id/profileDescription"
+                    style="@style/EditTextHint"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/profile_margin"
+                    android:ems="10"
+                    android:hint="@string/profile_description"
+                    android:inputType="textPersonName"
+                    android:text="@={viewModel.walkerDescription}"
+                    app:layout_constraintBottom_toTopOf="@id/addNewOrder"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/profileExperience" />
+
+                <Button
+                    android:id="@+id/addNewOrder"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/order_margin"
+                    android:background="@drawable/white_button_design"
+                    android:text="@string/order_save_button"
+                    android:textColor="@color/colorBlue"
+                    android:textSize="@dimen/label_small_text_size"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/profileDescription" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
 
         <Button
             android:id="@+id/addNewPetButton"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="@string/profile_add_pet"
+            android:layout_marginBottom="@dimen/profile_margin"
             android:background="@drawable/white_button_design"
+            android:text="@string/profile_add_pet"
             android:textColor="@color/colorBlue"
             android:textSize="@dimen/label_small_text_size"
-            android:layout_marginBottom="@dimen/profile_margin"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/profileRightGuideline"
             app:layout_constraintStart_toStartOf="@+id/profileLeftGuideline" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

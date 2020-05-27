@@ -76,34 +76,23 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <View
+            android:id="@+id/announcementDivider"
             android:layout_width="match_parent"
             android:layout_height="3dp"
             android:background="@color/colorBlack"
-            app:layout_constraintBottom_toTopOf="@+id/scrollView2"
+            app:layout_constraintBottom_toTopOf="@+id/search_recycler_view"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/guideline" />
 
-        <ScrollView
-            android:id="@+id/scrollView2"
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/search_recycler_view"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_margin="@dimen/announcement_margin"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/guideline">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/search_recycler_view"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent" />
-            </LinearLayout>
-        </ScrollView>
+            app:layout_constraintTop_toBottomOf="@+id/announcementDivider" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

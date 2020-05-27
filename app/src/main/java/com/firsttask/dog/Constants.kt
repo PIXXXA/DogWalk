@@ -17,6 +17,8 @@ const val PET_NAME = "Name"
 const val PET_DESCRIPTION = "Description"
 const val PET_SIZE = "Size"
 const val PET_AGE = "Age"
+const val PET_ID = "Pet id"
+const val SECOND_PET_ID = "Second pet id"
 
 //Owner shared pref data
 const val OWNER_ID = "Owner id"

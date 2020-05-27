@@ -28,6 +28,11 @@ class WalkerActivity : AppCompatActivity() {
             .replace(R.id.walkerFragmentContainer, fragment).addToBackStack(null).commit()
     }
 
+    fun onScreenStartWithoutBS(fragment: Fragment) {
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.walkerFragmentContainer, fragment).commit()
+    }
+
     private fun addToolbar() {
         setSupportActionBar(mainToolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
@@ -54,11 +59,11 @@ class WalkerActivity : AppCompatActivity() {
     private val onNavigationItemSelected = BottomNavigationView.OnNavigationItemSelectedListener {
         when (it.itemId) {
             R.id.allWalker -> {
-                onScreenStart(AnnouncementFragment())
+                onScreenStartWithoutBS(AnnouncementFragment())
                 return@OnNavigationItemSelectedListener true
             }
             R.id.myProfile -> {
-                onScreenStart(ProfileFragment())
+                onScreenStartWithoutBS(ProfileFragment())
                 return@OnNavigationItemSelectedListener true
             }
         }

@@ -64,20 +64,20 @@ class AnnouncementFragment : Fragment() {
         search_recycler_view.setHasFixedSize(true)
         layoutManager = LinearLayoutManager(activity)
         if (viewModel.accountType) {
-            search_recycler_view.adapter = OwnerAdapter(viewModel.ownerItems.value)
+            search_recycler_view.adapter = viewModel.ownerItems.value?.let { OwnerAdapter(it) }
         } else {
-            search_recycler_view.adapter = WalkerAdapter(viewModel.walkerItems.value)
+            search_recycler_view.adapter = viewModel.walkerItems.value?.let { WalkerAdapter(it) }
         }
         search_recycler_view.layoutManager = layoutManager
     }
 
     private fun filterAccountType() {
         if (viewModel.accountType) {
-            viewModel.getOwnerRecyclerViewData()
-            viewModel.ownerItems.observe(viewLifecycleOwner, Observer { createRecyclerView() })
-        } else {
             viewModel.getWalkerRecyclerViewData()
             viewModel.walkerItems.observe(viewLifecycleOwner, Observer { createRecyclerView() })
+        } else {
+            viewModel.getOwnerRecyclerViewData()
+            viewModel.ownerItems.observe(viewLifecycleOwner, Observer { createRecyclerView() })
         }
     }
 

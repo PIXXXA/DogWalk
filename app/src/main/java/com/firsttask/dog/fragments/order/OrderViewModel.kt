@@ -17,6 +17,7 @@ class OrderViewModel(
 
     var orderTime = MutableLiveData<String>()
     var orderDate = MutableLiveData<String>()
+    var orderPetFK : Long? = null
 
     fun validateEditText(
         orderTimeEditText: EditText,
@@ -49,7 +50,7 @@ class OrderViewModel(
                 Order(
                     date = orderDate.value,
                     orderId = null,
-                    petFK = null,
+                    petFK = orderPetFK,
                     time = orderTime.value
                 )
             )

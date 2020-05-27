@@ -8,7 +8,9 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.firsttask.dog.Application
+import com.firsttask.dog.PET_ID
 import com.firsttask.dog.R
+import com.firsttask.dog.SECOND_PET_ID
 import com.firsttask.dog.activity.WalkerActivity
 import com.firsttask.dog.databinding.FragmentNewPetBinding
 import com.firsttask.dog.databinding.FragmentOrderBinding
@@ -38,6 +40,9 @@ class OrderFragment : Fragment() {
         ).run {
             lifecycleOwner = this@OrderFragment
             viewModel = this@OrderFragment.viewModel
+            arguments.let {
+                this@OrderFragment.viewModel.orderPetFK = it?.getLong(SECOND_PET_ID)
+            }
             root
         }
     }

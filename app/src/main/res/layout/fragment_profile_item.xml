@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     app:cardCornerRadius="@dimen/announcement_margin"
-    android:layout_marginTop="@dimen/announcement_margin">
+    android:layout_marginTop="@dimen/announcement_recycler_view_margin"
+    android:layout_marginBottom="@dimen/announcement_recycler_view_margin">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"

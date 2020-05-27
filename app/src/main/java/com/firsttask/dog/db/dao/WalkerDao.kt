@@ -16,4 +16,7 @@ interface WalkerDao {
 
     @Query("Select * from Walker where walkerDescription!=null or walkerExperience!=null")
     fun getWalker(): List<Walker>
+
+    @Query("Select * from Walker where walkerName=:argName and walkerSurname=:argSurname and walkerMobileNumber=:argMobileNumber")
+    fun getCurrentWalker(argName: String?, argSurname: String?, argMobileNumber: String?): Walker
 }
