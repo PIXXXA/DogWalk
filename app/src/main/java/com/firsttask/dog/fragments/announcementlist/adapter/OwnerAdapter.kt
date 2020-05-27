@@ -36,6 +36,18 @@ class OwnerAdapter(
             itemView.ownerPetName.text = ownerModel.petName
             itemView.ownerPetAge.text = ownerModel.petAge
             itemView.ownerPetSize.text = ownerModel.petSize
+
+//            itemView.setOnClickListener { _ ->
+//                val editPetFragment = EditPetFragment()
+//                val bundle = Bundle()
+//                bundle.putString(PET_NAME, petModel.name)
+//                bundle.putString(PET_DESCRIPTION, petModel.description)
+//                bundle.putString(PET_SIZE, petModel.size)
+//                bundle.putString(PET_AGE, petModel.age)
+//                editPetFragment.arguments = bundle
+//                val startActivity = editPetFragment.activity as WalkerActivity
+//                startActivity.onScreenStart(editPetFragment)
+//            }
         }
     }
 }

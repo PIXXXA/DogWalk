@@ -59,6 +59,7 @@ class ProfileFragment : Fragment() {
         (activity as WalkerActivity).hideToolbar()
         onEditProfileClick()
         onAddNewPet()
+
         viewModel.getRecyclerViewData()
         viewModel.petItems.observe(viewLifecycleOwner, Observer { createRecyclerView(it) })
     }

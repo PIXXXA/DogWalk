@@ -6,7 +6,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Adapter
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
@@ -30,8 +29,6 @@ class AnnouncementFragment : Fragment() {
     @Inject
     lateinit var viewModelFactory: AnnouncementViewModelFactory
     private lateinit var viewModel: AnnouncementViewModel
-    var walkerAdapter = WalkerAdapter(viewModel.walkerItems.value)
-    var ownerAdapter = OwnerAdapter(viewModel.ownerItems.value)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -67,9 +64,9 @@ class AnnouncementFragment : Fragment() {
         search_recycler_view.setHasFixedSize(true)
         layoutManager = LinearLayoutManager(activity)
         if (viewModel.accountType) {
-            search_recycler_view.adapter = ownerAdapter
+            search_recycler_view.adapter = OwnerAdapter(viewModel.ownerItems.value)
         } else {
-            search_recycler_view.adapter = walkerAdapter
+            search_recycler_view.adapter = WalkerAdapter(viewModel.walkerItems.value)
         }
         search_recycler_view.layoutManager = layoutManager
     }
