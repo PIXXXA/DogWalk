@@ -31,11 +31,15 @@
     <string name="navigation_bar_my_profile">Мой профиль</string>
     <string name="navigation_bar_new_order">Объявление</string>
 
-    <!-- All Walker Fragment -->
+    <!-- Announcement Fragment -->
     <string name="all_walker_search_button">Поиск</string>
     <string name="all_walker_filter_button">Фильтр</string>
     <string name="all_walker_edit_text_hint">Введите для поиска</string>
     <string name="all_walker_experience">Опыт : %s</string>
+    <string name="all_walker_description">О себе : %s</string>
+    <string name="order_pet_name">Кличка животного : %s</string>
+    <string name="order_pet_age">Возраст : %s</string>
+    <string name="order_pet_size">Размер : %s</string>
 
     <!-- Profile Fragment -->
     <string name="profile">Профиль</string>
@@ -93,5 +97,6 @@
     <string name="order_save_button">Создать обьявление</string>
     <string name="order_date_hint">Выберите дату</string>
     <string name="order_time_hint">Выберите время</string>
+    <string name="order_walker">Заявление было добавлено</string>
 
 </resources>

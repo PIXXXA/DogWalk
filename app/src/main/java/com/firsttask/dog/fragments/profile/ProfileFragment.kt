@@ -7,6 +7,7 @@ import android.os.Handler
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
@@ -52,8 +53,8 @@ class ProfileFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        (activity as WalkerActivity).hideToolbar()
         getSharedPreference()
+        (activity as WalkerActivity).hideToolbar()
         onEditProfileClick()
         filterAccountType()
     }
@@ -64,6 +65,7 @@ class ProfileFragment : Fragment() {
             viewModel.id?.let { editor.putLong(OWNER_ID, it) }
             editor.commit()
         })
+        if()
         viewModel.getCurrentOwner()
     }
 
@@ -74,6 +76,11 @@ class ProfileFragment : Fragment() {
         viewModel.userName.value = sharedPreference.getString(USER_NAME, null)
         viewModel.userSurname.value = sharedPreference.getString(USER_SURNAME, null)
         accountType = sharedPreference.getBoolean(ACCOUNT_TYPE, true)
+        if(accountType){
+            viewModel.updateOwnerTables()
+        } else {
+            viewModel.updateWalkerTables()
+        }
     }
 
     private fun filterAccountType(){
@@ -89,6 +96,7 @@ class ProfileFragment : Fragment() {
             profileRecyclerView.visibility = View.GONE
             addNewPetButton.visibility = View.GONE
             allDogs.setText(R.string.profile_description)
+            addNewOrderButton()
         }
     }
 
@@ -104,14 +112,21 @@ class ProfileFragment : Fragment() {
     }
 
     private fun onEditProfileClick() {
+
         editProfileConstraintLayout.setOnClickListener {
             (activity as WalkerActivity).onScreenStart(EditProfileFragment())
         }
     }
 
-    fun addNewOrderButton(){
-        addNewOrder.setOnClickListener{
+    private fun addNewOrderButton() {
+        addWalkerNewOrder.setOnClickListener {
             viewModel.updateWalkerTables()
+            profileExperience.setText(viewModel.walkerExperience.value)
+            profileDescription.setText(viewModel.walkerDescription.value)
+            requireActivity().runOnUiThread {
+                Toast.makeText(context, R.string.order_walker, Toast.LENGTH_SHORT)
+                    .show()
+            }
         }
     }
 

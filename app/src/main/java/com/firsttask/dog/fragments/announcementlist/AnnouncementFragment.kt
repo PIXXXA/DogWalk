@@ -61,23 +61,24 @@ class AnnouncementFragment : Fragment() {
 
     private fun createRecyclerView() {
         val layoutManager: RecyclerView.LayoutManager
-        search_recycler_view.setHasFixedSize(true)
+        order_recycler_view.setHasFixedSize(true)
         layoutManager = LinearLayoutManager(activity)
-        if (viewModel.accountType) {
-            search_recycler_view.adapter = viewModel.ownerItems.value?.let { OwnerAdapter(it) }
-        } else {
-            search_recycler_view.adapter = viewModel.walkerItems.value?.let { WalkerAdapter(it) }
-        }
-        search_recycler_view.layoutManager = layoutManager
+        order_recycler_view.layoutManager = layoutManager
     }
 
     private fun filterAccountType() {
         if (viewModel.accountType) {
+            viewModel.walkerItems.observe(viewLifecycleOwner, Observer {
+                order_recycler_view.adapter = viewModel.walkerItems.value?.let { WalkerAdapter(it) }
+                createRecyclerView()
+            })
             viewModel.getWalkerRecyclerViewData()
-            viewModel.walkerItems.observe(viewLifecycleOwner, Observer { createRecyclerView() })
         } else {
+            viewModel.ownerItems.observe(viewLifecycleOwner, Observer {
+                order_recycler_view.adapter = viewModel.ownerItems.value?.let { OwnerAdapter(it) }
+                createRecyclerView()
+            })
             viewModel.getOwnerRecyclerViewData()
-            viewModel.ownerItems.observe(viewLifecycleOwner, Observer { createRecyclerView() })
         }
     }
 

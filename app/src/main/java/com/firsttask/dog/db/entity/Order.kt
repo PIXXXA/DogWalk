@@ -12,9 +12,6 @@ data class Order(
     @ColumnInfo(name = "orderId", index = true)
     var orderId: Long?,
 
-    @ColumnInfo(name = "orderTime")
-    var time: String?,
-
     @ColumnInfo(name = "orderDate")
     var date: String?,
 

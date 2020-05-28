@@ -20,7 +20,7 @@ class WalkerAdapter(
     }
 
     override fun onBindViewHolder(holder: WalkerViewHolder, position: Int) {
-        val recyclerViewEntity = recyclerViewItem.get(position)
+        val recyclerViewEntity = recyclerViewItem[position]
         recyclerViewEntity.let { holder.binding(it) }
     }
 
@@ -36,7 +36,11 @@ class WalkerAdapter(
                     R.string.all_walker_experience,
                     walkerModel.experience
                 )
-            itemView.walkerDescription.text = walkerModel.description
+            itemView.walkerDescription.text =
+                itemView.context.getString(
+                    R.string.all_walker_description,
+                    walkerModel.description
+                )
         }
     }
 }

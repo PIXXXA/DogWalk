@@ -16,11 +16,13 @@ class EditProfileViewModel(
 ) : ViewModel() {
 
     var name = MutableLiveData<String>()
+    var id : Long? = null
     var surname = MutableLiveData<String>()
     var email = MutableLiveData<String>()
     var password = MutableLiveData<String>()
     var mobileNumber = MutableLiveData<String>()
     var homeAddress = MutableLiveData<String>()
+    var accountType : Boolean? = true
 
     fun validateEditText(
         nameEditText: EditText,
@@ -36,7 +38,7 @@ class EditProfileViewModel(
                 .isNotEmpty() && mobileNumberEditText.text.toString()
                 .isNotEmpty() && homeAddressEditText.text.toString().isNotEmpty()
         ) {
-            addUserToDatabase()
+            editUserInDatabase()
             true
         } else {
             validateCases(nameEditText)
@@ -58,17 +60,18 @@ class EditProfileViewModel(
         }
     }
 
-    private fun addUserToDatabase() {
+    private fun editUserInDatabase() {
         GlobalScope.launch {
             appDatabase.userDao().update(
                 User(
-                    userId = null,
+                    userId = id,
                     name = name.value,
                     surname = surname.value,
                     email = email.value,
                     password = password.value,
                     mobileNumber = mobileNumber.value,
-                    homeAddress = homeAddress.value
+                    homeAddress = homeAddress.value,
+                    accountType = accountType
                 )
             )
         }

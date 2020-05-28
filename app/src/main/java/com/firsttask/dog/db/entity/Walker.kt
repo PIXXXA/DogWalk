@@ -21,8 +21,8 @@ data class Walker(
     var mobileNumber: String?,
 
     @ColumnInfo(name = "walkerDescription")
-    var description: String?,
+    var description: String? = null,
 
     @ColumnInfo(name = "walkerExperience")
-    var experience: String?
+    var experience: String? = null
 )

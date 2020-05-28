@@ -20,7 +20,7 @@ class OwnerAdapter(
     }
 
     override fun onBindViewHolder(holder: OrderViewHolder, position: Int) {
-        val recyclerViewEntity = recyclerViewItem.get(position)
+        val recyclerViewEntity = recyclerViewItem[position]
         recyclerViewEntity.let { holder.binding(it) }
     }
 
@@ -31,11 +31,22 @@ class OwnerAdapter(
     class OrderViewHolder constructor(view: View) : RecyclerView.ViewHolder(view) {
         fun binding(ownerModel: OrderModel) {
             itemView.ownerName.text = ownerModel.ownerName.plus(" ").plus(ownerModel.ownerSurname)
-            itemView.ownerTime.text =ownerModel.orderTime
             itemView.ownerDate.text = ownerModel.orderDate
-            itemView.ownerPetName.text = ownerModel.petName
-            itemView.ownerPetAge.text = ownerModel.petAge
-            itemView.ownerPetSize.text = ownerModel.petSize
+            itemView.ownerPetName.text =
+                itemView.context.getString(
+                    R.string.order_pet_name,
+                    ownerModel.petName
+                )
+            itemView.ownerPetAge.text =
+                itemView.context.getString(
+                    R.string.order_pet_age,
+                    ownerModel.petAge
+                )
+            itemView.ownerPetSize.text =
+                itemView.context.getString(
+                    R.string.order_pet_size,
+                    ownerModel.petSize
+                )
 
 //            itemView.setOnClickListener { _ ->
 //                val editPetFragment = EditPetFragment()

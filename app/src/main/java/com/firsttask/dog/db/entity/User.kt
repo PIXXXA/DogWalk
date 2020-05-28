@@ -30,5 +30,5 @@ class User(
     var homeAddress: String?,
 
     @ColumnInfo(name = "userAccountType")
-    var accountType: Boolean? = null
+    var accountType: Boolean? = true
 )

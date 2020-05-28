@@ -39,47 +39,39 @@
             tools:text="Alexander Ushakov" />
 
         <TextView
-            android:id="@+id/ownerTime"
-            style="@style/WalkersRecyclerViewSubtitle"
-            android:layout_marginTop="@dimen/announcement_recycler_view_margin"
-            app:layout_constraintEnd_toStartOf="@id/ownerDate"
-            app:layout_constraintStart_toStartOf="@+id/ownerName"
-            app:layout_constraintTop_toBottomOf="@+id/ownerName"
-            tools:text="time" />
-
-        <TextView
             android:id="@+id/ownerDate"
             style="@style/WalkersRecyclerViewSubtitle"
-            tools:text="TextView"
+            android:layout_marginTop="@dimen/announcement_recycler_view_margin"
+            android:gravity="center"
             app:layout_constraintEnd_toStartOf="@+id/rightGuideline"
-            app:layout_constraintStart_toEndOf="@+id/ownerTime"
-            app:layout_constraintTop_toTopOf="@+id/ownerTime" />
+            app:layout_constraintStart_toStartOf="@+id/ownerName"
+            app:layout_constraintTop_toBottomOf="@+id/ownerName"
+            tools:text="22.02.2020 15:12 PM" />
 
         <TextView
             android:id="@+id/ownerPetName"
             style="@style/WalkersRecyclerViewSubtitle"
             android:layout_marginTop="8dp"
             app:layout_constraintEnd_toStartOf="@+id/rightGuideline"
-            app:layout_constraintStart_toStartOf="@+id/ownerTime"
-            app:layout_constraintTop_toBottomOf="@+id/ownerTime"
-            tools:text="Experience: 10 year" />
+            app:layout_constraintStart_toStartOf="@+id/ownerDate"
+            app:layout_constraintTop_toBottomOf="@+id/ownerDate"
+            tools:text="Pet name : Kolt" />
 
         <TextView
             android:id="@+id/ownerPetAge"
             style="@style/WalkersRecyclerViewSubtitle"
-            android:layout_marginTop="@dimen/announcement_recycler_view_margin"
-            tools:text="TextView"
-            app:layout_constraintEnd_toStartOf="@id/ownerPetSize"
+            app:layout_constraintEnd_toStartOf="@+id/rightGuideline"
             app:layout_constraintStart_toStartOf="@+id/ownerPetName"
-            app:layout_constraintTop_toBottomOf="@+id/ownerPetName" />
+            app:layout_constraintTop_toBottomOf="@+id/ownerPetName"
+            tools:text="Pet age : 10 year" />
 
         <TextView
             android:id="@+id/ownerPetSize"
             style="@style/WalkersRecyclerViewSubtitle"
-            tools:text="TextView"
             app:layout_constraintEnd_toStartOf="@+id/rightGuideline"
-            app:layout_constraintStart_toEndOf="@+id/ownerPetAge"
-            app:layout_constraintTop_toTopOf="@+id/ownerPetAge" />
+            app:layout_constraintStart_toStartOf="@+id/ownerPetAge"
+            app:layout_constraintTop_toBottomOf="@+id/ownerPetAge"
+            tools:text="Pet size : middle" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>

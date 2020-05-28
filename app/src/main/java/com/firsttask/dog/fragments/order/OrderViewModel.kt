@@ -15,22 +15,18 @@ class OrderViewModel(
     private val appDatabase: AppDatabase
 ) : ViewModel() {
 
-    var orderTime = MutableLiveData<String>()
     var orderDate = MutableLiveData<String>()
     var orderPetFK : Long? = null
 
     fun validateEditText(
-        orderTimeEditText: EditText,
-        orderDateEditText: EditText
+        orderTimeEditText: EditText
     ): Boolean {
         return if (orderTimeEditText.text.toString().isNotEmpty()
-            && orderDateEditText.text.toString().isNotEmpty()
         ) {
             addNewOrderToDatabase()
             true
         } else {
             validateCases(orderTimeEditText)
-            validateCases(orderDateEditText)
             false
         }
     }
@@ -50,8 +46,7 @@ class OrderViewModel(
                 Order(
                     date = orderDate.value,
                     orderId = null,
-                    petFK = orderPetFK,
-                    time = orderTime.value
+                    petFK = orderPetFK
                 )
             )
         }

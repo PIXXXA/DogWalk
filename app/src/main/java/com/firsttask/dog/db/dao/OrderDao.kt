@@ -15,6 +15,6 @@ interface OrderDao {
     @Delete
     fun delete(order: Order)
 
-    @Query("Select orderTime,orderDate,petName,petAge,petDescription,petSize,ownerName,ownerSurname,ownerMobileNumber from `Order` join Pet on petFK=petId join Owner on ownerFK=ownerId")
+    @Query("Select orderDate,petName,petAge,petDescription,petSize,ownerName,ownerSurname,ownerMobileNumber from `Order` join Pet on petFK=petId join Owner on ownerFK=ownerId")
     fun getOrder(): List<OrderModel>
 }

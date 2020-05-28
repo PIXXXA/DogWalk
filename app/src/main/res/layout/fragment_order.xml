@@ -44,47 +44,58 @@
                 android:padding="@dimen/order_margin">
 
                 <EditText
-                    android:id="@+id/orderTime"
-                    style="@style/EditTextHint"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:autofillHints="@string/order_time_hint"
-                    android:ems="10"
-                    android:hint="@string/order_time_hint"
-                    android:text="@={viewModel.orderTime}"
-                    android:inputType="time"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <EditText
                     android:id="@+id/orderDate"
                     style="@style/EditTextHint"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/order_margin"
-                    android:autofillHints="@string/order_date_hint"
+                    android:autofillHints="@string/order_time_hint"
+                    android:editable="false"
                     android:ems="10"
                     android:text="@={viewModel.orderDate}"
-                    android:hint="@string/order_date_hint"
-                    android:inputType="date"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/orderTime" />
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <Button
+                    android:id="@+id/orderDateButton"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/blue_button_design"
+                    android:text="@string/order_date_hint"
+                    android:textColor="@color/colorWhite"
+                    android:layout_marginTop="@dimen/order_margin"
+                    android:textSize="@dimen/label_small_text_size"
+                    android:layout_marginRight="@dimen/order_margin"
+                    app:layout_constraintBottom_toBottomOf="@+id/orderTimeButton"
+                    app:layout_constraintStart_toStartOf="@+id/orderDate"
+                    app:layout_constraintTop_toBottomOf="@+id/orderDate"
+                    app:layout_constraintEnd_toStartOf="@id/orderTimeButton"/>
+
+                <Button
+                    android:id="@+id/orderTimeButton"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/blue_button_design"
+                    android:text="@string/order_time_hint"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="@dimen/label_small_text_size"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/orderDateButton"
+                    app:layout_constraintTop_toTopOf="@+id/orderDateButton" />
 
                 <Button
                     android:id="@+id/addNewOrder"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/order_margin"
                     android:background="@drawable/white_button_design"
                     android:text="@string/order_save_button"
                     android:textColor="@color/colorBlue"
+                    android:layout_marginTop="@dimen/order_margin"
                     android:textSize="@dimen/label_small_text_size"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/orderDate" />
+                    app:layout_constraintTop_toBottomOf="@+id/orderTimeButton" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.cardview.widget.CardView>
     </androidx.constraintlayout.widget.ConstraintLayout>

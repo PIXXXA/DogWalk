@@ -80,15 +80,15 @@
             android:layout_width="match_parent"
             android:layout_height="3dp"
             android:background="@color/colorBlack"
-            app:layout_constraintBottom_toTopOf="@+id/search_recycler_view"
+            android:layout_marginTop="@dimen/announcement_recycler_view_margin"
+            app:layout_constraintBottom_toTopOf="@+id/order_recycler_view"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/guideline" />
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/search_recycler_view"
+            android:id="@+id/order_recycler_view"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_margin="@dimen/announcement_margin"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
