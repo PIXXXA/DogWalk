@@ -6,7 +6,9 @@ import androidx.lifecycle.ViewModel
 import com.firsttask.dog.R
 import com.firsttask.dog.ResourceProvider
 import com.firsttask.dog.db.database.AppDatabase
+import com.firsttask.dog.db.entity.Owner
 import com.firsttask.dog.db.entity.User
+import com.firsttask.dog.db.entity.Walker
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
@@ -16,13 +18,16 @@ class EditProfileViewModel(
 ) : ViewModel() {
 
     var name = MutableLiveData<String>()
-    var id : Long? = null
+    var id: Long? = null
+    var announcementId: Long? = null
     var surname = MutableLiveData<String>()
     var email = MutableLiveData<String>()
     var password = MutableLiveData<String>()
     var mobileNumber = MutableLiveData<String>()
     var homeAddress = MutableLiveData<String>()
-    var accountType : Boolean? = true
+    var experience : String? = null
+    var description : String? = null
+    var accountType: Boolean? = true
 
     fun validateEditText(
         nameEditText: EditText,
@@ -74,6 +79,40 @@ class EditProfileViewModel(
                     accountType = accountType
                 )
             )
+            if (accountType == true) {
+                updateOwnerTables()
+            } else {
+                updateWalkerTables()
+            }
         }
     }
+
+    private fun updateWalkerTables() {
+        GlobalScope.launch {
+            appDatabase.walkersDao().update(
+                Walker(
+                    walkersId = announcementId,
+                    name = name.value,
+                    surname = surname.value,
+                    mobileNumber = mobileNumber.value,
+                    experience = experience,
+                    description = description
+                )
+            )
+        }
+    }
+
+    private fun updateOwnerTables() {
+        GlobalScope.launch {
+            appDatabase.ownerDao().update(
+                Owner(
+                    ownerId = announcementId,
+                    name = name.value,
+                    surname = surname.value,
+                    mobileNumber = mobileNumber.value
+                )
+            )
+        }
+    }
+
 }

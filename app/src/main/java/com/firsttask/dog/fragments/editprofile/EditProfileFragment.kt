@@ -59,6 +59,11 @@ class EditProfileFragment : Fragment() {
         viewModel.homeAddress.value = sharedPreference.getString(USER_ADDRESS, null)
         viewModel.accountType = sharedPreference.getBoolean(ACCOUNT_TYPE, true)
         viewModel.id = sharedPreference.getLong(USER_ID, 0)
+        viewModel.announcementId = sharedPreference.getLong(ANNOUNCEMENT_ID, 0)
+        if (viewModel.accountType != true) {
+            viewModel.description = sharedPreference.getString(WALKER_DESCRIPTION, null)
+            viewModel.experience = sharedPreference.getString(WALKER_EXPERIENCE, null)
+        }
     }
 
     private fun continueClick() {

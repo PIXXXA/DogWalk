@@ -1,22 +1,21 @@
 package com.firsttask.dog.fragments.filter
 
+import android.content.Context
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
+import com.firsttask.dog.FILTER_PET_SIZE
 import com.firsttask.dog.R
 import com.firsttask.dog.activity.WalkerActivity
+import com.firsttask.dog.fragments.searchresult.SearchFragment
+import kotlinx.android.synthetic.main.fragment_filter.*
 
 class FilterFragment : Fragment() {
 
-    private lateinit var viewModel: FilterViewModel
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(FilterViewModel::class.java)
-    }
+    private var filterSize: String? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -28,5 +27,34 @@ class FilterFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         (activity as WalkerActivity).showToolbar(R.string.filter_toolbar_title)
+        onClickRadioGroup()
+        onClickFilterButton()
+    }
+
+    private fun onClickRadioGroup() {
+        dogSizeRadioButton.setOnCheckedChangeListener { _, checkedId ->
+            when (checkedId) {
+                R.id.filterLittle -> {
+                    filterSize = resources.getString(R.string.default_pet_size_little)
+                }
+                R.id.filterMiddle -> {
+                    filterSize = resources.getString(R.string.default_pet_size_middle)
+                }
+                R.id.filterBig -> {
+                    filterSize = resources.getString(R.string.default_pet_size_big)
+                }
+            }
+        }
+    }
+
+    private fun onClickFilterButton() {
+        filterDataButton.setOnClickListener {
+            val sharedPreference: SharedPreferences =
+                requireContext().getSharedPreferences("PREFERENCE_NAME", Context.MODE_PRIVATE)
+            val editor = sharedPreference.edit()
+            editor.putString(FILTER_PET_SIZE, filterSize)
+            editor.commit()
+            (activity as WalkerActivity).onScreenStart(SearchFragment())
+        }
     }
 }

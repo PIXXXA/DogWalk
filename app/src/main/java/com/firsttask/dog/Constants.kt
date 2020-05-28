@@ -22,3 +22,9 @@ const val SECOND_PET_ID = "Second pet id"
 
 //Owner shared pref data
 const val OWNER_ID = "Owner id"
+const val ANNOUNCEMENT_ID = "Announcement id"
+const val WALKER_DESCRIPTION = "Walker description"
+const val WALKER_EXPERIENCE = "Walker experience"
+
+// Filter Fragment
+const val FILTER_PET_SIZE = "Filter pet size"

@@ -10,6 +10,9 @@
     <string name="edit_text_hint_home_address">Домашний адресс</string>
     <string name="login_button_title">Войти</string>
     <string name="registration_button_title">Зарегистрироваться</string>
+    <string name="default_pet_size_little">Little</string>
+    <string name="default_pet_size_middle">Middle</string>
+    <string name="default_pet_size_big">Big</string>
 
     <!-- Start Screen -->
     <string name="start_screen_description">Свяжитесь с выгульщиком \n в один клик</string>
@@ -29,7 +32,6 @@
     <!-- Walker Activity -->
     <string name="navigation_bar_walker">Все объявления</string>
     <string name="navigation_bar_my_profile">Мой профиль</string>
-    <string name="navigation_bar_new_order">Объявление</string>
 
     <!-- Announcement Fragment -->
     <string name="all_walker_search_button">Поиск</string>
@@ -59,6 +61,7 @@
     <string name="small_size">Маленькая</string>
     <string name="average_size">Средняя</string>
     <string name="biggest_size">Большая</string>
+    <string name="filter_button">Отфильтровать</string>
 
     <!-- Edit Profile -->
     <string name="profile_error_message">Пожалуйста, заполните поле %s</string>
@@ -94,9 +97,9 @@
     <string name="edit_pet_description">Описание</string>
 
     <!-- Order Fragment -->
-    <string name="order_save_button">Создать обьявление</string>
+    <string name="order_save_button">Создать объявление</string>
     <string name="order_date_hint">Выберите дату</string>
     <string name="order_time_hint">Выберите время</string>
-    <string name="order_walker">Заявление было добавлено</string>
+    <string name="order_walker">Объявление было добавлено</string>
 
 </resources>

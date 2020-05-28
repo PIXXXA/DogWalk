@@ -42,7 +42,6 @@
             android:id="@+id/ownerDate"
             style="@style/WalkersRecyclerViewSubtitle"
             android:layout_marginTop="@dimen/announcement_recycler_view_margin"
-            android:gravity="center"
             app:layout_constraintEnd_toStartOf="@+id/rightGuideline"
             app:layout_constraintStart_toStartOf="@+id/ownerName"
             app:layout_constraintTop_toBottomOf="@+id/ownerName"
@@ -51,7 +50,6 @@
         <TextView
             android:id="@+id/ownerPetName"
             style="@style/WalkersRecyclerViewSubtitle"
-            android:layout_marginTop="8dp"
             app:layout_constraintEnd_toStartOf="@+id/rightGuideline"
             app:layout_constraintStart_toStartOf="@+id/ownerDate"
             app:layout_constraintTop_toBottomOf="@+id/ownerDate"

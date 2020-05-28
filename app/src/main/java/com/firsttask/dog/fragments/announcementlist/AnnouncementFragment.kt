@@ -2,6 +2,7 @@ package com.firsttask.dog.fragments.announcementlist
 
 import android.content.Context
 import android.content.SharedPreferences
+import android.opengl.Visibility
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -68,6 +69,7 @@ class AnnouncementFragment : Fragment() {
 
     private fun filterAccountType() {
         if (viewModel.accountType) {
+            filterButton.visibility = View.GONE
             viewModel.walkerItems.observe(viewLifecycleOwner, Observer {
                 order_recycler_view.adapter = viewModel.walkerItems.value?.let { WalkerAdapter(it) }
                 createRecyclerView()

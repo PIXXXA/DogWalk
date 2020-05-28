@@ -4,7 +4,6 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.firsttask.dog.ResourceProvider
 import com.firsttask.dog.db.database.AppDatabase
-import com.firsttask.dog.db.entity.Owner
 import com.firsttask.dog.db.entity.Pet
 import com.firsttask.dog.db.entity.Walker
 import kotlinx.coroutines.GlobalScope
@@ -20,16 +19,16 @@ class ProfileViewModel(
     var userName = MutableLiveData<String>()
     var userSurname = MutableLiveData<String>()
     var name = MutableLiveData<String>()
-    var walkerExperience = MutableLiveData<String>()
-    var walkerDescription = MutableLiveData<String>()
+    var walkerExperience: String? = null
+    var walkerDescription: String? = null
     var id: Long? = null
 
     fun getCurrentOwner() {
         GlobalScope.launch {
             val currentOwner = appDatabase.ownerDao()
                 .getCurrentOwner(userName.value, userSurname.value, userMobileNumber)
-            name.postValue(currentOwner.name?.plus(" ").plus(currentOwner.surname))
             id = currentOwner.ownerId
+            name.postValue(currentOwner.name?.plus(" ").plus(currentOwner.surname))
         }
     }
 
@@ -45,8 +44,10 @@ class ProfileViewModel(
         GlobalScope.launch {
             val currentWalker = appDatabase.walkersDao()
                 .getCurrentWalker(userName.value, userSurname.value, userMobileNumber)
-            name.postValue(currentWalker.name?.plus(" ").plus(currentWalker.surname))
             id = currentWalker.walkersId
+            walkerDescription = currentWalker.description
+            walkerExperience = currentWalker.experience
+            name.postValue(currentWalker.name?.plus(" ").plus(currentWalker.surname))
         }
     }
 
@@ -58,25 +59,10 @@ class ProfileViewModel(
                     name = userName.value,
                     surname = userSurname.value,
                     mobileNumber = userMobileNumber,
-                    experience = walkerExperience.value,
-                    description = walkerDescription.value
+                    experience = walkerExperience,
+                    description = walkerDescription
                 )
             )
         }
-        getCurrentWalker()
-    }
-
-    fun updateOwnerTables(){
-        GlobalScope.launch {
-            appDatabase.ownerDao().update(
-                Owner(
-                    ownerId = id,
-                    name = userName.value,
-                    surname = userSurname.value,
-                    mobileNumber = userMobileNumber
-                )
-            )
-        }
-        getCurrentOwner()
     }
 }

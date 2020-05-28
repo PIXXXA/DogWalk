@@ -57,16 +57,16 @@ class NewPetFragment : Fragment() {
         petSizeRadioGroup.setOnCheckedChangeListener { _, checkedId ->
             when (checkedId) {
                 R.id.sizeLittle -> {
-                    viewModel.petSize.value = "Little"
+                    viewModel.petSize.value = resources.getString(R.string.default_pet_size_little)
                 }
                 R.id.sizeMiddle -> {
-                    viewModel.petSize.value = "Middle"
+                    viewModel.petSize.value = resources.getString(R.string.default_pet_size_middle)
                 }
                 R.id.sizeBig -> {
-                    viewModel.petSize.value = "Big"
+                    viewModel.petSize.value = resources.getString(R.string.default_pet_size_big)
                 }
                 else -> {
-                    viewModel.petSize.value = "Little"
+                    viewModel.petSize.value = resources.getString(R.string.default_pet_size_little)
                     sizeLittle.isChecked = true
                 }
             }

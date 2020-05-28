@@ -55,8 +55,8 @@ class ProfileFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         getSharedPreference()
         (activity as WalkerActivity).hideToolbar()
-        onEditProfileClick()
         filterAccountType()
+        onEditProfileClick()
     }
 
     private fun putOwnerSharedPref() {
@@ -65,25 +65,19 @@ class ProfileFragment : Fragment() {
             viewModel.id?.let { editor.putLong(OWNER_ID, it) }
             editor.commit()
         })
-        if()
         viewModel.getCurrentOwner()
     }
 
-    private fun getSharedPreference(){
+    private fun getSharedPreference() {
         sharedPreference =
             requireContext().getSharedPreferences("PREFERENCE_NAME", Context.MODE_PRIVATE)
         viewModel.userMobileNumber = sharedPreference.getString(MOBILE_NUMBER, null)
         viewModel.userName.value = sharedPreference.getString(USER_NAME, null)
         viewModel.userSurname.value = sharedPreference.getString(USER_SURNAME, null)
         accountType = sharedPreference.getBoolean(ACCOUNT_TYPE, true)
-        if(accountType){
-            viewModel.updateOwnerTables()
-        } else {
-            viewModel.updateWalkerTables()
-        }
     }
 
-    private fun filterAccountType(){
+    private fun filterAccountType() {
         if (accountType) {
             profileRecyclerView.visibility = View.VISIBLE
             walkerInfo.visibility = View.GONE
@@ -96,7 +90,7 @@ class ProfileFragment : Fragment() {
             profileRecyclerView.visibility = View.GONE
             addNewPetButton.visibility = View.GONE
             allDogs.setText(R.string.profile_description)
-            addNewOrderButton()
+            addNewWalkerOrderButton()
         }
     }
 
@@ -112,17 +106,27 @@ class ProfileFragment : Fragment() {
     }
 
     private fun onEditProfileClick() {
-
         editProfileConstraintLayout.setOnClickListener {
+            viewModel.name.observe(viewLifecycleOwner, Observer {
+                val editor = sharedPreference.edit()
+                viewModel.id?.let { editor.putLong(ANNOUNCEMENT_ID, it) }
+                editor.putString(WALKER_DESCRIPTION, viewModel.walkerDescription)
+                editor.putString(WALKER_EXPERIENCE, viewModel.walkerExperience)
+                editor.commit()
+            })
             (activity as WalkerActivity).onScreenStart(EditProfileFragment())
         }
     }
 
-    private fun addNewOrderButton() {
+    private fun addNewWalkerOrderButton() {
         addWalkerNewOrder.setOnClickListener {
             viewModel.updateWalkerTables()
-            profileExperience.setText(viewModel.walkerExperience.value)
-            profileDescription.setText(viewModel.walkerDescription.value)
+            profileExperience.setText(viewModel.walkerExperience)
+            profileDescription.setText(viewModel.walkerDescription)
+            val editor = sharedPreference.edit()
+            editor.putString(WALKER_DESCRIPTION, viewModel.walkerDescription)
+            editor.putString(WALKER_EXPERIENCE, viewModel.walkerExperience)
+            editor.commit()
             requireActivity().runOnUiThread {
                 Toast.makeText(context, R.string.order_walker, Toast.LENGTH_SHORT)
                     .show()

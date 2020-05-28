@@ -20,80 +20,78 @@
         android:orientation="vertical"
         app:layout_constraintGuide_end="@dimen/filter_margin" />
 
-    <TextView
-        android:id="@+id/coastTitle"
-        style="@style/FilterTitle"
+    <androidx.cardview.widget.CardView
+        android:id="@+id/filterCardView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/filter_margin"
-        android:text="@string/coast_title"
+        app:cardCornerRadius="@dimen/filter_margin"
         app:layout_constraintEnd_toStartOf="@+id/rightGuideline"
         app:layout_constraintStart_toStartOf="@+id/leftGuideline"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
 
-    <SeekBar
-        android:id="@+id/coastSeekBar"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/filter_small_margin"
-        app:layout_constraintEnd_toStartOf="@+id/rightGuideline"
-        app:layout_constraintStart_toStartOf="@+id/leftGuideline"
-        app:layout_constraintTop_toBottomOf="@+id/coastTitle" />
-
-    <TextView
-        android:id="@+id/dogSizeTitle"
-        style="@style/FilterTitle"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/filter_margin"
-        android:text="@string/dog_size_title"
-        app:layout_constraintEnd_toStartOf="@+id/rightGuideline"
-        app:layout_constraintStart_toStartOf="@+id/leftGuideline"
-        app:layout_constraintTop_toBottomOf="@+id/coastSeekBar" />
-
-    <RadioGroup
-        android:id="@+id/dogSizeRadioButton"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/filter_small_margin"
-        app:layout_constraintEnd_toStartOf="@+id/rightGuideline"
-        app:layout_constraintStart_toStartOf="@+id/leftGuideline"
-        app:layout_constraintTop_toBottomOf="@+id/dogSizeTitle">
-
-        <RadioButton
-            android:id="@+id/radioButton"
-            style="@style/FilterTitle.Subtitle"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/small_size" />
+            android:layout_height="match_parent"
+            android:padding="@dimen/filter_margin">
 
-        <RadioButton
-            android:id="@+id/radioButton2"
-            style="@style/FilterTitle.Subtitle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/filter_small_margin"
-            android:text="@string/average_size" />
+            <TextView
+                android:id="@+id/dogSizeTitle"
+                style="@style/FilterTitle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/dog_size_title"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-        <RadioButton
-            android:id="@+id/radioButton3"
-            style="@style/FilterTitle.Subtitle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/filter_small_margin"
-            android:text="@string/biggest_size" />
-    </RadioGroup>
+            <RadioGroup
+                android:id="@+id/dogSizeRadioButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/filter_small_margin"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/dogSizeTitle">
+
+                <RadioButton
+                    android:id="@+id/filterLittle"
+                    style="@style/FilterTitle.Subtitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/small_size" />
+
+                <RadioButton
+                    android:id="@+id/filterMiddle"
+                    style="@style/FilterTitle.Subtitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/filter_small_margin"
+                    android:text="@string/average_size" />
+
+                <RadioButton
+                    android:id="@+id/filterBig"
+                    style="@style/FilterTitle.Subtitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/filter_small_margin"
+                    android:text="@string/biggest_size" />
+            </RadioGroup>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/filterDataButton"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:background="@drawable/blue_button_design"
-        android:text="Button"
+        android:text="@string/filter_button"
         android:textColor="@color/colorWhite"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/rightGuideline"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/leftGuideline"
-        app:layout_constraintTop_toBottomOf="@+id/dogSizeRadioButton" />
+        app:layout_constraintTop_toBottomOf="@+id/filterCardView"
+        app:layout_constraintVertical_bias="0.173" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -15,6 +15,7 @@ import com.firsttask.dog.fragments.profile.ProfileFragment
 import com.firsttask.dog.fragments.registration.RegistrationFragment
 import com.firsttask.dog.fragments.searchresult.SearchFragment
 import com.firsttask.dog.fragments.announcementlist.AnnouncementFragment
+import com.firsttask.dog.fragments.filter.FilterFragment
 import dagger.Component
 import javax.inject.Singleton
 
