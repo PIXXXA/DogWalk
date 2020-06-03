@@ -23,8 +23,24 @@ const val SECOND_PET_ID = "Second pet id"
 //Owner shared pref data
 const val OWNER_ID = "Owner id"
 const val ANNOUNCEMENT_ID = "Announcement id"
-const val WALKER_DESCRIPTION = "Walker description"
-const val WALKER_EXPERIENCE = "Walker experience"
 
 // Filter Fragment
 const val FILTER_PET_SIZE = "Filter pet size"
+
+// Search Fragment
+const val SEARCH_STRING = "Search string"
+
+// Order Details Fragment
+const val WALKER_NAME = "Walker name"
+const val WALKER_SURNAME = "Walker surname"
+const val WALKER_MOBILE_NUMBER = "Walker mobile number"
+const val WALKER_DESCRIPTION = "Walker description"
+const val WALKER_EXPERIENCE = "Walker experience"
+const val OWNER_DATE = "Owner date"
+const val OWNER_PET_NAME = "Owner pet name"
+const val OWNER_PET_AGE = "Owner pet age"
+const val OWNER_PET_DESCRIPTION = "Owner pet description"
+const val OWNER_PET_SIZE = "Owner pet size"
+const val OWNER_NAME = "Owner name"
+const val OWNER_SURNAME = "Owner surname"
+const val OWNER_MOBILE_NUMBER = "Owner mobile number"

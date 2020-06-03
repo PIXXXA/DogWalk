@@ -1,6 +1,5 @@
 package com.firsttask.dog.fragments.announcementlist
 
-import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.firsttask.dog.ResourceProvider
@@ -9,8 +8,6 @@ import com.firsttask.dog.db.entity.Walker
 import com.firsttask.dog.db.entity.model.OrderModel
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
-import org.w3c.dom.Entity
-import kotlin.math.log
 
 class AnnouncementViewModel(
     private val resourceProvider: ResourceProvider,
@@ -25,7 +22,6 @@ class AnnouncementViewModel(
     fun getWalkerRecyclerViewData() {
         GlobalScope.launch {
             walkerItems.postValue(appDatabase.walkersDao().getWalker(""))
-            Log.d("asdfg", "")
         }
     }
 

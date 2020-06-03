@@ -8,6 +8,7 @@ import android.os.Bundle
 import android.text.format.DateUtils
 import android.view.LayoutInflater
 import android.view.View
+import androidx.lifecycle.Observer
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
@@ -55,18 +56,35 @@ class OrderFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         (activity as WalkerActivity).showToolbar(R.string.new_pet_title)
-        continueClick()
+        viewModel.getCurrentOrder()
         setInitialDateTime()
         setDate()
         setTime()
+        viewModel.orderId.observe(viewLifecycleOwner, Observer {
+            onDeleteButtonClick()
+            onContinueClickButton()
+        })
     }
 
-    private fun continueClick() {
+    private fun onDeleteButtonClick() {
+        if (viewModel.orderId.value == null) {
+            deleteOrderButton.visibility = View.GONE
+        } else {
+            deleteOrderButton.visibility = View.VISIBLE
+            deleteOrderButton.setOnClickListener {
+                viewModel.deleteCurrentOrderInDatabase()
+                (activity as WalkerActivity).onScreenStartWithoutBS(ProfileFragment())
+            }
+        }
+    }
+
+    private fun onContinueClickButton() {
         addNewOrder.setOnClickListener {
             if (viewModel.validateEditText(
                     orderDate
                 )
             ) {
+
                 (activity as WalkerActivity).onScreenStart(ProfileFragment())
             }
         }

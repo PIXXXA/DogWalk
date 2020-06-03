@@ -23,7 +23,6 @@
             android:id="@+id/ownerIcon"
             android:layout_width="@dimen/announcement_icon_size"
             android:layout_height="@dimen/announcement_icon_size"
-            android:background="@color/colorBlue"
             android:contentDescription="@string/navigation_bar_walker"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"

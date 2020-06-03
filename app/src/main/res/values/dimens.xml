@@ -31,6 +31,7 @@
 
     <!-- Profile Fragment -->
     <dimen name="profile_margin">16dp</dimen>
+    <dimen name="profile_progress_bar">200dp</dimen>
     <dimen name="profile_icon_size">40dp</dimen>
     <dimen name="profile_card_view_margin">8dp</dimen>
     <dimen name="profile_divider">2dp</dimen>
@@ -50,8 +51,12 @@
 
     <!-- Edit Pet Fragment -->
     <dimen name="edit_pet_margin">16dp</dimen>
+    <dimen name="edit_pet_card_view_margin">8dp</dimen>
 
     <!-- Order Fragment -->
     <dimen name="order_margin">16dp</dimen>
+
+    <!-- Order Details Fragment -->
+    <dimen name="order_details_margin">16dp</dimen>
 
 </resources>

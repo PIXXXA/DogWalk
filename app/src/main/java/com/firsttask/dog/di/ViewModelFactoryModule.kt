@@ -11,6 +11,7 @@ import com.firsttask.dog.fragments.profile.ProfileViewModelFactory
 import com.firsttask.dog.fragments.registration.RegistrationFactory
 import com.firsttask.dog.fragments.searchresult.SearchViewModelFactory
 import com.firsttask.dog.fragments.announcementlist.AnnouncementViewModelFactory
+import com.firsttask.dog.fragments.orderdetails.OrderDetailsViewModelFactory
 import dagger.Module
 import dagger.Provides
 import javax.inject.Singleton
@@ -121,6 +122,18 @@ class ViewModelFactoryModule {
         appDatabase: AppDatabase
     ): OrderViewModelFactory {
         return OrderViewModelFactory(
+            resourceProvider,
+            appDatabase
+        )
+    }
+
+    @Provides
+    @Singleton
+    fun getOrderDetailsViewModelFactory(
+        resourceProvider: ResourceProvider,
+        appDatabase: AppDatabase
+    ): OrderDetailsViewModelFactory {
+        return OrderDetailsViewModelFactory(
             resourceProvider,
             appDatabase
         )

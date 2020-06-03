@@ -1,15 +1,19 @@
 package com.firsttask.dog.fragments.announcementlist.adapter
 
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.firsttask.dog.R
+import com.firsttask.dog.*
+import com.firsttask.dog.activity.WalkerActivity
 import com.firsttask.dog.db.entity.model.OrderModel
+import com.firsttask.dog.fragments.orderdetails.OrderDetailsFragment
 import kotlinx.android.synthetic.main.fragment_owner_item.view.*
 
 class OwnerAdapter(
-    private val recyclerViewItem: List<OrderModel>
+    private val recyclerViewItem: List<OrderModel>,
+    private val activity: WalkerActivity?
 ) :
     RecyclerView.Adapter<OwnerAdapter.OrderViewHolder>() {
 
@@ -21,7 +25,7 @@ class OwnerAdapter(
 
     override fun onBindViewHolder(holder: OrderViewHolder, position: Int) {
         val recyclerViewEntity = recyclerViewItem[position]
-        recyclerViewEntity.let { holder.binding(it) }
+        recyclerViewEntity.let { holder.binding(it, activity) }
     }
 
     override fun getItemCount(): Int {
@@ -29,7 +33,7 @@ class OwnerAdapter(
     }
 
     class OrderViewHolder constructor(view: View) : RecyclerView.ViewHolder(view) {
-        fun binding(ownerModel: OrderModel) {
+        fun binding(ownerModel: OrderModel, activity: WalkerActivity?) {
             itemView.ownerName.text = ownerModel.ownerName.plus(" ").plus(ownerModel.ownerSurname)
             itemView.ownerDate.text = ownerModel.orderDate
             itemView.ownerPetName.text =
@@ -48,17 +52,20 @@ class OwnerAdapter(
                     ownerModel.petSize
                 )
 
-//            itemView.setOnClickListener { _ ->
-//                val editPetFragment = EditPetFragment()
-//                val bundle = Bundle()
-//                bundle.putString(PET_NAME, petModel.name)
-//                bundle.putString(PET_DESCRIPTION, petModel.description)
-//                bundle.putString(PET_SIZE, petModel.size)
-//                bundle.putString(PET_AGE, petModel.age)
-//                editPetFragment.arguments = bundle
-//                val startActivity = editPetFragment.activity as WalkerActivity
-//                startActivity.onScreenStart(editPetFragment)
-//            }
+            itemView.setOnClickListener { _ ->
+                val orderDetailsFragment = OrderDetailsFragment()
+                val bundle = Bundle()
+                bundle.putString(OWNER_DATE, ownerModel.orderDate)
+                bundle.putString(OWNER_PET_NAME, ownerModel.petName)
+                bundle.putString(OWNER_PET_AGE, ownerModel.petName)
+                bundle.putString(OWNER_PET_DESCRIPTION, ownerModel.petName)
+                bundle.putString(OWNER_PET_SIZE, ownerModel.petName)
+                bundle.putString(OWNER_NAME, ownerModel.petName)
+                bundle.putString(OWNER_SURNAME, ownerModel.petName)
+                bundle.putString(OWNER_MOBILE_NUMBER, ownerModel.petName)
+                orderDetailsFragment.arguments = bundle
+                activity?.onScreenStart(orderDetailsFragment)
+            }
         }
     }
 }

@@ -4,6 +4,10 @@
         <item name="colorPrimaryDark">@color/colorBlue</item>
     </style>
 
+    <style name="CircularProgress">
+        <item name="colorAccent">@color/colorPrimaryDark</item>
+    </style>
+
     <!-- Default -->
     <style name="Toolbar">
         <item name="android:layout_width">match_parent</item>
@@ -131,6 +135,15 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:gravity">left</item>
         <item name="android:textSize">@dimen/label_medium_text_size</item>
+    </style>
+
+    <!-- Order Details Fragment -->
+    <style name="OrderDetailsSubtitle">
+        <item name="android:textColor">@color/colorBlack</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">left</item>
+        <item name="android:textSize">@dimen/label_small_text_size</item>
     </style>
 
 </resources>

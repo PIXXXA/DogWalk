@@ -10,9 +10,9 @@
     <string name="edit_text_hint_home_address">Домашний адресс</string>
     <string name="login_button_title">Войти</string>
     <string name="registration_button_title">Зарегистрироваться</string>
-    <string name="default_pet_size_little">Little</string>
-    <string name="default_pet_size_middle">Middle</string>
-    <string name="default_pet_size_big">Big</string>
+    <string name="default_pet_size_little">Маленькая</string>
+    <string name="default_pet_size_middle">Средняя</string>
+    <string name="default_pet_size_big">Большая</string>
 
     <!-- Start Screen -->
     <string name="start_screen_description">Свяжитесь с выгульщиком \n в один клик</string>
@@ -35,6 +35,7 @@
 
     <!-- Announcement Fragment -->
     <string name="all_walker_search_button">Поиск</string>
+    <string name="search_field_error_message">Введите значение, чтобы найти обьявление</string>
     <string name="all_walker_filter_button">Фильтр</string>
     <string name="all_walker_edit_text_hint">Введите для поиска</string>
     <string name="all_walker_experience">Опыт : %s</string>
@@ -46,6 +47,7 @@
     <!-- Profile Fragment -->
     <string name="profile">Профиль</string>
     <string name="profile_add_pet">Добавить новое животное</string>
+    <string name="profile_exit">Выйти</string>
     <string name="profile_click_to_edit">Редактировать профиль ></string>
     <string name="profile_all_dogs">Собаки</string>
     <string name="profile_experience">Какой у вас опыт?</string>
@@ -70,7 +72,8 @@
     <string name="edit_profile_who_am_i">Кем я являюсь?</string>
     <string name="edit_profile_i_am_owner">Я хозяин животного</string>
     <string name="edit_profile_i_am_walker">Я выгульщик</string>
-    <string name="edit_profile_click_to_change">Нажмите, чтобы изменить</string>
+    <string name="edit_profile_click_to_change">Нажмите, чтобы изменить.</string>
+    <string name="edit_profile_restart_program">Перезапустите приложение, чтобы изменения вступили в силу.</string>
 
     <!-- New Pet Fragment -->
     <string name="new_pet_title">Добавление нового питомца</string>
@@ -86,7 +89,7 @@
     <!-- Edit Pet Fragment -->
     <string name="pet_error_message">Пожалуйста, заполните поле %s</string>
     <string name="edit_pet_title">Редактирование питомца</string>
-    <string name="edit_pet_order">Создать обьявление</string>
+    <string name="edit_pet_order">Создать/редактировать обьявление</string>
     <string name="edit_pet_subtitle">Завершить редактирование питомца</string>
     <string name="edit_pet_name">Имя</string>
     <string name="edit_pet_age">Возраст</string>
@@ -97,9 +100,24 @@
     <string name="edit_pet_description">Описание</string>
 
     <!-- Order Fragment -->
-    <string name="order_save_button">Создать объявление</string>
+    <string name="order_save_button">Создать/редактировать объявление</string>
+    <string name="order_delete_button">Удалить объявление</string>
     <string name="order_date_hint">Выберите дату</string>
     <string name="order_time_hint">Выберите время</string>
     <string name="order_walker">Объявление было добавлено</string>
+
+    <!-- Order Details Fragment -->
+    <string name="order_details_title">Детали заказа</string>
+    <string name="order_details_name">Имя выгульщика : %s</string>
+    <string name="order_details_mobile_number">Мобильный номер выгульщика : %s</string>
+    <string name="order_details_description">Информация о нём : %s</string>
+    <string name="order_details_experience">Опыт выгульщика : %s</string>
+    <string name="order_details_date">Дата заказа : %s</string>
+    <string name="order_details_pet_name">Имя питомца : %s</string>
+    <string name="order_details_pet_age">Возраст питомца : %s</string>
+    <string name="order_details_pet_description">Описание питомца : %s</string>
+    <string name="order_details_pet_size">Размер питомца : %s</string>
+    <string name="order_details_owner_name">Имя хозяина : %s</string>
+    <string name="order_details_owner_mobile_number">Мобильный номер хозяина : %s</string>
 
 </resources>

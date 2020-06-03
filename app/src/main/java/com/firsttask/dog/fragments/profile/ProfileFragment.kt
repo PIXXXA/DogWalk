@@ -1,6 +1,7 @@
 package com.firsttask.dog.fragments.profile
 
 import android.content.Context
+import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
 import android.os.Handler
@@ -15,6 +16,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.firsttask.dog.*
+import com.firsttask.dog.activity.LoginActivity
 import com.firsttask.dog.activity.WalkerActivity
 import com.firsttask.dog.databinding.FragmentProfileBinding
 import com.firsttask.dog.db.entity.Pet
@@ -23,6 +25,7 @@ import com.firsttask.dog.fragments.editprofile.EditProfileFragment
 import com.firsttask.dog.fragments.profile.adapter.PetAdapter
 import kotlinx.android.synthetic.main.fragment_profile.*
 import javax.inject.Inject
+
 
 class ProfileFragment : Fragment() {
 
@@ -57,6 +60,7 @@ class ProfileFragment : Fragment() {
         (activity as WalkerActivity).hideToolbar()
         filterAccountType()
         onEditProfileClick()
+        onExitAccountButtonClick()
     }
 
     private fun putOwnerSharedPref() {
@@ -79,16 +83,16 @@ class ProfileFragment : Fragment() {
 
     private fun filterAccountType() {
         if (accountType) {
-            profileRecyclerView.visibility = View.VISIBLE
-            walkerInfo.visibility = View.GONE
-            putOwnerSharedPref()
-            onAddNewPet()
             viewModel.petItems.observe(viewLifecycleOwner, Observer { createRecyclerView(it) })
+            putOwnerSharedPref()
             viewModel.getRecyclerViewData()
+            onAddNewPet()
+            profileRecyclerView.visibility = View.VISIBLE
+            addNewPetButton.visibility = View.VISIBLE
+            walkerInfo.visibility = View.GONE
         } else {
             viewModel.getCurrentWalker()
             profileRecyclerView.visibility = View.GONE
-            addNewPetButton.visibility = View.GONE
             allDogs.setText(R.string.profile_description)
             addNewWalkerOrderButton()
         }
@@ -137,6 +141,14 @@ class ProfileFragment : Fragment() {
     private fun onAddNewPet() {
         addNewPetButton.setOnClickListener {
             (activity as WalkerActivity).onScreenStart(NewPetFragment())
+        }
+    }
+
+    private fun onExitAccountButtonClick() {
+        exitAccountButton.setOnClickListener {
+            val intent = Intent(activity, LoginActivity::class.java)
+            startActivity(intent)
+            activity?.finish()
         }
     }
 }

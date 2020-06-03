@@ -16,14 +16,35 @@ class OrderViewModel(
 ) : ViewModel() {
 
     var orderDate = MutableLiveData<String>()
-    var orderPetFK : Long? = null
+    var orderPetFK: Long? = null
+    var orderId = MutableLiveData<Long?>()
+
+    fun getCurrentOrder() {
+        GlobalScope.launch {
+            val currentOrder = appDatabase.orderDao().getCurrentOrder(
+                orderPetFK,
+                " "
+            )
+            if (currentOrder != null){
+                orderId.postValue(currentOrder.orderId)
+                orderDate.postValue(currentOrder.date)
+            } else {
+                orderId.postValue(null)
+                orderDate.postValue(null)
+            }
+        }
+    }
 
     fun validateEditText(
         orderTimeEditText: EditText
     ): Boolean {
         return if (orderTimeEditText.text.toString().isNotEmpty()
         ) {
-            addNewOrderToDatabase()
+            if (orderId.value == null) {
+                addNewOrderToDatabase()
+            } else {
+                updateOrderInDatabase()
+            }
             true
         } else {
             validateCases(orderTimeEditText)
@@ -46,6 +67,30 @@ class OrderViewModel(
                 Order(
                     date = orderDate.value,
                     orderId = null,
+                    petFK = orderPetFK
+                )
+            )
+        }
+    }
+
+    private fun updateOrderInDatabase() {
+        GlobalScope.launch {
+            appDatabase.orderDao().update(
+                Order(
+                    date = orderDate.value,
+                    orderId = orderId.value,
+                    petFK = orderPetFK
+                )
+            )
+        }
+    }
+
+    fun deleteCurrentOrderInDatabase() {
+        GlobalScope.launch {
+            appDatabase.orderDao().delete(
+                Order(
+                    date = orderDate.value,
+                    orderId = orderId.value,
                     petFK = orderPetFK
                 )
             )

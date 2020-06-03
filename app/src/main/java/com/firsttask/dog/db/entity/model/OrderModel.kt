@@ -1,5 +1,9 @@
 package com.firsttask.dog.db.entity.model
 
+import androidx.room.Entity
+import androidx.room.Ignore
+import androidx.room.PrimaryKey
+
 data class OrderModel(
 
     var orderDate: String?,

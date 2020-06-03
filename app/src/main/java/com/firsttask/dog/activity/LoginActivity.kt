@@ -23,6 +23,11 @@ class LoginActivity : AppCompatActivity() {
             .replace(R.id.loginFragmentContainer, fragment).addToBackStack(null).commit()
     }
 
+    fun onScreenStartWithoutBS(fragment: Fragment) {
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.walkerFragmentContainer, fragment).commit()
+    }
+
     private fun addToolbar() {
         setSupportActionBar(mainToolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)

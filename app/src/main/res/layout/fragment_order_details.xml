@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout>
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.firsttask.dog.fragments.orderdetails.OrderDetailsViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".fragments.orderdetails.OrderDetailsFragment">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/order_details_margin"
+                app:cardCornerRadius="@dimen/order_details_margin">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:padding="@dimen/order_details_margin">
+
+                    <TextView
+                        android:id="@+id/orderDetailsOwnerName"
+                        style="@style/OrderDetailsSubtitle"/>
+
+                    <TextView
+                        android:id="@+id/orderDetailsOwnerMobileNumber"
+                        style="@style/OrderDetailsSubtitle"
+                        android:layout_marginTop="@dimen/order_details_margin" />
+
+                    <TextView
+                        android:id="@+id/orderDetailsDate"
+                        style="@style/OrderDetailsSubtitle"
+                        android:layout_marginTop="@dimen/order_details_margin" />
+
+                    <TextView
+                        android:id="@+id/orderDetailsPetName"
+                        style="@style/OrderDetailsSubtitle"
+                        android:layout_marginTop="@dimen/order_details_margin" />
+
+                    <TextView
+                        android:id="@+id/orderDetailsPetAge"
+                        style="@style/OrderDetailsSubtitle"
+                        android:layout_marginTop="@dimen/order_details_margin"
+                        android:visibility="gone" />
+
+                    <TextView
+                        android:id="@+id/orderDetailsPetDescription"
+                        style="@style/OrderDetailsSubtitle"
+                        android:layout_marginTop="@dimen/order_details_margin"
+                        android:visibility="gone" />
+
+                    <TextView
+                        android:id="@+id/orderDetailsPetSize"
+                        style="@style/OrderDetailsSubtitle"
+                        android:layout_marginTop="@dimen/order_details_margin"
+                        android:visibility="gone" />
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+        </ScrollView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

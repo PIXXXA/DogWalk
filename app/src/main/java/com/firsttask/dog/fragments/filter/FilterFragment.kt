@@ -33,15 +33,18 @@ class FilterFragment : Fragment() {
 
     private fun onClickRadioGroup() {
         dogSizeRadioButton.setOnCheckedChangeListener { _, checkedId ->
-            when (checkedId) {
+            filterSize = when (checkedId) {
                 R.id.filterLittle -> {
-                    filterSize = resources.getString(R.string.default_pet_size_little)
+                    resources.getString(R.string.default_pet_size_little)
                 }
                 R.id.filterMiddle -> {
-                    filterSize = resources.getString(R.string.default_pet_size_middle)
+                    resources.getString(R.string.default_pet_size_middle)
                 }
                 R.id.filterBig -> {
-                    filterSize = resources.getString(R.string.default_pet_size_big)
+                    resources.getString(R.string.default_pet_size_big)
+                }
+                else -> {
+                    null
                 }
             }
         }

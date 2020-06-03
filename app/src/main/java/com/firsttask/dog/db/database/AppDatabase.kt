@@ -7,7 +7,7 @@ import com.firsttask.dog.db.entity.*
 
 @Database(
     entities = [Order::class, Owner::class, Pet::class, User::class, Walker::class, Announcement::class],
-    version = 4
+    version = 1
 )
 abstract class AppDatabase : RoomDatabase() {
 

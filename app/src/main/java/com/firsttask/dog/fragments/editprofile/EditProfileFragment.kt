@@ -1,20 +1,24 @@
 package com.firsttask.dog.fragments.editprofile
 
 import android.content.Context
+import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
+import android.os.Handler
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.firsttask.dog.*
+import com.firsttask.dog.activity.LoginActivity
 import com.firsttask.dog.activity.WalkerActivity
 import com.firsttask.dog.databinding.FragmentEditProfileBinding
-import com.firsttask.dog.fragments.profile.ProfileFragment
 import kotlinx.android.synthetic.main.fragment_edit_profile.*
 import javax.inject.Inject
+import kotlin.system.exitProcess
 
 class EditProfileFragment : Fragment() {
 
@@ -77,7 +81,9 @@ class EditProfileFragment : Fragment() {
                     editProfileHomeAddress
                 )
             ) {
-                (activity as WalkerActivity).onScreenStart(ProfileFragment())
+                val intent = Intent(activity, LoginActivity::class.java)
+                startActivity(intent)
+                activity?.finish()
             }
         }
     }

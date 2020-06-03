@@ -168,7 +168,7 @@
                                 <PersistentState>
                                   <option name="values">
                                     <map>
-                                      <entry key="url" value="jar:file:/snap/android-studio/88/android-studio/plugins/android/lib/android.jar!/images/material_design_icons/content/ic_add_circle_black_24dp.xml" />
+                                      <entry key="url" value="jar:file:/snap/android-studio/90/android-studio/plugins/android/lib/android.jar!/images/material/icons/materialicons/account_circle/baseline_account_circle_24.xml" />
                                     </map>
                                   </option>
                                 </PersistentState>
@@ -179,7 +179,7 @@
                         <option name="values">
                           <map>
                             <entry key="color" value="ffffff" />
-                            <entry key="outputName" value="ic_new_order" />
+                            <entry key="outputName" value="ic_baseline_account_circle_24" />
                             <entry key="sourceFile" value="$PROJECT_DIR$/../G:\Download\dog.svg" />
                           </map>
                         </option>
