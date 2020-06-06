@@ -14,9 +14,10 @@ import com.firsttask.dog.fragments.editpet.EditPetFragment
 import kotlinx.android.synthetic.main.fragment_profile_item.view.*
 
 class PetAdapter(
-    private val recyclerViewItem: List<Pet>,
     private val activity: WalkerActivity?
 ) : RecyclerView.Adapter<PetAdapter.PetViewHolder>() {
+
+    private var recyclerViewItem: List<Pet> = listOf()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PetViewHolder {
         val v = LayoutInflater.from(parent.context)
@@ -31,6 +32,11 @@ class PetAdapter(
 
     override fun getItemCount(): Int {
         return recyclerViewItem.size
+    }
+
+    fun setItems(itemView : List<Pet>){
+        recyclerViewItem = itemView
+        notifyDataSetChanged()
     }
 
     class PetViewHolder constructor(view: View) : RecyclerView.ViewHolder(view) {

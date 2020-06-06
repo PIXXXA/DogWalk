@@ -5,14 +5,17 @@ import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
 import android.os.Handler
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.firsttask.dog.*
@@ -24,6 +27,8 @@ import com.firsttask.dog.fragments.addpet.NewPetFragment
 import com.firsttask.dog.fragments.editprofile.EditProfileFragment
 import com.firsttask.dog.fragments.profile.adapter.PetAdapter
 import kotlinx.android.synthetic.main.fragment_profile.*
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
 
@@ -34,6 +39,7 @@ class ProfileFragment : Fragment() {
     private lateinit var viewModel: ProfileViewModel
     private lateinit var sharedPreference: SharedPreferences
     var accountType: Boolean = true
+    lateinit var adapt : PetAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -61,15 +67,16 @@ class ProfileFragment : Fragment() {
         filterAccountType()
         onEditProfileClick()
         onExitAccountButtonClick()
+        createRecyclerView()
     }
 
     private fun putOwnerSharedPref() {
-        viewModel.name.observe(viewLifecycleOwner, Observer {
+        viewModel.getCurrentOwner().observe(viewLifecycleOwner, Observer {
             val editor = sharedPreference.edit()
-            viewModel.id?.let { editor.putLong(OWNER_ID, it) }
+            it?.let { it1 -> editor.putLong(OWNER_ID, it1) }
             editor.commit()
         })
-        viewModel.getCurrentOwner()
+        Thread.sleep(10)
     }
 
     private fun getSharedPreference() {
@@ -83,13 +90,15 @@ class ProfileFragment : Fragment() {
 
     private fun filterAccountType() {
         if (accountType) {
-            viewModel.petItems.observe(viewLifecycleOwner, Observer { createRecyclerView(it) })
             putOwnerSharedPref()
-            viewModel.getRecyclerViewData()
             onAddNewPet()
             profileRecyclerView.visibility = View.VISIBLE
             addNewPetButton.visibility = View.VISIBLE
             walkerInfo.visibility = View.GONE
+            viewModel.getRecyclerViewData().observe(viewLifecycleOwner, Observer { adapt.setItems(it)
+            Log.d("PetData", it.toString().plus(it.size))
+            Log.d("PetData", viewModel.id.value.toString())
+            })
         } else {
             viewModel.getCurrentWalker()
             profileRecyclerView.visibility = View.GONE
@@ -98,22 +107,20 @@ class ProfileFragment : Fragment() {
         }
     }
 
-    private fun createRecyclerView(arrayList: List<Pet>) {
-        Handler().postDelayed({
+    private fun createRecyclerView() {
             val layoutManager: RecyclerView.LayoutManager
             profileRecyclerView.setHasFixedSize(true)
             layoutManager = LinearLayoutManager(activity)
-            val adapt = PetAdapter(arrayList, activity as WalkerActivity)
+            adapt = PetAdapter(activity as WalkerActivity)
             profileRecyclerView.adapter = adapt
             profileRecyclerView.layoutManager = layoutManager
-        }, 500)
     }
 
     private fun onEditProfileClick() {
         editProfileConstraintLayout.setOnClickListener {
-            viewModel.name.observe(viewLifecycleOwner, Observer {
+            viewModel.id.observe(viewLifecycleOwner, Observer {
                 val editor = sharedPreference.edit()
-                viewModel.id?.let { editor.putLong(ANNOUNCEMENT_ID, it) }
+                it?.let { it1 -> editor.putLong(ANNOUNCEMENT_ID, it1) }
                 editor.putString(WALKER_DESCRIPTION, viewModel.walkerDescription)
                 editor.putString(WALKER_EXPERIENCE, viewModel.walkerExperience)
                 editor.commit()
