@@ -97,7 +97,7 @@ class ProfileFragment : Fragment() {
         } else {
             viewModel.getCurrentWalker()
             profileRecyclerView.visibility = View.GONE
-            allDogs.setText(R.string.profile_description)
+            allDogs.setText(R.string.profile_about_me)
             addNewWalkerOrderButton()
         }
     }
