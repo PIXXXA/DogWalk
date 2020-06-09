@@ -7,4 +7,8 @@
     <color name="colorRed">#FF0000</color>
     <color name="colorBlack">#000000</color>
     <color name="colorBlue">#5981F2</color>
+    <color name="colorLightBlue">#B0C1F1</color>
+    <color name="colorLightYellow">#F6ED9E</color>
+    <color name="colorLightGreen">#B2DFDB</color>
+    <color name="colorLightOrange">#FFEAE4</color>
 </resources>

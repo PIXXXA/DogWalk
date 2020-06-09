@@ -4,7 +4,6 @@ import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
-import android.os.Handler
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -12,23 +11,18 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.firsttask.dog.*
 import com.firsttask.dog.activity.LoginActivity
 import com.firsttask.dog.activity.WalkerActivity
 import com.firsttask.dog.databinding.FragmentProfileBinding
-import com.firsttask.dog.db.entity.Pet
 import com.firsttask.dog.fragments.addpet.NewPetFragment
 import com.firsttask.dog.fragments.editprofile.EditProfileFragment
 import com.firsttask.dog.fragments.profile.adapter.PetAdapter
 import kotlinx.android.synthetic.main.fragment_profile.*
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
 
@@ -39,7 +33,7 @@ class ProfileFragment : Fragment() {
     private lateinit var viewModel: ProfileViewModel
     private lateinit var sharedPreference: SharedPreferences
     var accountType: Boolean = true
-    lateinit var adapt : PetAdapter
+    lateinit var adapt: PetAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -76,7 +70,7 @@ class ProfileFragment : Fragment() {
             it?.let { it1 -> editor.putLong(OWNER_ID, it1) }
             editor.commit()
         })
-        Thread.sleep(10)
+        Thread.sleep(50)
     }
 
     private fun getSharedPreference() {
@@ -95,9 +89,10 @@ class ProfileFragment : Fragment() {
             profileRecyclerView.visibility = View.VISIBLE
             addNewPetButton.visibility = View.VISIBLE
             walkerInfo.visibility = View.GONE
-            viewModel.getRecyclerViewData().observe(viewLifecycleOwner, Observer { adapt.setItems(it)
-            Log.d("PetData", it.toString().plus(it.size))
-            Log.d("PetData", viewModel.id.value.toString())
+            viewModel.getRecyclerViewData().observe(viewLifecycleOwner, Observer {
+                adapt.setItems(it)
+                Log.d("PetData", it.toString().plus(it.size))
+                Log.d("PetData", viewModel.id.value.toString())
             })
         } else {
             viewModel.getCurrentWalker()
@@ -108,12 +103,12 @@ class ProfileFragment : Fragment() {
     }
 
     private fun createRecyclerView() {
-            val layoutManager: RecyclerView.LayoutManager
-            profileRecyclerView.setHasFixedSize(true)
-            layoutManager = LinearLayoutManager(activity)
-            adapt = PetAdapter(activity as WalkerActivity)
-            profileRecyclerView.adapter = adapt
-            profileRecyclerView.layoutManager = layoutManager
+        val layoutManager: RecyclerView.LayoutManager
+        profileRecyclerView.setHasFixedSize(true)
+        layoutManager = LinearLayoutManager(activity)
+        adapt = PetAdapter(activity as WalkerActivity)
+        profileRecyclerView.adapter = adapt
+        profileRecyclerView.layoutManager = layoutManager
     }
 
     private fun onEditProfileClick() {

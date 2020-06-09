@@ -10,7 +10,6 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -28,71 +27,90 @@
             android:orientation="vertical"
             app:layout_constraintGuide_end="@dimen/edit_profile_margin" />
 
-        <EditText
-            android:id="@+id/editProfileName"
-            style="@style/EditTextHint.Text"
-            android:autofillHints="@string/edit_text_hint_name"
-            android:hint="@string/edit_text_hint_name"
-            android:inputType="textPersonName"
-            android:text="@={viewModel.name}"
-            app:layout_constraintEnd_toStartOf="@+id/editProfileRightGuideline"
-            app:layout_constraintStart_toStartOf="@+id/editProfileLeftGuideline"
-            app:layout_constraintTop_toTopOf="parent" />
+        <androidx.cardview.widget.CardView
+            android:id="@+id/editProfileCardView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/edit_profile_margin"
+            android:backgroundTint="@color/colorLightYellow"
+            app:cardCornerRadius="@dimen/edit_profile_margin"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
-        <EditText
-            android:id="@+id/editProfileSurname"
-            style="@style/EditTextHint.Text"
-            android:autofillHints="@string/edit_text_hint_surname"
-            android:hint="@string/edit_text_hint_surname"
-            android:inputType="textPersonName"
-            android:text="@={viewModel.surname}"
-            app:layout_constraintEnd_toStartOf="@+id/editProfileRightGuideline"
-            app:layout_constraintStart_toStartOf="@+id/editProfileLeftGuideline"
-            app:layout_constraintTop_toBottomOf="@+id/editProfileName" />
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="@dimen/edit_profile_margin">
 
-        <EditText
-            android:id="@+id/editProfileEmail"
-            style="@style/EditTextHint.Text"
-            android:autofillHints="@string/edit_text_hint_email"
-            android:hint="@string/edit_text_hint_email"
-            android:inputType="textEmailAddress"
-            android:text="@={viewModel.email}"
-            app:layout_constraintEnd_toStartOf="@+id/editProfileRightGuideline"
-            app:layout_constraintStart_toStartOf="@+id/editProfileLeftGuideline"
-            app:layout_constraintTop_toBottomOf="@+id/editProfileSurname" />
+                <EditText
+                    android:id="@+id/editProfileName"
+                    style="@style/EditTextHint"
+                    android:autofillHints="@string/edit_text_hint_name"
+                    android:hint="@string/edit_text_hint_name"
+                    android:inputType="textPersonName"
+                    android:text="@={viewModel.name}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-        <EditText
-            android:id="@+id/editProfilePassword"
-            style="@style/EditTextHint.Text"
-            android:autofillHints="@string/edit_text_hint_password"
-            android:hint="@string/edit_text_hint_password"
-            android:inputType="textPassword"
-            android:text="@={viewModel.password}"
-            app:layout_constraintEnd_toStartOf="@+id/editProfileRightGuideline"
-            app:layout_constraintStart_toStartOf="@+id/editProfileLeftGuideline"
-            app:layout_constraintTop_toBottomOf="@+id/editProfileEmail" />
+                <EditText
+                    android:id="@+id/editProfileSurname"
+                    style="@style/EditTextHint.Text"
+                    android:autofillHints="@string/edit_text_hint_surname"
+                    android:hint="@string/edit_text_hint_surname"
+                    android:inputType="textPersonName"
+                    android:text="@={viewModel.surname}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/editProfileName" />
 
-        <EditText
-            android:id="@+id/editProfileMobileNumber"
-            style="@style/EditTextHint.Text"
-            android:autofillHints="registration_hint_mobile_number"
-            android:hint="@string/edit_text_hint_mobile_number"
-            android:inputType="numberSigned"
-            android:text="@={viewModel.mobileNumber}"
-            app:layout_constraintEnd_toStartOf="@+id/editProfileRightGuideline"
-            app:layout_constraintStart_toStartOf="@+id/editProfileLeftGuideline"
-            app:layout_constraintTop_toBottomOf="@+id/editProfilePassword" />
+                <EditText
+                    android:id="@+id/editProfileEmail"
+                    style="@style/EditTextHint.Text"
+                    android:autofillHints="@string/edit_text_hint_email"
+                    android:hint="@string/edit_text_hint_email"
+                    android:inputType="textEmailAddress"
+                    android:text="@={viewModel.email}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/editProfileSurname" />
 
-        <EditText
-            android:id="@+id/editProfileHomeAddress"
-            style="@style/EditTextHint.Text"
-            android:autofillHints="registration_hint_home_address"
-            android:hint="@string/edit_text_hint_home_address"
-            android:inputType="textPersonName"
-            android:text="@={viewModel.homeAddress}"
-            app:layout_constraintEnd_toStartOf="@+id/editProfileRightGuideline"
-            app:layout_constraintStart_toStartOf="@+id/editProfileLeftGuideline"
-            app:layout_constraintTop_toBottomOf="@+id/editProfileMobileNumber" />
+                <EditText
+                    android:id="@+id/editProfilePassword"
+                    style="@style/EditTextHint.Text"
+                    android:autofillHints="@string/edit_text_hint_password"
+                    android:hint="@string/edit_text_hint_password"
+                    android:inputType="textPassword"
+                    android:text="@={viewModel.password}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/editProfileEmail" />
+
+                <EditText
+                    android:id="@+id/editProfileMobileNumber"
+                    style="@style/EditTextHint.Text"
+                    android:autofillHints="registration_hint_mobile_number"
+                    android:hint="@string/edit_text_hint_mobile_number"
+                    android:inputType="numberSigned"
+                    android:text="@={viewModel.mobileNumber}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/editProfilePassword" />
+
+                <EditText
+                    android:id="@+id/editProfileHomeAddress"
+                    style="@style/EditTextHint.Text"
+                    android:autofillHints="registration_hint_home_address"
+                    android:hint="@string/edit_text_hint_home_address"
+                    android:inputType="textPersonName"
+                    android:text="@={viewModel.homeAddress}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/editProfileMobileNumber" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
 
         <Button
             android:id="@+id/editProfileSaveButton"
@@ -105,7 +123,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/editProfileRightGuideline"
             app:layout_constraintStart_toStartOf="@+id/editProfileLeftGuideline"
-            app:layout_constraintTop_toBottomOf="@+id/editProfileHomeAddress" />
+            app:layout_constraintTop_toBottomOf="@+id/editProfileCardView" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

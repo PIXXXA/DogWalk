@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
+<layout xmlns:tools="http://schemas.android.com/tools">
 
     <data>
 
@@ -10,136 +10,135 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".fragments.addpet.NewPetFragment">
 
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/petLeftGuideline"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            app:layout_constraintGuide_begin="@dimen/new_pet_margin" />
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="@dimen/new_pet_margin"
+            app:cardCornerRadius="@dimen/new_pet_margin">
 
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/petRightGuideline"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            app:layout_constraintGuide_end="@dimen/new_pet_margin" />
-
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/topGuideline"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.2" />
-
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/bottomGuideline"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.8" />
-
-        <EditText
-            android:id="@+id/newPetName"
-            style="@style/EditTextHint"
-            android:autofillHints="@string/new_pet_name"
-            android:ems="10"
-            android:hint="@string/new_pet_name"
-            android:inputType="textPersonName"
-            android:text="@={viewModel.petName}"
-            app:layout_constraintEnd_toStartOf="@+id/petRightGuideline"
-            app:layout_constraintStart_toStartOf="@+id/petLeftGuideline"
-            app:layout_constraintTop_toTopOf="@+id/topGuideline" />
-
-        <EditText
-            android:id="@+id/newPetAge"
-            style="@style/EditTextHint"
-            android:layout_marginTop="@dimen/new_pet_margin"
-            android:autofillHints="@string/new_pet_age"
-            android:ems="10"
-            android:hint="@string/new_pet_age"
-            android:inputType="textPersonName"
-            android:text="@={viewModel.petAge}"
-            app:layout_constraintEnd_toStartOf="@+id/petRightGuideline"
-            app:layout_constraintStart_toStartOf="@+id/petLeftGuideline"
-            app:layout_constraintTop_toBottomOf="@+id/newPetName" />
-
-        <TextView
-            android:id="@+id/petSizeTitle"
-            style="@style/NewPetSubtitle"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/new_pet_margin"
-            android:text="@string/new_pet_size"
-            app:layout_constraintEnd_toStartOf="@+id/petRightGuideline"
-            app:layout_constraintStart_toStartOf="@+id/petLeftGuideline"
-            app:layout_constraintTop_toBottomOf="@+id/newPetAge" />
-
-        <RadioGroup
-            android:id="@+id/petSizeRadioGroup"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/new_pet_margin"
-            app:layout_constraintEnd_toStartOf="@+id/petRightGuideline"
-            app:layout_constraintStart_toStartOf="@+id/petLeftGuideline"
-            app:layout_constraintTop_toBottomOf="@+id/petSizeTitle">
-
-            <RadioButton
-                android:id="@+id/sizeLittle"
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/new_pet_size_little" />
+                android:layout_height="match_parent"
+                android:padding="@dimen/new_pet_margin">
 
-            <RadioButton
-                android:id="@+id/sizeMiddle"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/new_pet_margin"
-                android:text="@string/new_pet_size_middle" />
+                <EditText
+                    android:id="@+id/newPetName"
+                    style="@style/EditTextHint"
+                    android:autofillHints="@string/new_pet_name"
+                    android:ems="10"
+                    android:hint="@string/new_pet_name"
+                    android:inputType="textPersonName"
+                    android:text="@={viewModel.petName}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-            <RadioButton
-                android:id="@+id/sizeBig"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/new_pet_margin"
-                android:text="@string/new_pet_size_big" />
-        </RadioGroup>
+                <EditText
+                    android:id="@+id/newPetAge"
+                    style="@style/EditTextHint"
+                    android:layout_marginTop="@dimen/new_pet_margin"
+                    android:autofillHints="@string/new_pet_age"
+                    android:ems="10"
+                    android:hint="@string/new_pet_age"
+                    android:inputType="textPersonName"
+                    android:text="@={viewModel.petAge}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/newPetName" />
 
-        <EditText
-            android:id="@+id/newPetDescription"
-            style="@style/EditTextHint"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_marginTop="@dimen/new_pet_margin"
-            android:layout_marginBottom="@dimen/new_pet_margin"
-            android:autofillHints="@string/new_pet_description"
-            android:gravity="bottom"
-            android:hint="@string/new_pet_description"
-            android:inputType="textMultiLine"
-            android:lines="5"
-            android:maxLines="5"
-            android:text="@={viewModel.petDescription}"
-            app:layout_constraintBottom_toTopOf="@+id/bottomGuideline"
-            app:layout_constraintEnd_toStartOf="@+id/petRightGuideline"
-            app:layout_constraintStart_toStartOf="@+id/petLeftGuideline"
-            app:layout_constraintTop_toBottomOf="@+id/petSizeRadioGroup" />
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/radioGroupCardView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/colorLightBlue"
+                    app:cardCornerRadius="@dimen/new_pet_margin"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/newPetAge">
 
-        <Button
-            android:id="@+id/saveNewPetButton"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:background="@drawable/white_button_design"
-            android:text="@string/new_pet_button"
-            android:textColor="@color/colorBlue"
-            android:textSize="@dimen/label_small_text_size"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/petRightGuideline"
-            app:layout_constraintStart_toStartOf="@+id/petLeftGuideline"
-            app:layout_constraintTop_toTopOf="@+id/bottomGuideline" />
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:padding="@dimen/new_pet_margin">
 
+                        <TextView
+                            android:id="@+id/petSizeTitle"
+                            style="@style/NewPetSubtitle"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/new_pet_size"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <RadioGroup
+                            android:id="@+id/petSizeRadioGroup"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/new_pet_margin"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/petSizeTitle">
+
+                            <RadioButton
+                                android:id="@+id/sizeLittle"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/new_pet_size_little" />
+
+                            <RadioButton
+                                android:id="@+id/sizeMiddle"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/new_pet_margin"
+                                android:text="@string/new_pet_size_middle" />
+
+                            <RadioButton
+                                android:id="@+id/sizeBig"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/new_pet_margin"
+                                android:text="@string/new_pet_size_big" />
+                        </RadioGroup>
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </androidx.cardview.widget.CardView>
+
+                <EditText
+                    android:id="@+id/newPetDescription"
+                    style="@style/EditTextHint"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/new_pet_margin"
+                    android:layout_marginBottom="@dimen/new_pet_margin"
+                    android:autofillHints="@string/new_pet_description"
+                    android:gravity="bottom"
+                    android:hint="@string/new_pet_description"
+                    android:inputType="textMultiLine"
+                    android:lines="2"
+                    android:maxLines="5"
+                    android:text="@={viewModel.petDescription}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/radioGroupCardView"/>
+
+                <Button
+                    android:id="@+id/saveNewPetButton"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/white_button_design"
+                    android:text="@string/new_pet_button"
+                    android:textColor="@color/colorBlue"
+                    android:textSize="@dimen/label_small_text_size"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/newPetDescription" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

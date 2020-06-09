@@ -1,7 +1,5 @@
 package com.firsttask.dog.fragments.profile.adapter
 
-import android.app.Activity
-import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -27,14 +25,14 @@ class PetAdapter(
 
     override fun onBindViewHolder(holder: PetViewHolder, position: Int) {
         val recyclerViewEntity = recyclerViewItem[position]
-        holder.binding(recyclerViewEntity,activity)
+        holder.binding(recyclerViewEntity, activity)
     }
 
     override fun getItemCount(): Int {
         return recyclerViewItem.size
     }
 
-    fun setItems(itemView : List<Pet>){
+    fun setItems(itemView: List<Pet>) {
         recyclerViewItem = itemView
         notifyDataSetChanged()
     }

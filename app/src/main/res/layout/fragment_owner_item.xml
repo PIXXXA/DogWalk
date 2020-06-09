@@ -4,7 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="@dimen/announcement_margin"
+    android:backgroundTint="@color/colorLightOrange"
+    android:layout_marginStart="@dimen/announcement_margin"
+    android:layout_marginEnd="@dimen/announcement_margin"
+    android:layout_marginBottom="@dimen/announcement_recycler_view_margin"
+    android:layout_marginTop="@dimen/announcement_recycler_view_margin"
     app:cardCornerRadius="@dimen/announcement_margin">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -31,7 +35,7 @@
         <TextView
             android:id="@+id/ownerName"
             style="@style/WalkersRecyclerViewSubtitle.Title"
-            android:layout_marginStart="@dimen/announcement_margin"
+            android:layout_marginStart="@dimen/announcement_recycler_view_margin"
             app:layout_constraintEnd_toStartOf="@+id/rightGuideline"
             app:layout_constraintStart_toEndOf="@+id/ownerIcon"
             app:layout_constraintTop_toTopOf="parent"

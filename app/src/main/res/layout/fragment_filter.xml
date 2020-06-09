@@ -25,6 +25,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/filter_margin"
+        android:backgroundTint="@color/colorLightGreen"
         app:cardCornerRadius="@dimen/filter_margin"
         app:layout_constraintEnd_toStartOf="@+id/rightGuideline"
         app:layout_constraintStart_toStartOf="@+id/leftGuideline"

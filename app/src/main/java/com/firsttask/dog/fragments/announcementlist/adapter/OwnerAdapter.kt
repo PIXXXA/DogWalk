@@ -57,12 +57,12 @@ class OwnerAdapter(
                 val bundle = Bundle()
                 bundle.putString(OWNER_DATE, ownerModel.orderDate)
                 bundle.putString(OWNER_PET_NAME, ownerModel.petName)
-                bundle.putString(OWNER_PET_AGE, ownerModel.petName)
-                bundle.putString(OWNER_PET_DESCRIPTION, ownerModel.petName)
-                bundle.putString(OWNER_PET_SIZE, ownerModel.petName)
-                bundle.putString(OWNER_NAME, ownerModel.petName)
-                bundle.putString(OWNER_SURNAME, ownerModel.petName)
-                bundle.putString(OWNER_MOBILE_NUMBER, ownerModel.petName)
+                bundle.putString(OWNER_PET_AGE, ownerModel.petAge)
+                bundle.putString(OWNER_PET_DESCRIPTION, ownerModel.petDescription)
+                bundle.putString(OWNER_PET_SIZE, ownerModel.petSize)
+                bundle.putString(OWNER_NAME, ownerModel.ownerName)
+                bundle.putString(OWNER_SURNAME, ownerModel.ownerSurname)
+                bundle.putString(OWNER_MOBILE_NUMBER, ownerModel.ownerMobileNumber)
                 orderDetailsFragment.arguments = bundle
                 activity?.onScreenStart(orderDetailsFragment)
             }

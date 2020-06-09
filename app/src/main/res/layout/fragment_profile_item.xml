@@ -4,14 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    app:cardCornerRadius="@dimen/announcement_margin"
-    android:layout_marginTop="@dimen/announcement_recycler_view_margin"
-    android:layout_marginBottom="@dimen/announcement_recycler_view_margin">
+    android:layout_marginStart="@dimen/profile_margin"
+    android:layout_marginTop="@dimen/profile_recycler_view_margin"
+    android:layout_marginEnd="@dimen/profile_margin"
+    android:layout_marginBottom="@dimen/profile_recycler_view_margin"
+    app:cardCornerRadius="@dimen/announcement_margin">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="@dimen/announcement_recycler_view_margin">
+        android:padding="@dimen/profile_recycler_view_padding">
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/rightGuideline"
@@ -37,11 +39,11 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginStart="@dimen/announcement_margin"
-            tools:text="Alexander"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/rightGuideline"
             app:layout_constraintStart_toEndOf="@+id/petIcon"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Alexander" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>
